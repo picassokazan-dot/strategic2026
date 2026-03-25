@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Стратегическая сессия Пикассо Диагностик 2026: четыре цели — финансовая отчетность, цифровизация, оптимизация, развитие">
 <title>Стратегическая сессия 2026 — Пикассо Диагностик</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400&display=swap');
@@ -128,21 +129,133 @@
   .fade-section{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.25,.8,.25,1),transform .7s cubic-bezier(.25,.8,.25,1)}
   .fade-section.visible{opacity:1;transform:translateY(0);transition-timing-function:cubic-bezier(.16,1,.3,1)}
   
-  /* Chart cards hover glow */
-  [style*="border-radius:16px;padding:24px"]:hover,
-  [style*="border-radius:14px;padding:20px"]:hover{
-    box-shadow:0 8px 30px rgba(147,22,128,.06)!important;
-    transform:translateY(-2px);
-    transition:all .3s cubic-bezier(.25,.8,.25,1);
-  }
+  /* Hover-классы (замена inline onmouseover/onmouseout) */
+  .hover-lift{transition:all .4s cubic-bezier(.25,.8,.25,1)}
+  .hover-lift:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(147,22,128,.08)}
+  .hover-lift-green{transition:all .4s cubic-bezier(.25,.8,.25,1)}
+  .hover-lift-green:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(46,125,50,.08)}
+  .hover-lift-red{transition:all .4s cubic-bezier(.25,.8,.25,1)}
+  .hover-lift-red:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(232,64,108,.1)}
+  .hover-lift-pink{transition:all .4s cubic-bezier(.25,.8,.25,1)}
+  .hover-lift-pink:hover{transform:translateY(-4px);box-shadow:0 20px 50px rgba(191,44,121,.1)}
+  .hover-lift-gold{transition:all .4s cubic-bezier(.25,.8,.25,1)}
+  .hover-lift-gold:hover{transform:translateY(-4px);box-shadow:0 20px 50px rgba(208,138,32,.1)}
+  .hover-lift-subtle{transition:all .4s cubic-bezier(.25,.8,.25,1);box-shadow:0 1px 3px rgba(0,0,0,.03)}
+  .hover-lift-subtle:hover{transform:translateY(-3px);box-shadow:0 12px 36px rgba(0,0,0,.06)}
+  .hover-scale-gold{transition:all .3s}
+  .hover-scale-gold:hover{transform:scale(1.03);box-shadow:0 8px 30px rgba(208,138,32,.2)}
+  .hover-scale-purple{transition:all .3s}
+  .hover-scale-purple:hover{transform:scale(1.03);box-shadow:0 8px 30px rgba(147,22,128,.2)}
+  .hover-scale-red{transition:all .3s}
+  .hover-scale-red:hover{transform:scale(1.03);box-shadow:0 8px 30px rgba(232,64,108,.2)}
+  .hover-scale-green{transition:all .3s}
+  .hover-scale-green:hover{transform:scale(1.03);box-shadow:0 8px 30px rgba(46,125,50,.2)}
+  .hover-brighten{transition:all .3s}
+  .hover-brighten:hover{background:rgba(255,255,255,.1)}
+  .hover-brighten-glass{transition:all .3s}
+  .hover-brighten-glass:hover{background:rgba(255,255,255,.18)}
+  /* Карточки с контентом */
+  .card-hover{transition:all .3s cubic-bezier(.25,.8,.25,1)}
+  .card-hover:hover{box-shadow:0 8px 30px rgba(147,22,128,.06);transform:translateY(-2px)}
 
-</style>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+  /* Анимации частиц */
+  @keyframes particle-float-1{0%{transform:translate(0,0) scale(1);opacity:0}10%{opacity:.6}90%{opacity:.6}100%{transform:translate(100px,-200px) scale(0);opacity:0}}
+  @keyframes particle-float-2{0%{transform:translate(0,0) scale(1);opacity:0}10%{opacity:.4}90%{opacity:.4}100%{transform:translate(-80px,-180px) scale(0);opacity:0}}
+  @keyframes particle-float-3{0%{transform:translate(0,0) scale(1);opacity:0}10%{opacity:.5}90%{opacity:.5}100%{transform:translate(60px,-220px) scale(0);opacity:0}}
 
+  /* Анимации баннера */
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+  @keyframes blink{0%,100%{opacity:.4}50%{opacity:1}}
+  @keyframes pulse-line{0%,100%{opacity:.5;transform:scaleX(.8)}50%{opacity:1;transform:scaleX(1.1)}}
 
+  /* Презентационный режим */
+  .pres-nav{position:fixed;right:20px;top:50%;transform:translateY(-50%);z-index:999;display:flex;flex-direction:column;gap:10px}
+  .pres-dot{width:10px;height:10px;border-radius:50%;background:rgba(147,22,128,.2);cursor:pointer;transition:all .3s;border:none;padding:0}
+  .pres-dot:hover{background:rgba(147,22,128,.4);transform:scale(1.3)}
+  .pres-dot.active{background:#931680;transform:scale(1.3);box-shadow:0 0 12px rgba(147,22,128,.3)}
+  .pres-dot[title]:hover::before{content:attr(title);position:absolute;right:22px;top:50%;transform:translateY(-50%);background:#1A1A2E;color:#fff;font-size:11px;padding:4px 10px;border-radius:6px;white-space:nowrap;font-family:'Montserrat',sans-serif}
+  .pres-fs{position:fixed;bottom:20px;right:20px;z-index:999;width:40px;height:40px;border-radius:10px;background:rgba(147,22,128,.1);border:1px solid rgba(147,22,128,.15);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:16px;transition:all .3s;color:#931680}
+  .pres-fs:hover{background:rgba(147,22,128,.2);transform:scale(1.1)}
+  .pres-progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,#931680,#BF2C79,#E8406C);z-index:1000;transition:width .2s ease;width:0}
+  .pres-hint{position:fixed;bottom:20px;left:20px;z-index:999;font-size:11px;color:#B0B0C0;font-family:'Montserrat',sans-serif;opacity:.6}
+  .pres-hint kbd{background:#F0EBF0;padding:2px 6px;border-radius:4px;font-size:10px;font-family:inherit;border:1px solid #E0D8E8}
 
+  /* Карточки целей (gcard) */
+  html{scroll-behavior:smooth}
+  .gcard{border-radius:16px;margin-bottom:0;overflow:hidden;position:relative;box-shadow:0 1px 3px rgba(0,0,0,.04);transition:all .5s cubic-bezier(.16,1,.3,1)}
+  .gcard::before{content:'';position:absolute;top:0;left:0;right:0;height:4px}
+  .gcard:hover{transform:translateY(-4px) scale(1.005)!important;box-shadow:0 20px 60px rgba(147,22,128,.1),0 6px 16px rgba(0,0,0,.04)!important}
+  .gcard:hover::before{height:5px;transition:height .3s}
+  .gcard-top{display:grid;grid-template-columns:1fr;cursor:pointer;user-select:none}
+  .gcard-summary{padding:32px 28px 28px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:4px}
+  .gcard-icon{font-size:48px;margin:6px 0 12px}
+  .gcard-info{flex:1}
+  .gcard-num{font-size:11px;font-weight:600;letter-spacing:2px;margin-bottom:4px;opacity:.5}
+  .gcard-title{font-family:'Source Serif 4',serif;font-size:22px;font-weight:700;color:#1A1A2E;letter-spacing:-.2px;margin-bottom:6px}
+  .gcard-desc{font-size:14.5px;line-height:1.55;opacity:.75}
+  .gcard-tags{display:flex;flex-wrap:wrap;justify-content:center;gap:5px;margin-top:10px}
+  .gcard-tag{font-size:10px;font-weight:600;padding:4px 12px;border-radius:6px;letter-spacing:.3px}
+  .gcard-right{display:flex;align-items:center;gap:8px;margin-top:4px}
+  .gcard-count{font-size:12px;font-weight:700;padding:5px 12px;border-radius:8px;white-space:nowrap}
+  .gcard-arrow{font-size:16px;transition:transform .3s;opacity:.4}
+  .gcard.open .gcard-arrow{transform:rotate(180deg)}
+  .gcard-body{max-height:0;overflow:hidden;padding:0 32px;border-top:0 solid transparent;opacity:0;transition:max-height .5s cubic-bezier(.4,0,.2,1),opacity .4s ease .05s,padding .4s ease}
+  .gcard.open .gcard-body{max-height:4000px;opacity:1;padding:8px 32px 36px;border-top:1px solid rgba(0,0,0,.04)}
+  .gcard-body .pair{margin-top:14px}
+  .gc1{background:linear-gradient(180deg,#FFF8ED,#FEFCF6);border:1px solid #F0E8D0}
+  .gc1::before{background:linear-gradient(90deg,#D08A20,#F8B24D)}
+  .gc1 .gcard-num{color:#D08A20}.gc1 .gcard-desc{color:#9A7A50}.gc1 .gcard-tag{background:#FFF0D8;color:#B07010}.gc1 .gcard-count{background:rgba(208,138,32,.1);color:#B07010}
+  .gc1 .pair-card.left{background:#FFF3E0;border:1px solid #F0E0C8}.gc1 .pair-card.right{background:#FFFAF2;border:1px solid #F0E8D8}.gc1 .pair-label.now{color:#D08A20}.gc1 .pair-label.next{color:#A07020}
+  .gc2{background:linear-gradient(180deg,#FDF6FC,#FEFAFE);border:1px solid #F0E0F0}
+  .gc2::before{background:linear-gradient(90deg,#931680,#BF2C79)}
+  .gc2 .gcard-num{color:#931680}.gc2 .gcard-desc{color:#7A5A80}.gc2 .gcard-tag{background:#F8E8F6;color:#7A1268}.gc2 .gcard-count{background:rgba(147,22,128,.1);color:#7A1268}
+  .gc2 .pair-card.left{background:#F8ECF6;border:1px solid #F0D8F0}.gc2 .pair-card.right{background:#FDF8FC;border:1px solid #F4E8F4}.gc2 .pair-label.now{color:#BF2C79}.gc2 .pair-label.next{color:#931680}
+  .gc3{background:linear-gradient(180deg,#FEF4F8,#FFFAFC);border:1px solid #F0E0E8}
+  .gc3::before{background:linear-gradient(90deg,#BF2C79,#E8406C)}
+  .gc3 .gcard-num{color:#BF2C79}.gc3 .gcard-desc{color:#8A5A6A}.gc3 .gcard-tag{background:#FCE8F0;color:#A01060}.gc3 .gcard-count{background:rgba(191,44,121,.1);color:#A01060}
+  .gc3 .pair-card.left{background:#FDE8F0;border:1px solid #F0D8E4}.gc3 .pair-card.right{background:#FFF8FA;border:1px solid #F4E8F0}.gc3 .pair-label.now{color:#D04060}.gc3 .pair-label.next{color:#BF2C79}
+  .gc4{background:linear-gradient(180deg,#FEF0F0,#FFFAFA);border:1px solid #F0E0E0}
+  .gc4::before{background:linear-gradient(90deg,#E8406C,#EF816A)}
+  .gc4 .gcard-num{color:#E8406C}.gc4 .gcard-desc{color:#8A5A5A}.gc4 .gcard-tag{background:#FCE8E8;color:#C02040}.gc4 .gcard-count{background:rgba(232,64,108,.1);color:#C02040}
+  .gc4 .pair-card.left{background:#FDE8E8;border:1px solid #F0D8D8}.gc4 .pair-card.right{background:#FFF8F8;border:1px solid #F4E8E8}.gc4 .pair-label.now{color:#D04050}.gc4 .pair-label.next{color:#E8406C}
+  @keyframes cardGlow{0%{box-shadow:0 1px 3px rgba(0,0,0,.04)}50%{box-shadow:0 4px 20px rgba(147,22,128,.12)}100%{box-shadow:0 1px 3px rgba(0,0,0,.04)}}
+  .gcard{animation:fadeUp .5s ease both}
+  .gcard:nth-child(1){animation-delay:.2s}.gcard:nth-child(2){animation-delay:.35s}.gcard:nth-child(3){animation-delay:.5s}.gcard:nth-child(4){animation-delay:.65s}
+  @media(max-width:768px){.gcard-summary{padding:24px 20px 20px}.gcard-right{width:100%;justify-content:flex-end}.gcard .gcard-title,.gcard .gcard-desc{text-align:center!important}.gcard .gcard-tags{justify-content:center!important}}
+  .zone-exp.open{border-color:#E0D0E0;box-shadow:0 12px 40px rgba(147,22,128,.06)}
+  .zone-exp-top{cursor:pointer}
+  .zone-exp-top:active{transform:scale(.997);transition:transform .1s}
 
-<style id="scroll-animations">
+  /* Зоны аудита (zone-exp) */
+  .zone-exp{background:#fff;border:1px solid #EEEBEE;border-radius:14px;margin-bottom:16px;overflow:hidden;transition:all .4s cubic-bezier(.25,.8,.25,1);box-shadow:0 1px 3px rgba(0,0,0,.03)}
+  .zone-exp:hover{border-color:#E0D0E0;box-shadow:0 8px 30px rgba(147,22,128,.06);transform:translateY(-2px)}
+  .zone-exp-top{padding:22px 28px;display:flex;align-items:center;gap:18px;cursor:pointer;user-select:none}
+  .zone-exp-num{width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,#931680,#BF2C79);display:flex;align-items:center;justify-content:center;font-family:'Source Serif 4',serif;font-size:17px;font-weight:700;color:#fff;flex-shrink:0;box-shadow:0 2px 8px rgba(147,22,128,.2)}
+  .zone-exp-icon{font-size:24px;flex-shrink:0}
+  .zone-exp-info{flex:1}
+  .zone-exp-title{font-family:'Source Serif 4',serif;font-size:18px;font-weight:700;color:#1A1A2E}
+  .zone-exp-brief{font-size:13.5px;color:#8B8B9E;margin-top:3px;line-height:1.5}
+  .zone-exp-tag{font-size:10px;font-weight:600;color:#931680;flex-shrink:0}
+  .zone-exp-arrow{font-size:16px;color:#C0B0C4;transition:transform .5s cubic-bezier(.4,0,.2,1);flex-shrink:0}
+  .zone-exp.open .zone-exp-arrow{transform:rotate(180deg)}
+  .zone-exp-body{max-height:0;overflow:hidden;padding:0 36px;border-top:0 solid transparent;opacity:0;transition:max-height .5s cubic-bezier(.4,0,.2,1),opacity .4s ease .05s,padding .4s ease,border-top .3s ease}
+  .zone-exp.open .zone-exp-body{max-height:5000px;opacity:1;padding:8px 36px 32px;border-top:1px solid #F5F0F5}
+  .zone-exp:target{scroll-margin-top:20px}
+  .zone-exp:target .zone-exp-body{max-height:4000px;opacity:1;padding:8px 36px 32px;border-top:1px solid #F5F0F5}
+  .zone-exp-body p{font-size:14.5px;color:#3A3A4E;line-height:1.75;margin-bottom:16px}
+  .zone-exp-body p:last-child{margin-bottom:0}
+  .zone-exp-body strong{color:#1A1A2E;font-weight:600}
+  .zone-exp-body .zb-subtitle{font-family:'Source Serif 4',serif;font-size:16px;font-weight:700;color:#1A1A2E;margin:24px 0 10px}
+  .zone-exp-body ul{margin:10px 0 16px 22px;font-size:14px;color:#3A3A4E;line-height:1.7}
+  .zone-exp-body li{margin-bottom:4px}
+  .zone-exp-body .zb-table{width:100%;border-collapse:collapse;margin:12px 0 16px;font-size:12px}
+  .zone-exp-body .zb-table th{text-align:left;padding:12px 16px;background:#F7F5F7;font-weight:600;font-size:11.5px;text-transform:uppercase;letter-spacing:.5px;color:#6A6A7A;border-bottom:2px solid #E8E0E8}
+  .zone-exp-body .zb-table td{padding:12px 16px;border-bottom:1px solid #F2EFF2;color:#3A3A4E;vertical-align:top;font-size:13.5px;line-height:1.55}
+  .zone-exp-body .zb-table td:first-child{font-weight:600;color:#1A1A2E;white-space:nowrap}
+  .zone-exp-body .zb-highlight{background:rgba(147,22,128,.03);border-left:3px solid #931680;border-radius:0 10px 10px 0;padding:16px 20px;margin:20px 0}
+  .zone-exp-body .zb-highlight p{font-size:14px;color:#5A3A60;margin-bottom:0;line-height:1.65}
+
+  /* Scroll-анимации */
   .scroll-reveal{opacity:0;transform:translateY(30px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)}
   .scroll-reveal.visible{opacity:1;transform:translateY(0)}
   .scroll-reveal-left{opacity:0;transform:translateX(-40px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)}
@@ -151,8 +264,6 @@
   .scroll-reveal-right.visible{opacity:1;transform:translateX(0)}
   .scroll-reveal-scale{opacity:0;transform:scale(.9);transition:opacity .6s cubic-bezier(.16,1,.3,1),transform .6s cubic-bezier(.16,1,.3,1)}
   .scroll-reveal-scale.visible{opacity:1;transform:scale(1)}
-
-  /* Reveal classes used by JS IntersectionObserver */
   .reveal{opacity:0;transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)}
   .reveal.visible{opacity:1;transform:none}
   .reveal-left{transform:translateX(-40px)}
@@ -160,7 +271,9 @@
   .reveal-up{transform:translateY(30px)}
   .reveal-scale{transform:scale(.9)}
   .reveal-tilt{transform:translateY(20px) rotate(-1deg)}
+
 </style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 </head>
 <body>
 
@@ -172,11 +285,6 @@
   <h1>Стратегическая сессия <em>2026</em></h1>
   <p>Компания выросла до масштаба, который требует нового уровня управления. Четыре направления работы помогут усилить то, что уже построено.</p>
 </section>
-<style>
-@keyframes particle-float-1{0%{transform:translate(0,0) scale(1);opacity:0}10%{opacity:.6}90%{opacity:.6}100%{transform:translate(100px,-200px) scale(0);opacity:0}}
-@keyframes particle-float-2{0%{transform:translate(0,0) scale(1);opacity:0}10%{opacity:.4}90%{opacity:.4}100%{transform:translate(-80px,-180px) scale(0);opacity:0}}
-@keyframes particle-float-3{0%{transform:translate(0,0) scale(1);opacity:0}10%{opacity:.5}90%{opacity:.5}100%{transform:translate(60px,-220px) scale(0);opacity:0}}
-</style>
 <div style="max-width:200px;height:1px;margin:0 auto;background:linear-gradient(90deg,transparent,#931680,transparent)"></div>
 
 <!-- ДОСТИЖЕНИЯ -->
@@ -227,97 +335,6 @@
 
 <!-- VISUAL GOAL MAP — EXPANDABLE -->
 <section style="max-width:1200px;margin:0 auto;padding:32px 32px 8px">
-  <style>
-    html{scroll-behavior:smooth}
-    .gcard{border-radius:16px;margin-bottom:0;overflow:hidden;transition:all .3s ease;position:relative;box-shadow:0 1px 3px rgba(0,0,0,.04)}
-    .gcard::before{content:'';position:absolute;top:0;left:0;right:0;height:4px}
-    .gcard:hover{box-shadow:0 8px 32px rgba(0,0,0,.07);transform:translateY(-1px)}
-    
-    .gcard-top{display:grid;grid-template-columns:1fr;cursor:pointer;user-select:none}
-    .gcard-summary{padding:32px 28px 28px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:4px}
-    .gcard{transition:all .5s cubic-bezier(.16,1,.3,1)}
-    .gcard:hover{transform:translateY(-4px) scale(1.005)!important;box-shadow:0 20px 60px rgba(147,22,128,.1),0 6px 16px rgba(0,0,0,.04)!important}
-    .gcard-icon{font-size:48px;margin:6px 0 12px}
-    .gcard-info{flex:1}
-    .gcard-num{font-size:11px;font-weight:600;letter-spacing:2px;margin-bottom:4px;opacity:.5}
-    .gcard-title{font-family:'Source Serif 4',serif;font-size:22px;font-weight:700;color:#1A1A2E;letter-spacing:-.2px;margin-bottom:6px}
-    .gcard-desc{font-size:14.5px;line-height:1.55;opacity:.75}
-    .gcard-tags{display:flex;flex-wrap:wrap;justify-content:center;gap:5px;margin-top:10px}
-    .gcard-tag{font-size:10px;font-weight:600;padding:4px 12px;border-radius:6px;letter-spacing:.3px}
-    .gcard-right{display:flex;align-items:center;gap:8px;margin-top:4px}
-    .gcard-count{font-size:12px;font-weight:700;padding:5px 12px;border-radius:8px;white-space:nowrap}
-    .gcard-arrow{font-size:16px;transition:transform .3s;opacity:.4}
-    .gcard.open .gcard-arrow{transform:rotate(180deg)}
-
-    .gcard-body{max-height:0;overflow:hidden;padding:0 32px;border-top:0 solid transparent;opacity:0;transition:max-height .5s cubic-bezier(.4,0,.2,1),opacity .4s ease .05s,padding .4s ease}
-    .gcard.open .gcard-body{max-height:4000px;opacity:1;padding:8px 32px 36px;border-top:1px solid rgba(0,0,0,.04)}
-    .gcard-body .pair{margin-top:14px}
-
-    /* Goal 1 — Finance */
-    .gc1{background:linear-gradient(180deg,#FFF8ED,#FEFCF6);border:1px solid #F0E8D0}
-    .gc1::before{background:linear-gradient(90deg,#D08A20,#F8B24D)}
-    .gc1 .gcard-num{color:#D08A20}
-    .gc1 .gcard-desc{color:#9A7A50}
-    .gc1 .gcard-tag{background:#FFF0D8;color:#B07010}
-    .gc1 .gcard-count{background:rgba(208,138,32,.1);color:#B07010}
-    .gc1 .pair-card.left{background:#FFF3E0;border:1px solid #F0E0C8}
-    .gc1 .pair-card.right{background:#FFFAF2;border:1px solid #F0E8D8}
-    .gc1 .pair-label.now{color:#D08A20}
-    .gc1 .pair-label.next{color:#A07020}
-
-    /* Goal 2 — Digital */
-    .gc2{background:linear-gradient(180deg,#FDF6FC,#FEFAFE);border:1px solid #F0E0F0}
-    .gc2::before{background:linear-gradient(90deg,#931680,#BF2C79)}
-    .gc2 .gcard-num{color:#931680}
-    .gc2 .gcard-desc{color:#7A5A80}
-    .gc2 .gcard-tag{background:#F8E8F6;color:#7A1268}
-    .gc2 .gcard-count{background:rgba(147,22,128,.1);color:#7A1268}
-    .gc2 .pair-card.left{background:#F8ECF6;border:1px solid #F0D8F0}
-    .gc2 .pair-card.right{background:#FDF8FC;border:1px solid #F4E8F4}
-    .gc2 .pair-label.now{color:#BF2C79}
-    .gc2 .pair-label.next{color:#931680}
-
-    /* Goal 3 — Optimize */
-    .gc3{background:linear-gradient(180deg,#FEF4F8,#FFFAFC);border:1px solid #F0E0E8}
-    .gc3::before{background:linear-gradient(90deg,#BF2C79,#E8406C)}
-    .gc3 .gcard-num{color:#BF2C79}
-    .gc3 .gcard-desc{color:#8A5A6A}
-    .gc3 .gcard-tag{background:#FCE8F0;color:#A01060}
-    .gc3 .gcard-count{background:rgba(191,44,121,.1);color:#A01060}
-    .gc3 .pair-card.left{background:#FDE8F0;border:1px solid #F0D8E4}
-    .gc3 .pair-card.right{background:#FFF8FA;border:1px solid #F4E8F0}
-    .gc3 .pair-label.now{color:#D04060}
-    .gc3 .pair-label.next{color:#BF2C79}
-
-    /* Goal 4 — Growth */
-    .gc4{background:linear-gradient(180deg,#FEF0F0,#FFFAFA);border:1px solid #F0E0E0}
-    .gc4::before{background:linear-gradient(90deg,#E8406C,#EF816A)}
-    .gc4 .gcard-num{color:#E8406C}
-    .gc4 .gcard-desc{color:#8A5A5A}
-    .gc4 .gcard-tag{background:#FCE8E8;color:#C02040}
-    .gc4 .gcard-count{background:rgba(232,64,108,.1);color:#C02040}
-    .gc4 .pair-card.left{background:#FDE8E8;border:1px solid #F0D8D8}
-    .gc4 .pair-card.right{background:#FFF8F8;border:1px solid #F4E8E8}
-    .gc4 .pair-label.now{color:#D04050}
-    .gc4 .pair-label.next{color:#E8406C}
-
-    
-  @keyframes cardGlow{0%{box-shadow:0 1px 3px rgba(0,0,0,.04)}50%{box-shadow:0 4px 20px rgba(147,22,128,.12)}100%{box-shadow:0 1px 3px rgba(0,0,0,.04)}}
-  .gcard{animation:fadeUp .5s ease both}
-  .gcard:nth-child(1){animation-delay:.2s}
-  .gcard:nth-child(2){animation-delay:.35s}
-  .gcard:nth-child(3){animation-delay:.5s}
-  .gcard:nth-child(4){animation-delay:.65s}
-  .gcard:hover::before{height:5px;transition:height .3s}
-
-    @media(max-width:768px){.gcard-summary{padding:24px 20px 20px}.gcard-right{width:100%;justify-content:flex-end}.gcard [style*='grid-template-columns:140px']{grid-template-columns:1fr!important;text-align:center!important}.gcard [style*='grid-template-columns:1fr 140px']{grid-template-columns:1fr!important}.gcard .gcard-title,.gcard .gcard-desc{text-align:center!important}.gcard .gcard-tags{justify-content:center!important}}
-  
-  .zone-exp.open{border-color:#E0D0E0;box-shadow:0 12px 40px rgba(147,22,128,.06)}
-  .zone-exp-top{cursor:pointer}
-  .zone-exp-top:active{transform:scale(.997);transition:transform .1s}
-
-</style>
-
   <div style="text-align:center;margin-bottom:40px;padding-top:8px">
     <div style="font-size:11px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:#BF2C79;margin-bottom:14px;animation:fadeUp .5s ease both">Стратегия 2026</div>
     <div style="font-family:'Source Serif 4',serif;font-size:44px;font-weight:800;color:#1A1A2E;letter-spacing:-.5px;line-height:1.15;animation:fadeUp .6s ease both;animation-delay:.1s">Четыре цели <span style="color:#931680">2026</span></div>
@@ -381,37 +398,6 @@
   <div class="sn">01 — Где мы сейчас и что делаем</div>
   <div class="st">Шесть направлений для <em>усиления</em></div>
   <div class="ss">Компания прошла путь от нескольких центров до федеральной сети. Это серьезное достижение. Сейчас мы видим зоны, где можно сделать следующий шаг — и выбрали четыре цели на год.</div>
-
-  <style>
-    .zone-exp{background:#fff;border:1px solid #EEEBEE;border-radius:14px;margin-bottom:16px;overflow:hidden;transition:all .4s cubic-bezier(.25,.8,.25,1);box-shadow:0 1px 3px rgba(0,0,0,.03)}
-    .zone-exp:hover{border-color:#E0D0E0;box-shadow:0 8px 30px rgba(147,22,128,.06);transform:translateY(-2px)}
-    .zone-exp-top{padding:22px 28px;display:flex;align-items:center;gap:18px;cursor:pointer;user-select:none}
-    .zone-exp-num{width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,#931680,#BF2C79);display:flex;align-items:center;justify-content:center;font-family:'Source Serif 4',serif;font-size:17px;font-weight:700;color:#fff;flex-shrink:0;box-shadow:0 2px 8px rgba(147,22,128,.2)}
-    .zone-exp-icon{font-size:24px;flex-shrink:0}
-    .zone-exp-info{flex:1}
-    .zone-exp-title{font-family:'Source Serif 4',serif;font-size:18px;font-weight:700;color:#1A1A2E}
-    .zone-exp-brief{font-size:13.5px;color:#8B8B9E;margin-top:3px;line-height:1.5}
-    .zone-exp-tag{font-size:10px;font-weight:600;color:#931680;flex-shrink:0}
-    .zone-exp-arrow{font-size:16px;color:#C0B0C4;transition:transform .5s cubic-bezier(.4,0,.2,1);flex-shrink:0}
-    .zone-exp.open .zone-exp-arrow{transform:rotate(180deg)}
-    .zone-exp-body{max-height:0;overflow:hidden;padding:0 36px;border-top:0 solid transparent;opacity:0;transition:max-height .5s cubic-bezier(.4,0,.2,1),opacity .4s ease .05s,padding .4s ease,border-top .3s ease}
-    .zone-exp.open .zone-exp-body{max-height:5000px;opacity:1;padding:8px 36px 32px;border-top:1px solid #F5F0F5}
-    .zone-exp:target{scroll-margin-top:20px}
-    .zone-exp:target .zone-exp-body{max-height:4000px;opacity:1;padding:8px 36px 32px;border-top:1px solid #F5F0F5}
-    .zone-exp-body p{font-size:14.5px;color:#3A3A4E;line-height:1.75;margin-bottom:16px}
-    .zone-exp-body p:last-child{margin-bottom:0}
-    .zone-exp-body strong{color:#1A1A2E;font-weight:600}
-    .zone-exp-body .zb-subtitle{font-family:'Source Serif 4',serif;font-size:16px;font-weight:700;color:#1A1A2E;margin:24px 0 10px}
-    .zone-exp-body ul{margin:10px 0 16px 22px;font-size:14px;color:#3A3A4E;line-height:1.7}
-    .zone-exp-body li{margin-bottom:4px}
-    .zone-exp-body .zb-table{width:100%;border-collapse:collapse;margin:12px 0 16px;font-size:12px}
-    .zone-exp-body .zb-table th{text-align:left;padding:12px 16px;background:#F7F5F7;font-weight:600;font-size:11.5px;text-transform:uppercase;letter-spacing:.5px;color:#6A6A7A;border-bottom:2px solid #E8E0E8}
-    .zone-exp-body .zb-table td{padding:12px 16px;border-bottom:1px solid #F2EFF2;color:#3A3A4E;vertical-align:top;font-size:13.5px;line-height:1.55}
-    .zone-exp-body .zb-table td:first-child{font-weight:600;color:#1A1A2E;white-space:nowrap}
-    .zone-exp-body .zb-highlight{background:rgba(147,22,128,.03);border-left:3px solid #931680;border-radius:0 10px 10px 0;padding:16px 20px;margin:20px 0}
-    .zone-exp-body .zb-highlight p{font-size:14px;color:#5A3A60;margin-bottom:0;line-height:1.65}
-  
-</style>
 
   <!-- 1. ФИНАНСОВАЯ ПРОЗРАЧНОСТЬ -->
   <div class="zone-exp" id="zone-finance" onclick="this.classList.toggle('open')">
@@ -918,11 +904,6 @@
   </div>
 </div>
 
-<style>
-@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
-@keyframes blink{0%,100%{opacity:.4}50%{opacity:1}}
-@keyframes pulse-line{0%,100%{opacity:.5;transform:scaleX(.8)}50%{opacity:1;transform:scaleX(1.1)}}
-</style>
 
 <!-- ФИНАНСОВАЯ КАРТИНА -->
 <section style="max-width:1200px;margin:0 auto;padding:40px 32px 20px">
@@ -934,7 +915,7 @@
   <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;margin-bottom:32px">
 
     <!-- РЕГИОНЫ -->
-    <div style="background:#fff;border:1px solid #E0E8E0;border-radius:18px;padding:28px 24px;transition:all .4s cubic-bezier(.25,.8,.25,1)" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 16px 40px rgba(46,125,50,.08)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+    <div class="hover-lift-green" style="background:#fff;border:1px solid #E0E8E0;border-radius:18px;padding:28px 24px">
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:#2E7D32;margin-bottom:12px">Регионы · 30 городов</div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px">
         <div><div style="font-size:10px;color:#8B8B9E;font-weight:600">ВЫРУЧКА</div><div style="font-family:'Source Serif 4',serif;font-size:26px;font-weight:800;color:#2E7D32">1,58 млрд</div><div style="font-size:10px;color:#A0A0B0">2024: 1,35 млрд</div></div>
@@ -947,7 +928,7 @@
     </div>
 
     <!-- СПБ -->
-    <div style="background:#fff;border:1px solid #E0D8E8;border-radius:18px;padding:28px 24px;transition:all .4s cubic-bezier(.25,.8,.25,1)" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 16px 40px rgba(147,22,128,.08)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+    <div class="hover-lift" style="background:#fff;border:1px solid #E0D8E8;border-radius:18px;padding:28px 24px">
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:#931680;margin-bottom:12px">Санкт-Петербург</div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px">
         <div><div style="font-size:10px;color:#8B8B9E;font-weight:600">ВЫРУЧКА</div><div style="font-family:'Source Serif 4',serif;font-size:26px;font-weight:800;color:#931680">634 млн</div><div style="font-size:10px;color:#A0A0B0">2024: 525 млн</div></div>
@@ -963,7 +944,7 @@
     </div>
 
     <!-- МОСКВА -->
-    <div style="background:linear-gradient(180deg,#fff,#FEF0F0);border:2px dashed #E8406C;border-radius:18px;padding:28px 24px;position:relative;transition:all .4s cubic-bezier(.25,.8,.25,1)" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 16px 40px rgba(232,64,108,.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+    <div class="hover-lift-red" style="background:linear-gradient(180deg,#fff,#FEF0F0);border:2px dashed #E8406C;border-radius:18px;padding:28px 24px;position:relative">
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:#E8406C;margin-bottom:12px">Москва · 51% выручки компании</div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px">
         <div><div style="font-size:10px;color:#8B8B9E;font-weight:600">ВЫРУЧКА</div><div style="font-family:'Source Serif 4',serif;font-size:26px;font-weight:800;color:#E8406C">2,33 млрд</div><div style="font-size:10px;color:#A0A0B0">2024: ~1,94 млрд</div></div>
@@ -1044,25 +1025,25 @@
       <!-- Center: 4 goals in a diamond with arrows -->
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:700px;margin:0 auto">
         <!-- Goal 1: Finance -->
-        <div style="background:rgba(208,138,32,.12);border:1px solid rgba(208,138,32,.25);border-radius:14px;padding:20px;text-align:center;transition:all .3s" onmouseover="this.style.transform='scale(1.03)';this.style.boxShadow='0 8px 30px rgba(208,138,32,.2)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+        <div class="hover-scale-gold" style="background:rgba(208,138,32,.12);border:1px solid rgba(208,138,32,.25);border-radius:14px;padding:20px;text-align:center">
           <div style="font-size:24px;margin-bottom:6px">📊</div>
           <div style="font-family:'Source Serif 4',serif;font-size:24px;font-weight:700;color:#F8B24D">Финансовая отчетность</div>
           <div style="font-size:15px;color:rgba(255,255,255,.6);margin-top:6px;line-height:1.5">Видимость: куда уходят деньги, где прибыль, где потери</div>
         </div>
         <!-- Goal 2: Digital -->
-        <div style="background:rgba(147,22,128,.12);border:1px solid rgba(147,22,128,.25);border-radius:14px;padding:20px;text-align:center;transition:all .3s" onmouseover="this.style.transform='scale(1.03)';this.style.boxShadow='0 8px 30px rgba(147,22,128,.2)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+        <div class="hover-scale-purple" style="background:rgba(147,22,128,.12);border:1px solid rgba(147,22,128,.25);border-radius:14px;padding:20px;text-align:center">
           <div style="font-size:24px;margin-bottom:6px">💻</div>
           <div style="font-family:'Source Serif 4',serif;font-size:24px;font-weight:700;color:#BF2C79">Цифровизация</div>
           <div style="font-size:15px;color:rgba(255,255,255,.6);margin-top:6px;line-height:1.5">Инструменты: единая среда, быстрый доступ к данным</div>
         </div>
         <!-- Goal 3: Optimize -->
-        <div style="background:rgba(232,64,108,.10);border:1px solid rgba(232,64,108,.2);border-radius:14px;padding:20px;text-align:center;transition:all .3s" onmouseover="this.style.transform='scale(1.03)';this.style.boxShadow='0 8px 30px rgba(232,64,108,.2)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+        <div class="hover-scale-red" style="background:rgba(232,64,108,.10);border:1px solid rgba(232,64,108,.2);border-radius:14px;padding:20px;text-align:center">
           <div style="font-size:24px;margin-bottom:6px">⚙️</div>
           <div style="font-family:'Source Serif 4',serif;font-size:24px;font-weight:700;color:#EF816A">Оптимизация</div>
           <div style="font-size:15px;color:rgba(255,255,255,.6);margin-top:6px;line-height:1.5">Стандарты: единые правила по всей сети</div>
         </div>
         <!-- Goal 4: Growth -->
-        <div style="background:rgba(46,125,50,.10);border:1px solid rgba(46,125,50,.2);border-radius:14px;padding:20px;text-align:center;transition:all .3s" onmouseover="this.style.transform='scale(1.03)';this.style.boxShadow='0 8px 30px rgba(46,125,50,.2)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+        <div class="hover-scale-green" style="background:rgba(46,125,50,.10);border:1px solid rgba(46,125,50,.2);border-radius:14px;padding:20px;text-align:center">
           <div style="font-size:24px;margin-bottom:6px">🚀</div>
           <div style="font-family:'Source Serif 4',serif;font-size:24px;font-weight:700;color:#66BB6A">Развитие</div>
           <div style="font-size:15px;color:rgba(255,255,255,.6);margin-top:6px;line-height:1.5">Рост: новые клиенты, продукты, рынки</div>
@@ -1076,7 +1057,7 @@
   <!-- DETAILED CONNECTIONS -->
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:16px">
 
-    <div style="background:#fff;border:1px solid #EEEBEE;border-radius:16px;padding:24px;transition:all .4s cubic-bezier(.25,.8,.25,1);box-shadow:0 1px 3px rgba(0,0,0,.03)" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 12px 36px rgba(0,0,0,.06)'" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,.03)'">
+    <div class="hover-lift-subtle" style="background:#fff;border:1px solid #EEEBEE;border-radius:16px;padding:24px">
       <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
         <span style="font-size:14px">📊</span>
         <span style="font-size:11px;font-weight:700;color:#D08A20;letter-spacing:1px">ФИНАНСЫ</span>
@@ -1088,7 +1069,7 @@
       <div style="font-size:13px;color:#666;line-height:1.6">Без полной финансовой картины решения об открытиях принимаются на интуиции. С ней — каждый новый центр подкреплен расчетом окупаемости, прогнозом выручки и пониманием точки безубыточности.</div>
     </div>
 
-    <div style="background:#fff;border:1px solid #EEEBEE;border-radius:16px;padding:24px;transition:all .4s cubic-bezier(.25,.8,.25,1);box-shadow:0 1px 3px rgba(0,0,0,.03)" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 12px 36px rgba(0,0,0,.06)'" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,.03)'">
+    <div class="hover-lift-subtle" style="background:#fff;border:1px solid #EEEBEE;border-radius:16px;padding:24px">
       <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
         <span style="font-size:14px">💻</span>
         <span style="font-size:11px;font-weight:700;color:#931680;letter-spacing:1px">ЦИФРОВИЗАЦИЯ</span>
@@ -1100,7 +1081,7 @@
       <div style="font-size:13px;color:#666;line-height:1.6">Единый аналитический контур — это основа для финансового отчета. Когда данные из учетной системы, 1С и аналитики сведены в одно место, финансовая картина формируется автоматически, а не собирается вручную.</div>
     </div>
 
-    <div style="background:#fff;border:1px solid #EEEBEE;border-radius:16px;padding:24px;transition:all .4s cubic-bezier(.25,.8,.25,1);box-shadow:0 1px 3px rgba(0,0,0,.03)" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 12px 36px rgba(0,0,0,.06)'" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,.03)'">
+    <div class="hover-lift-subtle" style="background:#fff;border:1px solid #EEEBEE;border-radius:16px;padding:24px">
       <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
         <span style="font-size:14px">⚙️</span>
         <span style="font-size:11px;font-weight:700;color:#E8406C;letter-spacing:1px">ОПТИМИЗАЦИЯ</span>
@@ -1112,7 +1093,7 @@
       <div style="font-size:13px;color:#666;line-height:1.6">Нормирование ФОТ, контроль аренды, бюджетирование закупок — каждый стандарт превращается в строку расходной части финансового отчета. Чем точнее стандарты, тем предсказуемее расходы.</div>
     </div>
 
-    <div style="background:#fff;border:1px solid #EEEBEE;border-radius:16px;padding:24px;transition:all .4s cubic-bezier(.25,.8,.25,1);box-shadow:0 1px 3px rgba(0,0,0,.03)" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 12px 36px rgba(0,0,0,.06)'" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,.03)'">
+    <div class="hover-lift-subtle" style="background:#fff;border:1px solid #EEEBEE;border-radius:16px;padding:24px">
       <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
         <span style="font-size:14px">⚙️</span>
         <span style="font-size:11px;font-weight:700;color:#E8406C;letter-spacing:1px">ОПТИМИЗАЦИЯ</span>
@@ -1124,7 +1105,7 @@
       <div style="font-size:13px;color:#666;line-height:1.6">Новый центр, который запускается по шаблону, стоит дешевле и выходит на плановые показатели быстрее. Без стандартов каждое открытие — индивидуальный проект. Со стандартами — конвейер качества.</div>
     </div>
 
-    <div style="background:#fff;border:1px solid #EEEBEE;border-radius:16px;padding:24px;transition:all .4s cubic-bezier(.25,.8,.25,1);box-shadow:0 1px 3px rgba(0,0,0,.03)" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 12px 36px rgba(0,0,0,.06)'" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,.03)'">
+    <div class="hover-lift-subtle" style="background:#fff;border:1px solid #EEEBEE;border-radius:16px;padding:24px">
       <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
         <span style="font-size:14px">💻</span>
         <span style="font-size:11px;font-weight:700;color:#931680;letter-spacing:1px">ЦИФРОВИЗАЦИЯ</span>
@@ -1136,7 +1117,7 @@
       <div style="font-size:13px;color:#666;line-height:1.6">Учетная система дает данные для воронки продаж. Личный кабинет увеличивает повторные визиты. Боты высвобождают ресурс команды для работы с ключевыми клиентами.</div>
     </div>
 
-    <div style="background:#fff;border:1px solid #EEEBEE;border-radius:16px;padding:24px;transition:all .4s cubic-bezier(.25,.8,.25,1);box-shadow:0 1px 3px rgba(0,0,0,.03)" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 12px 36px rgba(0,0,0,.06)'" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,.03)'">
+    <div class="hover-lift-subtle" style="background:#fff;border:1px solid #EEEBEE;border-radius:16px;padding:24px">
       <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
         <span style="font-size:14px">🚀</span>
         <span style="font-size:11px;font-weight:700;color:#2E7D32;letter-spacing:1px">РАЗВИТИЕ</span>
@@ -1203,22 +1184,22 @@
         <div style="font-size:13px;color:rgba(255,255,255,.5);margin-top:6px">План выручки на 2026 год · рост +12% к факту 2025 · <span style="font-size:11px;opacity:.7">на основе текущих темпов роста и утвержденного плана открытий</span></div>
       </div>
       <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:24px">
-        <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:20px 16px;text-align:center;transition:all .3s" onmouseover="this.style.background='rgba(255,255,255,.1)'" onmouseout="this.style.background='rgba(255,255,255,.06)'">
+        <div class="hover-brighten" style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:20px 16px;text-align:center">
           <div style="font-size:10px;color:rgba(255,255,255,.4);font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px">Q1 · Янв–Мар</div>
           <div style="font-family:'Source Serif 4',serif;font-size:28px;font-weight:800;color:#fff">1,25</div>
           <div style="font-size:11px;color:rgba(255,255,255,.4);margin-top:2px">млрд ₽</div>
         </div>
-        <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:20px 16px;text-align:center;transition:all .3s" onmouseover="this.style.background='rgba(255,255,255,.1)'" onmouseout="this.style.background='rgba(255,255,255,.06)'">
+        <div class="hover-brighten" style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:20px 16px;text-align:center">
           <div style="font-size:10px;color:rgba(255,255,255,.4);font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px">Q2 · Апр–Июн</div>
           <div style="font-family:'Source Serif 4',serif;font-size:28px;font-weight:800;color:#fff">1,22</div>
           <div style="font-size:11px;color:rgba(255,255,255,.4);margin-top:2px">млрд ₽</div>
         </div>
-        <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:20px 16px;text-align:center;transition:all .3s" onmouseover="this.style.background='rgba(255,255,255,.1)'" onmouseout="this.style.background='rgba(255,255,255,.06)'">
+        <div class="hover-brighten" style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:20px 16px;text-align:center">
           <div style="font-size:10px;color:rgba(255,255,255,.4);font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px">Q3 · Июл–Сен</div>
           <div style="font-family:'Source Serif 4',serif;font-size:28px;font-weight:800;color:#fff">1,26</div>
           <div style="font-size:11px;color:rgba(255,255,255,.4);margin-top:2px">млрд ₽</div>
         </div>
-        <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:20px 16px;text-align:center;transition:all .3s" onmouseover="this.style.background='rgba(255,255,255,.1)'" onmouseout="this.style.background='rgba(255,255,255,.06)'">
+        <div class="hover-brighten" style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:20px 16px;text-align:center">
           <div style="font-size:10px;color:rgba(255,255,255,.4);font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px">Q4 · Окт–Дек</div>
           <div style="font-family:'Source Serif 4',serif;font-size:28px;font-weight:800;color:#fff">1,37</div>
           <div style="font-size:11px;color:rgba(255,255,255,.4);margin-top:2px">млрд ₽</div>
@@ -1234,7 +1215,7 @@
   <div style="display:grid;grid-template-columns:1fr 64px 1fr;gap:0;align-items:stretch;margin-bottom:32px">
 
     <!-- PATH 1: REVENUE -->
-    <div style="background:linear-gradient(180deg,#FDF6FC,#FEF0F4);border:1px solid #F0E0EC;border-radius:20px;padding:36px 28px;position:relative;transition:all .4s cubic-bezier(.25,.8,.25,1)" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 20px 50px rgba(191,44,121,.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+    <div class="hover-lift-pink" style="background:linear-gradient(180deg,#FDF6FC,#FEF0F4);border:1px solid #F0E0EC;border-radius:20px;padding:36px 28px;position:relative">
       <div style="font-size:48px;font-weight:900;color:#BF2C79;opacity:.08;position:absolute;top:16px;right:20px;line-height:1;font-family:'Source Serif 4',serif">₽</div>
       <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:#BF2C79;margin-bottom:8px">Путь роста</div>
       <div style="font-family:'Source Serif 4',serif;font-size:24px;font-weight:700;color:#1A1A2E;margin-bottom:6px;letter-spacing:-.3px">Больше выручки</div>
@@ -1260,7 +1241,7 @@
     </div>
 
     <!-- PATH 2: PROFIT -->
-    <div style="background:linear-gradient(180deg,#FFF8ED,#FEFCF4);border:1px solid #F0E8D0;border-radius:20px;padding:36px 28px;position:relative;transition:all .4s cubic-bezier(.25,.8,.25,1)" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 20px 50px rgba(208,138,32,.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+    <div class="hover-lift-gold" style="background:linear-gradient(180deg,#FFF8ED,#FEFCF4);border:1px solid #F0E8D0;border-radius:20px;padding:36px 28px;position:relative">
       <div style="font-size:48px;font-weight:900;color:#D08A20;opacity:.08;position:absolute;top:16px;right:20px;line-height:1;font-family:'Source Serif 4',serif">%</div>
       <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:#D08A20;margin-bottom:8px">Путь эффективности</div>
       <div style="font-family:'Source Serif 4',serif;font-size:24px;font-weight:700;color:#1A1A2E;margin-bottom:6px;letter-spacing:-.3px">Больше прибыли</div>
@@ -1287,12 +1268,12 @@
       <div style="font-size:16px;opacity:.9;max-width:640px;margin:0 auto 28px;line-height:1.65">Четыре цели 2026 года выстроены так, чтобы <strong>укреплять то, что уже работает</strong>, и одновременно <strong>создавать условия для управляемого роста</strong>.</div>
 
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:600px;margin:0 auto 28px;text-align:left">
-        <div style="background:rgba(255,255,255,.12);backdrop-filter:blur(4px);padding:20px 22px;border-radius:14px;border:1px solid rgba(255,255,255,.1);transition:all .3s" onmouseover="this.style.background='rgba(255,255,255,.18)'" onmouseout="this.style.background='rgba(255,255,255,.12)'">
+        <div class="hover-brighten-glass" style="background:rgba(255,255,255,.12);backdrop-filter:blur(4px);padding:20px 22px;border-radius:14px;border:1px solid rgba(255,255,255,.1)">
           <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;opacity:.6;margin-bottom:6px">🔧 Укрепление фундамента</div>
           <div style="font-size:15px;font-weight:700;margin-bottom:4px">Финансовый отчет + Оптимизация</div>
           <div style="font-size:12px;opacity:.75;line-height:1.5">Точные цифры по каждому региону. Единые стандарты. Контроль расходов. Маржа перестанет снижаться.</div>
         </div>
-        <div style="background:rgba(255,255,255,.12);backdrop-filter:blur(4px);padding:20px 22px;border-radius:14px;border:1px solid rgba(255,255,255,.1);transition:all .3s" onmouseover="this.style.background='rgba(255,255,255,.18)'" onmouseout="this.style.background='rgba(255,255,255,.12)'">
+        <div class="hover-brighten-glass" style="background:rgba(255,255,255,.12);backdrop-filter:blur(4px);padding:20px 22px;border-radius:14px;border:1px solid rgba(255,255,255,.1)">
           <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;opacity:.6;margin-bottom:6px">🚀 Управляемый рост</div>
           <div style="font-size:15px;font-weight:700;margin-bottom:4px">Цифровизация + Развитие</div>
           <div style="font-size:12px;opacity:.75;line-height:1.5">Новые каналы продаж. Партнерская программа. Масштабирование направлений. Рост на основе данных.</div>
@@ -1457,41 +1438,6 @@
 
 <div class="footer"><img src="https://static.tildacdn.com/tild6163-6362-4132-a165-653065393064/picasso_logo_base-01.png" alt="Пикассо"><p>© 2026, Независимые центры рентгенодиагностики «Пикассо» · Стратегические цели 2026</p></div>
 <script>
-// Auto-open zone when clicking from nav card
-document.querySelectorAll('.gcard').forEach(card => {
-  card.addEventListener('click', function(e) {
-    e.preventDefault();
-    const targetId = this.getAttribute('href');
-    const target = document.querySelector(targetId);
-    if (target) {
-      target.classList.add('open');
-      setTimeout(() => {
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }, 100);
-    }
-  });
-});
-// Zones start closed
-document.querySelectorAll('.zone-exp').forEach(z => z.classList.remove('open'));
-</script>
-
-<script>
-const m24=['Янв 24','Фев','Мар','Апр','Май','Июн','Июл','Авг','Сен','Окт','Ноя','Дек','Янв 25','Фев','Мар','Апр','Май','Июн','Июл','Авг','Сен','Окт','Ноя','Дек 25'];
-const rev=[139.2,156.8,165.5,158.6,148.2,146.3,151.8,156.3,153.0,176.1,174.0,145.2,168.9,177.9,192.4,183.1,170.5,169.7,182.1,184.8,188.8,214.5,207.3,172.3];
-const exp=[68.5,84.1,90.0,102.3,98.2,91.6,104.6,95.2,96.0,109.0,104.1,104.7,97.8,116.6,114.1,126.4,111.2,118.9,133.0,128.3,130.2,139.1,147.9,176.2];
-const prof=rev.map((r,i)=>+(r-exp[i]).toFixed(1));
-const cDef={responsive:true,plugins:{legend:{position:'bottom',labels:{font:{size:11,family:'Montserrat'},usePointStyle:true,padding:16}}}};
-
-new Chart(document.getElementById('mainChart'),{type:'line',data:{labels:m24,datasets:[
-  {label:'Выручка',data:rev,borderColor:'#2E7D32',backgroundColor:'rgba(46,125,50,.08)',fill:true,tension:.3,borderWidth:2.5,pointRadius:2},
-  {label:'Расходы',data:exp,borderColor:'#E8406C',backgroundColor:'rgba(232,64,108,.08)',fill:true,tension:.3,borderWidth:2.5,pointRadius:2},
-  {label:'Прибыль',data:prof,borderColor:'#D08A20',backgroundColor:'rgba(208,138,32,.08)',fill:true,tension:.3,borderWidth:2,pointRadius:2,borderDash:[4,4]}
-]},options:{...cDef,scales:{y:{ticks:{callback:v=>v+' млн',font:{size:10}},grid:{color:'#F0EBF0'}},x:{ticks:{font:{size:9},maxRotation:45},grid:{display:false}}}}});
-
-
-</script>
-
-<script>
 // === DRAMATIC SCROLL REVEALS ===
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
@@ -1641,31 +1587,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 </script>
 
-
-
-
-
-
-<style id="pres-mode">
-  /* Presentation nav dots */
-  .pres-nav{position:fixed;right:20px;top:50%;transform:translateY(-50%);z-index:999;display:flex;flex-direction:column;gap:10px}
-  .pres-dot{width:10px;height:10px;border-radius:50%;background:rgba(147,22,128,.2);cursor:pointer;transition:all .3s;border:none;padding:0}
-  .pres-dot:hover{background:rgba(147,22,128,.4);transform:scale(1.3)}
-  .pres-dot.active{background:#931680;transform:scale(1.3);box-shadow:0 0 12px rgba(147,22,128,.3)}
-  .pres-dot[title]:hover::before{content:attr(title);position:absolute;right:22px;top:50%;transform:translateY(-50%);background:#1A1A2E;color:#fff;font-size:11px;padding:4px 10px;border-radius:6px;white-space:nowrap;font-family:'Montserrat',sans-serif}
-  
-  /* Fullscreen button */
-  .pres-fs{position:fixed;bottom:20px;right:20px;z-index:999;width:40px;height:40px;border-radius:10px;background:rgba(147,22,128,.1);border:1px solid rgba(147,22,128,.15);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:16px;transition:all .3s;color:#931680}
-  .pres-fs:hover{background:rgba(147,22,128,.2);transform:scale(1.1)}
-  
-  /* Progress bar */
-  .pres-progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,#931680,#BF2C79,#E8406C);z-index:1000;transition:width .2s ease;width:0}
-  
-  /* Keyboard hint */
-  .pres-hint{position:fixed;bottom:20px;left:20px;z-index:999;font-size:11px;color:#B0B0C0;font-family:'Montserrat',sans-serif;opacity:.6}
-  .pres-hint kbd{background:#F0EBF0;padding:2px 6px;border-radius:4px;font-size:10px;font-family:inherit;border:1px solid #E0D8E8}
-</style>
-
 <!-- Presentation controls -->
 <div class="pres-progress" id="presProgress"></div>
 <nav class="pres-nav" id="presNav"></nav>
@@ -1673,7 +1594,39 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 <div class="pres-hint"><kbd>↑</kbd> <kbd>↓</kbd> навигация · <kbd>F</kbd> полный экран</div>
 
 <script>
-// === PRESENTATION MODE ===
+// === НАВИГАЦИЯ И ГРАФИКИ ===
+
+// Открытие зоны по клику на карточку цели
+document.querySelectorAll('.gcard').forEach(card => {
+  card.addEventListener('click', function(e) {
+    e.preventDefault();
+    const targetId = this.getAttribute('href');
+    const target = document.querySelector(targetId);
+    if (target) {
+      target.classList.add('open');
+      setTimeout(() => {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100);
+    }
+  });
+});
+// Зоны по умолчанию закрыты
+document.querySelectorAll('.zone-exp').forEach(z => z.classList.remove('open'));
+
+// === ГРАФИК ===
+const m24=['Янв 24','Фев','Мар','Апр','Май','Июн','Июл','Авг','Сен','Окт','Ноя','Дек','Янв 25','Фев','Мар','Апр','Май','Июн','Июл','Авг','Сен','Окт','Ноя','Дек 25'];
+const rev=[139.2,156.8,165.5,158.6,148.2,146.3,151.8,156.3,153.0,176.1,174.0,145.2,168.9,177.9,192.4,183.1,170.5,169.7,182.1,184.8,188.8,214.5,207.3,172.3];
+const exp=[68.5,84.1,90.0,102.3,98.2,91.6,104.6,95.2,96.0,109.0,104.1,104.7,97.8,116.6,114.1,126.4,111.2,118.9,133.0,128.3,130.2,139.1,147.9,176.2];
+const prof=rev.map((r,i)=>+(r-exp[i]).toFixed(1));
+const cDef={responsive:true,plugins:{legend:{position:'bottom',labels:{font:{size:11,family:'Montserrat'},usePointStyle:true,padding:16}}}};
+
+new Chart(document.getElementById('mainChart'),{type:'line',data:{labels:m24,datasets:[
+  {label:'Выручка',data:rev,borderColor:'#2E7D32',backgroundColor:'rgba(46,125,50,.08)',fill:true,tension:.3,borderWidth:2.5,pointRadius:2},
+  {label:'Расходы',data:exp,borderColor:'#E8406C',backgroundColor:'rgba(232,64,108,.08)',fill:true,tension:.3,borderWidth:2.5,pointRadius:2},
+  {label:'Прибыль',data:prof,borderColor:'#D08A20',backgroundColor:'rgba(208,138,32,.08)',fill:true,tension:.3,borderWidth:2,pointRadius:2,borderDash:[4,4]}
+]},options:{...cDef,scales:{y:{ticks:{callback:v=>v+' млн',font:{size:10}},grid:{color:'#F0EBF0'}},x:{ticks:{font:{size:9},maxRotation:45},grid:{display:false}}}}});
+
+// === ПРЕЗЕНТАЦИОННЫЙ РЕЖИМ ===
 const sections = [];
 const labels = [];
 
