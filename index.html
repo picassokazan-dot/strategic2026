@@ -296,6 +296,35 @@
   /* === УЛУЧШЕНИЕ 6: Анимированные счетчики === */
   .achieve-num{font-family:'Source Serif 4',serif;font-size:32px;font-weight:800;color:#F8B24D}
 
+  /* === Таблица выручки === */
+  .rev-totals{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:24px}
+  .rev-total-card{background:linear-gradient(135deg,#1A1A2E,#2D1B3D);border-radius:16px;padding:22px 16px;text-align:center;transition:transform .2s}
+  .rev-total-card:hover{transform:translateY(-3px)}
+  .rev-total-label{font-size:9px;color:rgba(255,255,255,.45);font-weight:700;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:6px}
+  .rev-total-val{font-family:'Source Serif 4',serif;font-size:30px;font-weight:800;line-height:1.1}
+  .rev-total-sub{font-size:11px;margin-top:6px;font-weight:600;color:#2E7D32}
+  .rev-section{margin-bottom:28px;position:relative}
+  .rev-section:last-child{margin-bottom:0}
+  .rev-year-bar{display:flex;align-items:baseline;gap:12px;margin-bottom:12px;padding-bottom:8px;border-bottom:2px solid #F0EBF0}
+  .rev-year-num{font-family:'Source Serif 4',serif;font-size:22px;font-weight:800;color:#1A1A2E}
+  .rev-year-total{font-size:14px;font-weight:700;color:#931680}
+  .rev-year-yoy{font-size:11px;font-weight:700;color:#2E7D32;background:rgba(46,125,50,.08);padding:2px 8px;border-radius:6px}
+  .rev-table{width:100%;border-collapse:separate;border-spacing:0}
+  .rev-table thead th{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:#A0A0B0;padding:0 6px 8px;text-align:right;white-space:nowrap}
+  .rev-table thead th:first-child{text-align:left}
+  .rev-table thead th:last-child{color:#931680}
+  .rev-table tbody td{font-size:12px;font-weight:500;color:#4A4A5E;padding:9px 6px;text-align:right;border-bottom:1px solid #F8F6FA;white-space:nowrap;transition:background .15s}
+  .rev-table tbody tr:hover td{background:rgba(147,22,128,.03)}
+  .rev-table tbody td:first-child{text-align:left;font-weight:700;font-size:12px;padding-left:12px;border-left:3px solid transparent;border-radius:4px 0 0 4px}
+  .rev-table tbody td:last-child{font-weight:800;font-size:13px;color:#1A1A2E;background:rgba(147,22,128,.03);border-radius:0 6px 6px 0}
+  .row-msk td:first-child{color:#E8406C;border-left-color:#E8406C}
+  .row-spb td:first-child{color:#931680;border-left-color:#931680}
+  .row-reg td:first-child{color:#D08A20;border-left-color:#D08A20}
+  .row-total td{font-weight:800!important;color:#1A1A2E!important;font-size:12px!important;border-bottom:none;padding-top:12px}
+  .row-total td:first-child{border-left-color:#1A1A2E;font-size:13px!important}
+  .row-total td:last-child{color:#931680!important;font-size:14px!important;background:rgba(147,22,128,.06)}
+  .rev-table tbody tr.row-total td{border-top:2px solid #E8E0E8}
+
   /* === УЛУЧШЕНИЕ 7: SVG-иконки === */
   .svg-icon{display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
   .gcard-icon .svg-icon svg,.zone-exp-icon .svg-icon svg{width:48px;height:48px}
@@ -389,6 +418,87 @@
         </div>
       </div>
     </div>
+  </div>
+
+  <!-- Итоги выручки 2025 -->
+  <div class="rev-totals" style="margin-top:24px">
+    <div class="rev-total-card">
+      <div class="rev-total-label">Итого компания 2025</div>
+      <div class="rev-total-val" style="color:#F8B24D">4,55 млрд</div>
+      <div class="rev-total-sub">+20,5% к 2024</div>
+    </div>
+    <div class="rev-total-card">
+      <div class="rev-total-label">Москва 2025</div>
+      <div class="rev-total-val" style="color:#E8406C">2,34 млрд</div>
+      <div class="rev-total-sub">+22,8% к 2024</div>
+    </div>
+    <div class="rev-total-card">
+      <div class="rev-total-label">Санкт-Петербург 2025</div>
+      <div class="rev-total-val" style="color:#BF7ABA">634 млн</div>
+      <div class="rev-total-sub">+20,8% к 2024</div>
+    </div>
+    <div class="rev-total-card">
+      <div class="rev-total-label">Регионы (30) 2025</div>
+      <div class="rev-total-val" style="color:#F8B24D">1,58 млрд</div>
+      <div class="rev-total-sub">+17,2% к 2024</div>
+    </div>
+  </div>
+
+  <!-- Таблица выручки -->
+  <div style="background:#fff;border:1px solid #E8E0E8;border-radius:18px;padding:32px;box-shadow:0 4px 20px rgba(0,0,0,.04)">
+    <div style="font-family:'Source Serif 4',serif;font-size:20px;font-weight:700;color:#1A1A2E;margin-bottom:4px">Динамика выручки по направлениям</div>
+    <div style="font-size:12px;color:#8B8B9E;margin-bottom:24px">Москва, Санкт-Петербург и регионы — помесячно, млн руб.</div>
+
+    <div class="rev-section">
+      <div class="rev-year-bar">
+        <div class="rev-year-num">2023</div>
+        <div class="rev-year-total">3 047 млн</div>
+      </div>
+      <table class="rev-table">
+        <thead><tr><th></th><th>Янв</th><th>Фев</th><th>Мар</th><th>Апр</th><th>Май</th><th>Июн</th><th>Июл</th><th>Авг</th><th>Сен</th><th>Окт</th><th>Ноя</th><th>Дек</th><th>Итого</th></tr></thead>
+        <tbody>
+          <tr class="row-msk"><td>Москва</td><td>115,7</td><td>123,4</td><td>144,0</td><td>132,6</td><td>122,8</td><td>119,6</td><td>115,6</td><td>122,6</td><td>135,6</td><td>150,8</td><td>150,6</td><td>117,2</td><td>1 550</td></tr>
+          <tr class="row-spb"><td>СПб</td><td>33,1</td><td>36,0</td><td>39,6</td><td>37,2</td><td>34,6</td><td>33,4</td><td>33,9</td><td>36,6</td><td>38,8</td><td>41,6</td><td>42,0</td><td>33,3</td><td>440</td></tr>
+          <tr class="row-reg"><td>Регионы (30)</td><td>75,3</td><td>79,1</td><td>91,7</td><td>85,9</td><td>82,7</td><td>83,9</td><td>87,9</td><td>93,1</td><td>91,8</td><td>101,9</td><td>102,4</td><td>81,1</td><td>1 057</td></tr>
+          <tr class="row-total"><td>Итого</td><td>224,1</td><td>238,5</td><td>275,3</td><td>255,7</td><td>240,1</td><td>236,9</td><td>237,4</td><td>252,3</td><td>266,2</td><td>294,3</td><td>295,0</td><td>231,6</td><td>3 047</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="rev-section">
+      <div class="rev-year-bar">
+        <div class="rev-year-num">2024</div>
+        <div class="rev-year-total">3 772 млн</div>
+        <div class="rev-year-yoy">+23,8%</div>
+      </div>
+      <table class="rev-table">
+        <thead><tr><th></th><th>Янв</th><th>Фев</th><th>Мар</th><th>Апр</th><th>Май</th><th>Июн</th><th>Июл</th><th>Авг</th><th>Сен</th><th>Окт</th><th>Ноя</th><th>Дек</th><th>Итого</th></tr></thead>
+        <tbody>
+          <tr class="row-msk"><td>Москва</td><td>142,6</td><td>161,5</td><td>173,0</td><td>160,8</td><td>150,4</td><td>146,3</td><td>143,0</td><td>149,7</td><td>160,0</td><td>178,8</td><td>184,7</td><td>150,4</td><td>1 901</td></tr>
+          <tr class="row-spb"><td>СПб</td><td>39,6</td><td>44,0</td><td>46,6</td><td>44,4</td><td>41,7</td><td>39,3</td><td>41,1</td><td>42,2</td><td>43,3</td><td>50,6</td><td>50,3</td><td>41,5</td><td>525</td></tr>
+          <tr class="row-reg"><td>Регионы (30)</td><td>99,6</td><td>112,8</td><td>118,9</td><td>114,2</td><td>106,5</td><td>107,0</td><td>110,7</td><td>114,1</td><td>109,7</td><td>125,5</td><td>123,7</td><td>103,7</td><td>1 346</td></tr>
+          <tr class="row-total"><td>Итого</td><td>281,8</td><td>318,3</td><td>338,5</td><td>319,4</td><td>298,6</td><td>292,6</td><td>294,8</td><td>306,0</td><td>313,0</td><td>354,9</td><td>358,7</td><td>295,6</td><td>3 772</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="rev-section">
+      <div class="rev-year-bar">
+        <div class="rev-year-num">2025</div>
+        <div class="rev-year-total">4 547 млн</div>
+        <div class="rev-year-yoy">+20,5%</div>
+      </div>
+      <table class="rev-table">
+        <thead><tr><th></th><th>Янв</th><th>Фев</th><th>Мар</th><th>Апр</th><th>Май</th><th>Июн</th><th>Июл</th><th>Авг</th><th>Сен</th><th>Окт</th><th>Ноя</th><th>Дек</th><th>Итого</th></tr></thead>
+        <tbody>
+          <tr class="row-msk"><td>Москва</td><td>181,6</td><td>194,3</td><td>208,7</td><td>194,1</td><td>179,2</td><td>176,9</td><td>177,3</td><td>184,2</td><td>199,0</td><td>228,5</td><td>224,3</td><td>186,4</td><td>2 335</td></tr>
+          <tr class="row-spb"><td>СПб</td><td>48,4</td><td>51,3</td><td>56,5</td><td>52,9</td><td>50,4</td><td>48,7</td><td>47,2</td><td>51,0</td><td>54,8</td><td>62,1</td><td>61,3</td><td>49,7</td><td>634</td></tr>
+          <tr class="row-reg"><td>Регионы (30)</td><td>120,5</td><td>126,6</td><td>135,9</td><td>130,2</td><td>120,1</td><td>121,0</td><td>134,9</td><td>133,8</td><td>134,0</td><td>152,4</td><td>146,0</td><td>122,6</td><td>1 578</td></tr>
+          <tr class="row-total"><td>Итого</td><td>350,5</td><td>372,2</td><td>401,1</td><td>377,2</td><td>349,7</td><td>346,6</td><td>359,4</td><td>369,0</td><td>387,8</td><td>443,0</td><td>431,6</td><td>358,7</td><td>4 547</td></tr>
+        </tbody>
+      </table>
+    </div>
+
   </div>
 </section>
 
