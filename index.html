@@ -8,7 +8,7 @@
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400&display=swap');
   *{margin:0;padding:0;box-sizing:border-box}
-  body{font-family:'Montserrat',sans-serif,sans-serif;background:#FAFBFA;color:#1A1A2E;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  body{font-family:'Montserrat',sans-serif;background:#FAFBFA;color:#1A1A2E;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
   .hero{text-align:center;padding:80px 24px 56px;background:#FCFBFA;position:relative;overflow:hidden}
   .hero::before{content:'';position:absolute;top:-200px;right:-200px;width:600px;height:600px;background:radial-gradient(circle,rgba(147,22,128,.03) 0%,transparent 70%);pointer-events:none}
   .hero::after{content:'';position:absolute;bottom:-100px;left:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(248,178,77,.03) 0%,transparent 70%);pointer-events:none}
@@ -20,7 +20,7 @@
   .sn{font-size:11px;font-weight:600;color:#BF2C79;letter-spacing:2px;margin-bottom:10px;text-transform:uppercase}
   .st{font-family:'Source Serif 4',serif;font-size:32px;font-weight:700;letter-spacing:-.3px;margin-bottom:8px;color:#1A1A2E;line-height:1.3}
   .st em{font-style:normal;color:#931680}
-  .ss{font-size:15px;color:#8B8B9E;margin-bottom:32px;line-height:1.65;max-width:800px}
+  .ss{font-size:15px;color:#8B8B9E;margin-bottom:32px;line-height:1.6;max-width:800px}
   .zones-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:8px}
   .zone-card{background:#fff;border:1px solid #F0EBF0;border-radius:16px;padding:24px 22px;transition:all .2s}
   .zone-card:hover{border-color:#E8D0E4;box-shadow:0 4px 20px rgba(147,22,128,.05)}
@@ -32,7 +32,7 @@
   .zone-bar-fill{height:100%;border-radius:2px}
   .zone-icon{font-size:26px;flex-shrink:0}
   .zone-title{font-size:14px;font-weight:700;color:#1A1A2E;margin-bottom:6px}
-  .zone-text{font-size:12.5px;color:#8B8B9E;line-height:1.5}
+  .zone-text{font-size:13px;color:#8B8B9E;line-height:1.6}
   .zone-arrow{display:inline-block;margin-top:10px;font-size:11px;font-weight:600;color:#931680}
   .c-red{color:#E8406C}.c-amber{color:#E8A040}
   .bg-red{background:#E8406C}.bg-amber{background:#E8A040}
@@ -49,30 +49,41 @@
   .goal-meta{flex:1}
   .goal-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:4px}
   .goal-h{font-size:22px;font-weight:800;letter-spacing:-.3px;color:#1A1A2E;margin-bottom:4px}
-  .goal-desc{font-size:14px;color:#8B8B9E;line-height:1.55}
+  .goal-desc{font-size:14px;color:#8B8B9E;line-height:1.6}
   .goal-count{font-size:13px;font-weight:700;padding:6px 14px;border-radius:10px;white-space:nowrap;flex-shrink:0;align-self:center}
   .goal-arrow{font-size:18px;color:#C0B0C4;transition:transform .3s;align-self:center;flex-shrink:0}
   .goal.open .goal-arrow{transform:rotate(180deg)}
   .goal-body{display:none;padding:0 32px 32px}
   .goal.open .goal-body{display:block}
   .pair{display:grid;grid-template-columns:1fr 36px 1fr;gap:0;margin-bottom:16px;align-items:stretch}
-  .pair-card{border-radius:12px;padding:18px 22px}
+  .pair-card{border-radius:12px;padding:20px 22px}
   .pair-card.left{text-align:right}
-  .pair-label{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:6px}
-  .pair-title{font-family:'Source Serif 4',serif;font-size:14.5px;font-weight:700;line-height:1.45;color:#1A1A2E}
-  .pair-detail{font-size:13px;color:#888898;margin-top:6px;line-height:1.55}
+  .pair-card.right{position:relative}
+  /* Right-карточки «Как усиливаем» — визуальное выделение по цвету цели */
+  .fin-right{background:linear-gradient(135deg,#FFF8ED,#FEFCF6);border:1px solid #F0E8D0;border-left:4px solid #D08A20}
+  .dig-right{background:linear-gradient(135deg,#FDF4FC,#FEFAFE);border:1px solid #F0E0F0;border-left:4px solid #931680}
+  .opt-right{background:linear-gradient(135deg,#FEF4F8,#FFFAFC);border:1px solid #F0E0E8;border-left:4px solid #BF2C79}
+  .grow-right{background:linear-gradient(135deg,#FEF0F0,#FFFAFA);border:1px solid #F0E0E0;border-left:4px solid #E8406C}
+  /* Лейблы «Как усиливаем» */
+  .fin-next{color:#D08A20}
+  .dig-next{color:#931680}
+  .opt-next{color:#BF2C79}
+  .grow-next{color:#E8406C}
+  .pair-label{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px}
+  .pair-title{font-family:'Source Serif 4',serif;font-size:15px;font-weight:700;line-height:1.45;color:#1A1A2E}
+  .pair-detail{font-family:'Montserrat',sans-serif;font-size:13px;color:#6A6A7E;margin-top:8px;line-height:1.6}
   .pair-arrow{display:flex;align-items:center;justify-content:center;font-size:18px;color:#D0C0D0}
-  .goal-finance .goal-label{color:#D08A20}.goal-finance .goal-count{background:#FFF8ED;color:#C07A10}.goal-finance .pair-card.left{background:#FFF8ED;border:1px solid #F0E8D0}.goal-finance .pair-card.right{background:#FEFCF6;border:1px solid #F0EBE0}.goal-finance .pair-label.now{color:#D07030}.goal-finance .pair-label.next{color:#A08020}
-  .goal-digital .goal-label{color:#931680}.goal-digital .goal-count{background:#FDF4FC;color:#931680}.goal-digital .pair-card.left{background:#FDF4FC;border:1px solid #F0E0F0}.goal-digital .pair-card.right{background:#FEFAFE;border:1px solid #F4E8F4}.goal-digital .pair-label.now{color:#BF2C79}.goal-digital .pair-label.next{color:#931680}
-  .goal-optimize .goal-label{color:#BF2C79}.goal-optimize .goal-count{background:#FEF4F8;color:#BF2C79}.goal-optimize .pair-card.left{background:#FEF4F8;border:1px solid #F0E0E8}.goal-optimize .pair-card.right{background:#FFFAFC;border:1px solid #F4E8F0}.goal-optimize .pair-label.now{color:#D04060}.goal-optimize .pair-label.next{color:#BF2C79}
-  .goal-growth .goal-label{color:#E8406C}.goal-growth .goal-count{background:#FEF0F0;color:#D03050}.goal-growth .pair-card.left{background:#FEF0F0;border:1px solid #F0E0E0}.goal-growth .pair-card.right{background:#FFFAFA;border:1px solid #F4E8E8}.goal-growth .pair-label.now{color:#D04050}.goal-growth .pair-label.next{color:#E8406C}
+  .goal-finance .goal-label{color:#D08A20}.goal-finance .goal-count{background:#FFF8ED;color:#C07A10}.goal-finance .pair-card.left{background:#FFF8ED;border:1px solid #F0E8D0}.goal-finance .pair-card.right{background:linear-gradient(135deg,#FFF8ED,#FEFCF6);border:1px solid #F0E8D0;border-left:4px solid #D08A20}.goal-finance .pair-label.now{color:#D07030}.goal-finance .pair-label.next{color:#D08A20}
+  .goal-digital .goal-label{color:#931680}.goal-digital .goal-count{background:#FDF4FC;color:#931680}.goal-digital .pair-card.left{background:#FDF4FC;border:1px solid #F0E0F0}.goal-digital .pair-card.right{background:linear-gradient(135deg,#FDF4FC,#FEFAFE);border:1px solid #F0E0F0;border-left:4px solid #931680}.goal-digital .pair-label.now{color:#BF2C79}.goal-digital .pair-label.next{color:#931680}
+  .goal-optimize .goal-label{color:#BF2C79}.goal-optimize .goal-count{background:#FEF4F8;color:#BF2C79}.goal-optimize .pair-card.left{background:#FEF4F8;border:1px solid #F0E0E8}.goal-optimize .pair-card.right{background:linear-gradient(135deg,#FEF4F8,#FFFAFC);border:1px solid #F0E0E8;border-left:4px solid #BF2C79}.goal-optimize .pair-label.now{color:#D04060}.goal-optimize .pair-label.next{color:#BF2C79}
+  .goal-growth .goal-label{color:#E8406C}.goal-growth .goal-count{background:#FEF0F0;color:#D03050}.goal-growth .pair-card.left{background:#FEF0F0;border:1px solid #F0E0E0}.goal-growth .pair-card.right{background:linear-gradient(135deg,#FEF0F0,#FFFAFA);border:1px solid #F0E0E0;border-left:4px solid #E8406C}.goal-growth .pair-label.now{color:#D04050}.goal-growth .pair-label.next{color:#E8406C}
   .deps{max-width:1200px;margin:0 auto;padding:0 32px 60px}
   .deps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
   .dep-card{background:#fff;border:1px solid #EEEBEE;border-radius:12px;padding:20px 22px;transition:all .4s cubic-bezier(.25,.8,.25,1);box-shadow:0 1px 3px rgba(0,0,0,.03)}
   .dep-card:hover{border-color:#E8D0E4;box-shadow:0 4px 16px rgba(147,22,128,.04)}
   .dep-from{font-size:12px;font-weight:700;color:#931680}
   .dep-to{font-size:12px;font-weight:700;color:#E8406C}
-  .dep-desc{font-size:12px;color:#8B8B9E;margin-top:4px;line-height:1.4}
+  .dep-desc{font-size:12px;color:#8B8B9E;margin-top:4px;line-height:1.6}
   .footer{text-align:center;padding:48px 24px 64px;border-top:1px solid #EEEBEE}
   .footer img{height:32px;margin-bottom:12px;opacity:.6}
   .footer p{font-size:12px;color:#B0B0C0}
@@ -192,7 +203,7 @@
   .gcard-info{flex:1}
   .gcard-num{font-size:11px;font-weight:600;letter-spacing:2px;margin-bottom:4px;opacity:.5}
   .gcard-title{font-family:'Source Serif 4',serif;font-size:22px;font-weight:700;color:#1A1A2E;letter-spacing:-.2px;margin-bottom:6px}
-  .gcard-desc{font-size:14.5px;line-height:1.55;opacity:.75}
+  .gcard-desc{font-size:14px;line-height:1.6;opacity:.75}
   .gcard-tags{display:flex;flex-wrap:wrap;justify-content:center;gap:5px;margin-top:10px}
   .gcard-tag{font-size:10px;font-weight:600;padding:4px 12px;border-radius:6px;letter-spacing:.3px}
   .gcard-right{display:flex;align-items:center;gap:8px;margin-top:4px}
@@ -205,19 +216,19 @@
   .gc1{background:linear-gradient(180deg,#FFF8ED,#FEFCF6);border:1px solid #F0E8D0}
   .gc1::before{background:linear-gradient(90deg,#D08A20,#F8B24D)}
   .gc1 .gcard-num{color:#D08A20}.gc1 .gcard-desc{color:#9A7A50}.gc1 .gcard-tag{background:#FFF0D8;color:#B07010}.gc1 .gcard-count{background:rgba(208,138,32,.1);color:#B07010}
-  .gc1 .pair-card.left{background:#FFF3E0;border:1px solid #F0E0C8}.gc1 .pair-card.right{background:#FFFAF2;border:1px solid #F0E8D8}.gc1 .pair-label.now{color:#D08A20}.gc1 .pair-label.next{color:#A07020}
+  .gc1 .pair-card.left{background:#FFF3E0;border:1px solid #F0E0C8}.gc1 .pair-card.right{background:linear-gradient(135deg,#FFF3E0,#FFFAF2);border:1px solid #F0E0C8;border-left:4px solid #D08A20}.gc1 .pair-label.now{color:#D08A20}.gc1 .pair-label.next{color:#D08A20}
   .gc2{background:linear-gradient(180deg,#FDF6FC,#FEFAFE);border:1px solid #F0E0F0}
   .gc2::before{background:linear-gradient(90deg,#931680,#BF2C79)}
   .gc2 .gcard-num{color:#931680}.gc2 .gcard-desc{color:#7A5A80}.gc2 .gcard-tag{background:#F8E8F6;color:#7A1268}.gc2 .gcard-count{background:rgba(147,22,128,.1);color:#7A1268}
-  .gc2 .pair-card.left{background:#F8ECF6;border:1px solid #F0D8F0}.gc2 .pair-card.right{background:#FDF8FC;border:1px solid #F4E8F4}.gc2 .pair-label.now{color:#BF2C79}.gc2 .pair-label.next{color:#931680}
+  .gc2 .pair-card.left{background:#F8ECF6;border:1px solid #F0D8F0}.gc2 .pair-card.right{background:linear-gradient(135deg,#F8ECF6,#FDF8FC);border:1px solid #F0D8F0;border-left:4px solid #931680}.gc2 .pair-label.now{color:#BF2C79}.gc2 .pair-label.next{color:#931680}
   .gc3{background:linear-gradient(180deg,#FEF4F8,#FFFAFC);border:1px solid #F0E0E8}
   .gc3::before{background:linear-gradient(90deg,#BF2C79,#E8406C)}
   .gc3 .gcard-num{color:#BF2C79}.gc3 .gcard-desc{color:#8A5A6A}.gc3 .gcard-tag{background:#FCE8F0;color:#A01060}.gc3 .gcard-count{background:rgba(191,44,121,.1);color:#A01060}
-  .gc3 .pair-card.left{background:#FDE8F0;border:1px solid #F0D8E4}.gc3 .pair-card.right{background:#FFF8FA;border:1px solid #F4E8F0}.gc3 .pair-label.now{color:#D04060}.gc3 .pair-label.next{color:#BF2C79}
+  .gc3 .pair-card.left{background:#FDE8F0;border:1px solid #F0D8E4}.gc3 .pair-card.right{background:linear-gradient(135deg,#FDE8F0,#FFF8FA);border:1px solid #F0D8E4;border-left:4px solid #BF2C79}.gc3 .pair-label.now{color:#D04060}.gc3 .pair-label.next{color:#BF2C79}
   .gc4{background:linear-gradient(180deg,#FEF0F0,#FFFAFA);border:1px solid #F0E0E0}
   .gc4::before{background:linear-gradient(90deg,#E8406C,#EF816A)}
   .gc4 .gcard-num{color:#E8406C}.gc4 .gcard-desc{color:#8A5A5A}.gc4 .gcard-tag{background:#FCE8E8;color:#C02040}.gc4 .gcard-count{background:rgba(232,64,108,.1);color:#C02040}
-  .gc4 .pair-card.left{background:#FDE8E8;border:1px solid #F0D8D8}.gc4 .pair-card.right{background:#FFF8F8;border:1px solid #F4E8E8}.gc4 .pair-label.now{color:#D04050}.gc4 .pair-label.next{color:#E8406C}
+  .gc4 .pair-card.left{background:#FDE8E8;border:1px solid #F0D8D8}.gc4 .pair-card.right{background:linear-gradient(135deg,#FDE8E8,#FFF8F8);border:1px solid #F0D8D8;border-left:4px solid #E8406C}.gc4 .pair-label.now{color:#D04050}.gc4 .pair-label.next{color:#E8406C}
   @keyframes cardGlow{0%{box-shadow:0 1px 3px rgba(0,0,0,.04)}50%{box-shadow:0 4px 20px rgba(147,22,128,.12)}100%{box-shadow:0 1px 3px rgba(0,0,0,.04)}}
   .gcard{animation:fadeUp .5s ease both}
   .gcard:nth-child(1){animation-delay:.2s}.gcard:nth-child(2){animation-delay:.35s}.gcard:nth-child(3){animation-delay:.5s}.gcard:nth-child(4){animation-delay:.65s}
@@ -234,7 +245,7 @@
   .zone-exp-icon{font-size:24px;flex-shrink:0}
   .zone-exp-info{flex:1}
   .zone-exp-title{font-family:'Source Serif 4',serif;font-size:18px;font-weight:700;color:#1A1A2E}
-  .zone-exp-brief{font-size:13.5px;color:#8B8B9E;margin-top:3px;line-height:1.5}
+  .zone-exp-brief{font-size:13px;color:#8B8B9E;margin-top:3px;line-height:1.6}
   .zone-exp-tag{font-size:10px;font-weight:600;color:#931680;flex-shrink:0}
   .zone-exp-arrow{font-size:16px;color:#C0B0C4;transition:transform .5s cubic-bezier(.4,0,.2,1);flex-shrink:0}
   .zone-exp.open .zone-exp-arrow{transform:rotate(180deg)}
@@ -242,18 +253,18 @@
   .zone-exp.open .zone-exp-body{max-height:5000px;opacity:1;padding:8px 36px 32px;border-top:1px solid #F5F0F5}
   .zone-exp:target{scroll-margin-top:20px}
   .zone-exp:target .zone-exp-body{max-height:4000px;opacity:1;padding:8px 36px 32px;border-top:1px solid #F5F0F5}
-  .zone-exp-body p{font-size:14.5px;color:#3A3A4E;line-height:1.75;margin-bottom:16px}
+  .zone-exp-body p{font-size:14px;color:#3A3A4E;line-height:1.6;margin-bottom:16px}
   .zone-exp-body p:last-child{margin-bottom:0}
   .zone-exp-body strong{color:#1A1A2E;font-weight:600}
   .zone-exp-body .zb-subtitle{font-family:'Source Serif 4',serif;font-size:16px;font-weight:700;color:#1A1A2E;margin:24px 0 10px}
-  .zone-exp-body ul{margin:10px 0 16px 22px;font-size:14px;color:#3A3A4E;line-height:1.7}
+  .zone-exp-body ul{margin:10px 0 16px 22px;font-size:14px;color:#3A3A4E;line-height:1.6}
   .zone-exp-body li{margin-bottom:4px}
   .zone-exp-body .zb-table{width:100%;border-collapse:collapse;margin:12px 0 16px;font-size:12px}
-  .zone-exp-body .zb-table th{text-align:left;padding:12px 16px;background:#F7F5F7;font-weight:600;font-size:11.5px;text-transform:uppercase;letter-spacing:.5px;color:#6A6A7A;border-bottom:2px solid #E8E0E8}
-  .zone-exp-body .zb-table td{padding:12px 16px;border-bottom:1px solid #F2EFF2;color:#3A3A4E;vertical-align:top;font-size:13.5px;line-height:1.55}
+  .zone-exp-body .zb-table th{text-align:left;padding:12px 16px;background:#F7F5F7;font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:1px;color:#6A6A7A;border-bottom:2px solid #E8E0E8}
+  .zone-exp-body .zb-table td{padding:12px 16px;border-bottom:1px solid #F2EFF2;color:#3A3A4E;vertical-align:top;font-size:13px;line-height:1.6}
   .zone-exp-body .zb-table td:first-child{font-weight:600;color:#1A1A2E;white-space:nowrap}
   .zone-exp-body .zb-highlight{background:rgba(147,22,128,.03);border-left:3px solid #931680;border-radius:0 10px 10px 0;padding:16px 20px;margin:20px 0}
-  .zone-exp-body .zb-highlight p{font-size:14px;color:#5A3A60;margin-bottom:0;line-height:1.65}
+  .zone-exp-body .zb-highlight p{font-size:14px;color:#5A3A60;margin-bottom:0;line-height:1.6}
 
   /* Scroll-анимации */
   .scroll-reveal{opacity:0;transform:translateY(30px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)}
@@ -272,12 +283,61 @@
   .reveal-scale{transform:scale(.9)}
   .reveal-tilt{transform:translateY(20px) rotate(-1deg)}
 
+  /* === УЛУЧШЕНИЕ 4: Прогресс-индикатор чтения (градиент) === */
+  .reading-progress{position:fixed;top:0;left:0;height:4px;background:linear-gradient(90deg,#931680,#BF2C79,#E8406C,#F8B24D);z-index:1001;transition:width .15s ease;width:0;border-radius:0 2px 2px 0}
+
+  /* === УЛУЧШЕНИЕ 5: Навигационная панель сверху === */
+  .top-nav{position:fixed;top:4px;left:50%;transform:translateX(-50%);z-index:1000;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(147,22,128,.1);border-radius:12px;padding:6px 8px;display:flex;gap:4px;box-shadow:0 4px 20px rgba(0,0,0,.06);opacity:0;transition:opacity .3s}
+  .top-nav.visible{opacity:1}
+  .top-nav a{font-size:11px;font-weight:600;color:#8B8B9E;text-decoration:none;padding:6px 14px;border-radius:8px;transition:all .2s;white-space:nowrap}
+  .top-nav a:hover{color:#931680;background:rgba(147,22,128,.06)}
+  .top-nav a.active{color:#fff;background:linear-gradient(135deg,#931680,#BF2C79);box-shadow:0 2px 8px rgba(147,22,128,.25)}
+
+  /* === УЛУЧШЕНИЕ 6: Анимированные счетчики === */
+  .achieve-num{font-family:'Source Serif 4',serif;font-size:32px;font-weight:800;color:#F8B24D}
+
+  /* === УЛУЧШЕНИЕ 7: SVG-иконки === */
+  .svg-icon{display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
+  .gcard-icon .svg-icon svg,.zone-exp-icon .svg-icon svg{width:48px;height:48px}
+  .zone-exp-icon .svg-icon svg{width:28px;height:28px}
+
+  /* === УЛУЧШЕНИЕ 3: Мини-бары === */
+  .mini-bar-wrap{margin-top:14px;padding-top:14px;border-top:1px solid #F0EBF0}
+  .mini-bar-label{font-size:10px;font-weight:600;color:#8B8B9E;margin-bottom:6px;display:flex;justify-content:space-between}
+  .mini-bar-track{height:8px;border-radius:4px;background:#F0EBF0;overflow:hidden;position:relative}
+  .mini-bar-fill{height:100%;border-radius:4px;transition:width 1.5s cubic-bezier(.16,1,.3,1);width:0}
+  .mini-bar-change{display:flex;align-items:center;gap:6px;margin-top:6px;font-size:11px;font-weight:600}
+
+  /* === УЛУЧШЕНИЕ 8: Горизонтальный таймлайн === */
+  .timeline-h{position:relative;display:flex;justify-content:space-between;padding:40px 0 0}
+  .timeline-h::before{content:'';position:absolute;top:20px;left:5%;right:5%;height:3px;background:linear-gradient(90deg,#931680,#BF2C79,#D08A20,#2E7D32);border-radius:2px}
+  .tl-item{flex:1;text-align:center;position:relative;padding:0 8px}
+  .tl-dot{width:18px;height:18px;border-radius:50%;position:absolute;top:12px;left:50%;transform:translateX(-50%);box-shadow:0 0 0 4px #fff,0 2px 8px rgba(0,0,0,.15);z-index:1}
+  .tl-dot::after{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:8px;height:8px;border-radius:50%;background:#fff}
+  .tl-content{margin-top:32px;background:#fff;border-radius:14px;padding:20px 16px;border:1px solid #F0EBF0;box-shadow:0 2px 8px rgba(0,0,0,.03);text-align:left}
+  .tl-phase{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:4px}
+  .tl-title{font-family:'Source Serif 4',serif;font-size:15px;font-weight:700;color:#1A1A2E;margin-bottom:8px}
+  .tl-list{font-size:12px;color:#4A4A5E;line-height:1.6}
+  .tl-list div{margin-bottom:4px}
+
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 </head>
 <body>
 
+<!-- УЛУЧШЕНИЕ 4: Прогресс-индикатор чтения -->
+<div class="reading-progress" id="readingProgress"></div>
 
+<!-- УЛУЧШЕНИЕ 5: Навигационная панель -->
+<nav class="top-nav" id="topNav">
+  <a href="#section-achieve">Достижения</a>
+  <a href="#section-goals">Цели</a>
+  <a href="#section-audit">Аудит</a>
+  <a href="#section-finance">Финансы</a>
+  <a href="#section-links">Связки</a>
+  <a href="#section-conclusion">Стратегия</a>
+  <a href="#section-steps">Шаги</a>
+</nav>
 
 <!-- HERO -->
 <section class="hero">
@@ -288,7 +348,7 @@
 <div style="max-width:200px;height:1px;margin:0 auto;background:linear-gradient(90deg,transparent,#931680,transparent)"></div>
 
 <!-- ДОСТИЖЕНИЯ -->
-<section style="max-width:1200px;margin:0 auto;padding:32px 32px 8px">
+<section id="section-achieve" style="max-width:1200px;margin:0 auto;padding:32px 32px 8px">
   <div style="background:linear-gradient(135deg,#1A1A2E,#2D1B3D);border-radius:20px;padding:40px 36px;position:relative;overflow:hidden">
     <div style="position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(circle at 20% 30%,rgba(147,22,128,.15),transparent 50%),radial-gradient(circle at 80% 70%,rgba(248,178,77,.08),transparent 50%);pointer-events:none"></div>
     <div style="position:relative;z-index:1">
@@ -298,34 +358,34 @@
       </div>
       <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px">
         <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:20px;text-align:center">
-          <div style="font-family:'Source Serif 4',serif;font-size:32px;font-weight:800;color:#F8B24D">4,55</div>
+          <div class="achieve-num" data-target="4.55" data-decimals="2" data-suffix="">0</div>
           <div style="font-size:11px;color:rgba(255,255,255,.5);font-weight:600;margin-top:2px">млрд выручка · рост 19% в год</div>
         </div>
         <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:20px;text-align:center">
-          <div style="font-family:'Source Serif 4',serif;font-size:32px;font-weight:800;color:#F8B24D">32</div>
+          <div class="achieve-num" data-target="32" data-decimals="0" data-suffix="">0</div>
           <div style="font-size:11px;color:rgba(255,255,255,.5);font-weight:600;margin-top:2px">региона присутствия по всей стране</div>
         </div>
         <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:20px;text-align:center">
-          <div style="font-family:'Source Serif 4',serif;font-size:32px;font-weight:800;color:#F8B24D">4+</div>
+          <div class="achieve-num" data-target="4" data-decimals="0" data-suffix="+">0</div>
           <div style="font-size:11px;color:rgba(255,255,255,.5);font-weight:600;margin-top:2px">новых направления запущены и растут</div>
         </div>
       </div>
       <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:12px">
         <div style="background:rgba(255,255,255,.04);border-radius:10px;padding:14px 18px;display:flex;align-items:center;gap:12px">
           <div style="font-size:20px">🏗️</div>
-          <div style="font-size:12px;color:rgba(255,255,255,.65);line-height:1.45">Федеральная сеть — <strong style="color:rgba(255,255,255,.9)">построена с нуля</strong>, от первого центра до сотен точек по всей стране</div>
+          <div style="font-size:12px;color:rgba(255,255,255,.65);line-height:1.6">Федеральная сеть — <strong style="color:rgba(255,255,255,.9)">построена с нуля</strong>, от первого центра до сотен точек по всей стране</div>
         </div>
         <div style="background:rgba(255,255,255,.04);border-radius:10px;padding:14px 18px;display:flex;align-items:center;gap:12px">
           <div style="font-size:20px">📈</div>
-          <div style="font-size:12px;color:rgba(255,255,255,.65);line-height:1.45">Выручка растет каждый год — <strong style="color:rgba(255,255,255,.9)">даже в условиях сложного рынка</strong> компания продолжает расти</div>
+          <div style="font-size:12px;color:rgba(255,255,255,.65);line-height:1.6">Выручка растет каждый год — <strong style="color:rgba(255,255,255,.9)">даже в условиях сложного рынка</strong> компания продолжает расти</div>
         </div>
         <div style="background:rgba(255,255,255,.04);border-radius:10px;padding:14px 18px;display:flex;align-items:center;gap:12px">
           <div style="font-size:20px">🔬</div>
-          <div style="font-size:12px;color:rgba(255,255,255,.65);line-height:1.45">СЦ, ЦФД, Picasso Lab, ИДР — <strong style="color:rgba(255,255,255,.9)">компания диверсифицируется</strong> и создает новые источники выручки</div>
+          <div style="font-size:12px;color:rgba(255,255,255,.65);line-height:1.6">СЦ, ЦФД, Picasso Lab, ИДР — <strong style="color:rgba(255,255,255,.9)">компания диверсифицируется</strong> и создает новые источники выручки</div>
         </div>
         <div style="background:rgba(255,255,255,.04);border-radius:10px;padding:14px 18px;display:flex;align-items:center;gap:12px">
           <div style="font-size:20px">👥</div>
-          <div style="font-size:12px;color:rgba(255,255,255,.65);line-height:1.45">Команда, которая <strong style="color:rgba(255,255,255,.9)">прошла все этапы роста</strong> — от стартапа до федеральной компании</div>
+          <div style="font-size:12px;color:rgba(255,255,255,.65);line-height:1.6">Команда, которая <strong style="color:rgba(255,255,255,.9)">прошла все этапы роста</strong> — от стартапа до федеральной компании</div>
         </div>
       </div>
       <div style="text-align:center;margin-top:20px;font-size:14px;color:rgba(255,255,255,.5);line-height:1.6;max-width:640px;margin-left:auto;margin-right:auto">Всё, что описано ниже — не критика того, что сделано. Это план того, <span style="color:rgba(255,255,255,.85)">как сделать следующий шаг</span>, опираясь на фундамент, который уже построен.</div>
@@ -334,7 +394,7 @@
 </section>
 
 <!-- VISUAL GOAL MAP — EXPANDABLE -->
-<section style="max-width:1200px;margin:0 auto;padding:32px 32px 8px">
+<section id="section-goals" style="max-width:1200px;margin:0 auto;padding:32px 32px 8px">
   <div style="text-align:center;margin-bottom:40px;padding-top:8px">
     <div style="font-size:11px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:#BF2C79;margin-bottom:14px;animation:fadeUp .5s ease both">Стратегия 2026</div>
     <div style="font-family:'Source Serif 4',serif;font-size:44px;font-weight:800;color:#1A1A2E;letter-spacing:-.5px;line-height:1.15;animation:fadeUp .6s ease both;animation-delay:.1s">Четыре цели <span style="color:#931680">2026</span></div>
@@ -345,7 +405,7 @@
 
   <a href="#zone-finance" class="gcard gc1" style="text-decoration:none;color:inherit;display:block">
     <div class="gcard-summary">
-        <div class="gcard-icon">📊</div>
+        <div class="gcard-icon"><span class="svg-icon"><svg width="48" height="48" viewBox="0 0 48 48" fill="none"><rect width="48" height="48" rx="12" fill="#FFF8ED"/><path d="M14 34V22M20 34V18M26 34V24M32 34V14" stroke="#D08A20" stroke-width="2.5" stroke-linecap="round"/><path d="M14 22L20 18L26 24L32 14" stroke="#D08A20" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4 3" opacity=".4"/></svg></span></div>
         <div class="gcard-info">
           <div class="gcard-num">ЦЕЛЬ 1</div>
           <div class="gcard-title">Финансовая отчетность</div>
@@ -357,7 +417,7 @@
 
   <a href="#zone-digital" class="gcard gc2" style="text-decoration:none;color:inherit;display:block">
     <div class="gcard-summary">
-        <div class="gcard-icon">💻</div>
+        <div class="gcard-icon"><span class="svg-icon"><svg width="48" height="48" viewBox="0 0 48 48" fill="none"><rect width="48" height="48" rx="12" fill="#FDF6FC"/><rect x="12" y="12" width="24" height="18" rx="3" stroke="#931680" stroke-width="2.5"/><path d="M18 36h12M24 30v6" stroke="#931680" stroke-width="2.5" stroke-linecap="round"/><circle cx="24" cy="21" r="3" stroke="#BF2C79" stroke-width="2"/></svg></span></div>
         <div class="gcard-info">
           <div class="gcard-num">ЦЕЛЬ 2</div>
           <div class="gcard-title">Цифровизация</div>
@@ -369,7 +429,7 @@
 
   <a href="#zone-optimize" class="gcard gc3" style="text-decoration:none;color:inherit;display:block">
     <div class="gcard-summary">
-        <div class="gcard-icon">⚙️</div>
+        <div class="gcard-icon"><span class="svg-icon"><svg width="48" height="48" viewBox="0 0 48 48" fill="none"><rect width="48" height="48" rx="12" fill="#FEF4F8"/><circle cx="24" cy="24" r="10" stroke="#BF2C79" stroke-width="2.5"/><path d="M24 18v6l4 2" stroke="#BF2C79" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M34 14l2-2M36 16h-4M34 14v4" stroke="#E8406C" stroke-width="2" stroke-linecap="round"/></svg></span></div>
         <div class="gcard-info">
           <div class="gcard-num">ЦЕЛЬ 3</div>
           <div class="gcard-title">Оптимизация</div>
@@ -381,7 +441,7 @@
 
   <a href="#zone-growth" class="gcard gc4" style="text-decoration:none;color:inherit;display:block">
     <div class="gcard-summary">
-        <div class="gcard-icon">🚀</div>
+        <div class="gcard-icon"><span class="svg-icon"><svg width="48" height="48" viewBox="0 0 48 48" fill="none"><rect width="48" height="48" rx="12" fill="#FEF0F0"/><path d="M14 34L24 20L30 26L36 14" stroke="#E8406C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M30 14h6v6" stroke="#E8406C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="24" cy="20" r="2.5" fill="#E8406C" opacity=".3"/></svg></span></div>
         <div class="gcard-info">
           <div class="gcard-num">ЦЕЛЬ 4</div>
           <div class="gcard-title">Развитие</div>
@@ -394,7 +454,7 @@
   </div>
 
 <!-- ZONES -->
-<section class="audit" >
+<section id="section-audit" class="audit">
   <div class="sn">01 — Где мы сейчас и что делаем</div>
   <div class="st">Шесть направлений для <em>усиления</em></div>
   <div class="ss">Компания прошла путь от нескольких центров до федеральной сети. Это серьезное достижение. Сейчас мы видим зоны, где можно сделать следующий шаг — и выбрали четыре цели на год.</div>
@@ -403,7 +463,7 @@
   <div class="zone-exp" id="zone-finance" onclick="this.classList.toggle('open')">
     <div class="zone-exp-top">
       <div class="zone-exp-num">1</div>
-      <div class="zone-exp-icon">📊</div>
+      <div class="zone-exp-icon"><span class="svg-icon"><svg width="28" height="28" viewBox="0 0 48 48" fill="none"><rect width="48" height="48" rx="12" fill="#FFF8ED"/><path d="M14 34V22M20 34V18M26 34V24M32 34V14" stroke="#D08A20" stroke-width="2.5" stroke-linecap="round"/></svg></span></div>
       <div class="zone-exp-info">
         <div class="zone-exp-title">Финансовая прозрачность</div>
         <div class="zone-exp-brief">Отчет отвечает на вопрос «сколько денег прошло через кассу», но для стратегических решений нужна другая глубина</div>
@@ -481,12 +541,12 @@
           <div style="font-family:'Source Serif 4',serif;font-size:18px;font-weight:700;color:#1A1A2E">Конкретные шаги</div>
           <div style="font-size:10px;font-weight:600;color:#8B8B9E;background:#F4F2F4;padding:3px 10px;border-radius:6px">Цель 1: Финансовая отчетность · 6 процессов</div>
         </div>
-    <div class="pair"><div class="pair-card left" style="background:#FFF8ED;border:1px solid #F0E8D0"><div class="pair-label now" style="color:#D08A20">Где мы сейчас</div><div class="pair-title">Финансовый отчет покрывает основные статьи расходов</div><div class="pair-detail">Отчетность работает и дает ориентиры. При этом часть затрат — амортизация, сервис, накладные расходы — пока не распределена по регионам, что затрудняет точную оценку.</div></div><div class="pair-arrow">→</div><div class="pair-card right" style="background:#FEFCF6;border:1px solid #F0EBE0"><div class="pair-label next" style="color:#A08020">Как усиливаем</div><div class="pair-title">Полнозатратный финансовый отчет по каждому городу</div><div class="pair-detail">Дополнить все статьи расходов: амортизация, сервис, накладные расходы, расходные, коммунальные. Полная картина для каждого региона.</div></div></div>
-    <div class="pair"><div class="pair-card left" style="background:#FFF8ED;border:1px solid #F0E8D0"><div class="pair-label now" style="color:#D08A20">Где мы сейчас</div><div class="pair-title">Открытия новых центров основаны на опыте и экспертизе</div><div class="pair-detail">Команда хорошо понимает рынок. Стандартизированная модель окупаемости поможет подкрепить эту экспертизу расчетами.</div></div><div class="pair-arrow">→</div><div class="pair-card right" style="background:#FEFCF6;border:1px solid #F0EBE0"><div class="pair-label next" style="color:#A08020">Как усиливаем</div><div class="pair-title">Бизнес-модель для каждого нового ДЦ</div><div class="pair-detail">Калькулятор: прогноз потока, чек, ФОТ, аренда → срок окупаемости, точка безубыточности. Инструмент для обоснования решений.</div></div></div>
-    <div class="pair"><div class="pair-card left" style="background:#FFF8ED;border:1px solid #F0E8D0"><div class="pair-label now" style="color:#D08A20">Где мы сейчас</div><div class="pair-title">ФОТ управляется на уровне каждого города</div><div class="pair-detail">Руководители контролируют расходы. Единый норматив и автоматический мониторинг помогут отслеживать динамику по всей сети.</div></div><div class="pair-arrow">→</div><div class="pair-card right" style="background:#FEFCF6;border:1px solid #F0EBE0"><div class="pair-label next" style="color:#A08020">Как усиливаем</div><div class="pair-title">Бюджет ФОТ с единым нормативом</div><div class="pair-detail">Целевая доля по каждому региону. Помесячный мониторинг. Автоматический сигнал при отклонении. План коррекции.</div></div></div>
-    <div class="pair"><div class="pair-card left" style="background:#FFF8ED;border:1px solid #F0E8D0"><div class="pair-label now" style="color:#D08A20">Где мы сейчас</div><div class="pair-title">СЦ, ЦФД, Picasso Lab, ИДР — направления растут</div><div class="pair-detail">Каждое направление развивается и приносит выручку. Таких проектов становится больше. Отдельный финансовый отчет поможет управлять каждым более точно.</div></div><div class="pair-arrow">→</div><div class="pair-card right" style="background:#FEFCF6;border:1px solid #F0EBE0"><div class="pair-label next" style="color:#A08020">Как усиливаем</div><div class="pair-title">Отдельный финансовый отчет по каждому направлению</div><div class="pair-detail">СЦ, ЦФД, Picasso Lab, ИДР — ежемесячный отчет: выручка, расходы, маржа. Единый подход для всех текущих и новых проектов.</div></div></div>
-    <div class="pair"><div class="pair-card left" style="background:#FFF8ED;border:1px solid #F0E8D0"><div class="pair-label now" style="color:#D08A20">Где мы сейчас</div><div class="pair-title">Закупки обеспечивают работу всех центров</div><div class="pair-detail">Снабжение работает. Системный бюджет и контроль остатков помогут планировать закупки и избегать экстренных поставок.</div></div><div class="pair-arrow">→</div><div class="pair-card right" style="background:#FEFCF6;border:1px solid #F0EBE0"><div class="pair-label next" style="color:#A08020">Как усиливаем</div><div class="pair-title">Бюджетирование закупок по всем городам</div><div class="pair-detail">Квартальный бюджет на основе данных об остатках. Привязка к финансовому отчету каждого региона. Плановые закупки.</div></div></div>
-    <div class="pair"><div class="pair-card left" style="background:#FFF8ED;border:1px solid #F0E8D0"><div class="pair-label now" style="color:#D08A20">Где мы сейчас</div><div class="pair-title">Арендный портфель обеспечивает присутствие сети</div><div class="pair-detail">Сотни точек по всей стране — это результат большой работы. Единый реестр и мониторинг доли аренды от выручки помогут управлять портфелем эффективнее.</div></div><div class="pair-arrow">→</div><div class="pair-card right" style="background:#FEFCF6;border:1px solid #F0EBE0"><div class="pair-label next" style="color:#A08020">Как усиливаем</div><div class="pair-title">Реестр всех договоров с мониторингом</div><div class="pair-detail">По каждому ДЦ: ставка, индексация, доля от выручки. Системный подход к переговорам и контролю.</div></div></div>
+    <div class="pair"><div class="pair-card left" style="background:#FFF8ED;border:1px solid #F0E8D0"><div class="pair-label now" style="color:#D08A20">Где мы сейчас</div><div class="pair-title">Финансовый отчет покрывает основные статьи расходов</div><div class="pair-detail">Отчетность работает и дает ориентиры. При этом часть затрат — амортизация, сервис, накладные расходы — пока не распределена по регионам, что затрудняет точную оценку.</div></div><div class="pair-arrow">→</div><div class="pair-card right fin-right"><div class="pair-label next fin-next">Как усиливаем</div><div class="pair-title">Полнозатратный финансовый отчет по каждому городу</div><div class="pair-detail">Дополнить все статьи расходов: амортизация, сервис, накладные расходы, расходные, коммунальные. Полная картина для каждого региона.</div></div></div>
+    <div class="pair"><div class="pair-card left" style="background:#FFF8ED;border:1px solid #F0E8D0"><div class="pair-label now" style="color:#D08A20">Где мы сейчас</div><div class="pair-title">Открытия новых центров основаны на опыте и экспертизе</div><div class="pair-detail">Команда хорошо понимает рынок. Стандартизированная модель окупаемости поможет подкрепить эту экспертизу расчетами.</div></div><div class="pair-arrow">→</div><div class="pair-card right fin-right"><div class="pair-label next fin-next">Как усиливаем</div><div class="pair-title">Бизнес-модель для каждого нового ДЦ</div><div class="pair-detail">Калькулятор: прогноз потока, чек, ФОТ, аренда → срок окупаемости, точка безубыточности. Инструмент для обоснования решений.</div></div></div>
+    <div class="pair"><div class="pair-card left" style="background:#FFF8ED;border:1px solid #F0E8D0"><div class="pair-label now" style="color:#D08A20">Где мы сейчас</div><div class="pair-title">ФОТ управляется на уровне каждого города</div><div class="pair-detail">Руководители контролируют расходы. Единый норматив и автоматический мониторинг помогут отслеживать динамику по всей сети.</div></div><div class="pair-arrow">→</div><div class="pair-card right fin-right"><div class="pair-label next fin-next">Как усиливаем</div><div class="pair-title">Бюджет ФОТ с единым нормативом</div><div class="pair-detail">Целевая доля по каждому региону. Помесячный мониторинг. Автоматический сигнал при отклонении. План коррекции.</div></div></div>
+    <div class="pair"><div class="pair-card left" style="background:#FFF8ED;border:1px solid #F0E8D0"><div class="pair-label now" style="color:#D08A20">Где мы сейчас</div><div class="pair-title">СЦ, ЦФД, Picasso Lab, ИДР — направления растут</div><div class="pair-detail">Каждое направление развивается и приносит выручку. Таких проектов становится больше. Отдельный финансовый отчет поможет управлять каждым более точно.</div></div><div class="pair-arrow">→</div><div class="pair-card right fin-right"><div class="pair-label next fin-next">Как усиливаем</div><div class="pair-title">Отдельный финансовый отчет по каждому направлению</div><div class="pair-detail">СЦ, ЦФД, Picasso Lab, ИДР — ежемесячный отчет: выручка, расходы, маржа. Единый подход для всех текущих и новых проектов.</div></div></div>
+    <div class="pair"><div class="pair-card left" style="background:#FFF8ED;border:1px solid #F0E8D0"><div class="pair-label now" style="color:#D08A20">Где мы сейчас</div><div class="pair-title">Закупки обеспечивают работу всех центров</div><div class="pair-detail">Снабжение работает. Системный бюджет и контроль остатков помогут планировать закупки и избегать экстренных поставок.</div></div><div class="pair-arrow">→</div><div class="pair-card right fin-right"><div class="pair-label next fin-next">Как усиливаем</div><div class="pair-title">Бюджетирование закупок по всем городам</div><div class="pair-detail">Квартальный бюджет на основе данных об остатках. Привязка к финансовому отчету каждого региона. Плановые закупки.</div></div></div>
+    <div class="pair"><div class="pair-card left" style="background:#FFF8ED;border:1px solid #F0E8D0"><div class="pair-label now" style="color:#D08A20">Где мы сейчас</div><div class="pair-title">Арендный портфель обеспечивает присутствие сети</div><div class="pair-detail">Сотни точек по всей стране — это результат большой работы. Единый реестр и мониторинг доли аренды от выручки помогут управлять портфелем эффективнее.</div></div><div class="pair-arrow">→</div><div class="pair-card right fin-right"><div class="pair-label next fin-next">Как усиливаем</div><div class="pair-title">Реестр всех договоров с мониторингом</div><div class="pair-detail">По каждому ДЦ: ставка, индексация, доля от выручки. Системный подход к переговорам и контролю.</div></div></div>
       </div>
     </div>
   </div>
@@ -495,7 +555,7 @@
   <div class="zone-exp" id="zone-optimize" onclick="this.classList.toggle('open')">
     <div class="zone-exp-top">
       <div class="zone-exp-num">2</div>
-      <div class="zone-exp-icon">⚙️</div>
+      <div class="zone-exp-icon"><span class="svg-icon"><svg width="28" height="28" viewBox="0 0 48 48" fill="none"><rect width="48" height="48" rx="12" fill="#FEF4F8"/><circle cx="24" cy="24" r="10" stroke="#BF2C79" stroke-width="2.5"/><path d="M24 18v6l4 2" stroke="#BF2C79" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
       <div class="zone-exp-info">
         <div class="zone-exp-title">Операционные процессы</div>
         <div class="zone-exp-brief">Когда компания была маленькой, гибкость была преимуществом. При сотнях центров она превращается в сложность</div>
@@ -543,12 +603,12 @@
           <div style="font-family:'Source Serif 4',serif;font-size:18px;font-weight:700;color:#1A1A2E">Конкретные шаги</div>
           <div style="font-size:10px;font-weight:600;color:#8B8B9E;background:#F4F2F4;padding:3px 10px;border-radius:6px">Цель 3: Оптимизация · 6 процессов</div>
         </div>
-    <div class="pair"><div class="pair-card left" style="background:#FEF4F8;border:1px solid #F0E0E8"><div class="pair-label now" style="color:#BF2C79">Где мы сейчас</div><div class="pair-title">Каждый город адаптировал процессы под себя</div><div class="pair-detail">Это было правильным подходом при росте. Сейчас, при масштабе 30+ городов, единые стандарты помогут запускать новые точки быстрее и с меньшими затратами.</div></div><div class="pair-arrow">→</div><div class="pair-card right" style="background:#FFFAFC;border:1px solid #F4E8F0"><div class="pair-label next" style="color:#BF2C79">Как усиливаем</div><div class="pair-title">Единые стандарты работы для всей сети</div><div class="pair-detail">По каждому процессу — один документ: стандарт КЦ, стандарт ДЦ, правила закупок, регламент продаж. Новый город запускается по шаблону.</div></div></div>
-    <div class="pair"><div class="pair-card left" style="background:#FEF4F8;border:1px solid #F0E0E8"><div class="pair-label now" style="color:#BF2C79">Где мы сейчас</div><div class="pair-title">Качество обслуживания держится на сильных управляющих</div><div class="pair-detail">Есть центры, которые работают отлично. Единый стандарт поможет тиражировать лучшие практики на всю сеть.</div></div><div class="pair-arrow">→</div><div class="pair-card right" style="background:#FFFAFC;border:1px solid #F4E8F0"><div class="pair-label next" style="color:#BF2C79">Как усиливаем</div><div class="pair-title">Стандарт обслуживания ДЦ + оценка удовлетворенности</div><div class="pair-detail">Чек-лист клиентского пути на основе лучших центров. Обучение. Регулярная оценка. Показатели управляющего.</div></div></div>
-    <div class="pair"><div class="pair-card left" style="background:#FEF4F8;border:1px solid #F0E0E8"><div class="pair-label now" style="color:#BF2C79">Где мы сейчас</div><div class="pair-title">Технические отделы ведут много направлений параллельно</div><div class="pair-detail">Команда справляется с большим объемом задач. Четкое разграничение зон поможет сфокусироваться и ускорить ключевые проекты.</div></div><div class="pair-arrow">→</div><div class="pair-card right" style="background:#FFFAFC;border:1px solid #F4E8F0"><div class="pair-label next" style="color:#BF2C79">Как усиливаем</div><div class="pair-title">Оценка оргструктуры + матрица ответственности</div><div class="pair-detail">Разграничение зон. Приоритизация проектов. Матрица ответственности для ключевых процессов.</div></div></div>
-    <div class="pair"><div class="pair-card left" style="background:#FEF4F8;border:1px solid #F0E0E8"><div class="pair-label now" style="color:#BF2C79">Где мы сейчас</div><div class="pair-title">В компании есть ключевые люди, на которых многое держится</div><div class="pair-detail">Это показатель сильной команды. Подготовка дублеров — не замена, а страховка, чтобы бизнес работал стабильно при любых обстоятельствах.</div></div><div class="pair-arrow">→</div><div class="pair-card right" style="background:#FFFAFC;border:1px solid #F4E8F0"><div class="pair-label next" style="color:#BF2C79">Как усиливаем</div><div class="pair-title">Дублирование ключевых функций</div><div class="pair-detail">Подготовка вторых специалистов на важных участках. Передача знаний. Устойчивость процессов.</div></div></div>
-    <div class="pair"><div class="pair-card left" style="background:#FEF4F8;border:1px solid #F0E0E8"><div class="pair-label now" style="color:#BF2C79">Где мы сейчас</div><div class="pair-title">Снабжение обеспечивает работу всех центров</div><div class="pair-detail">Расходные материалы поставляются. Система контроля остатков поможет перейти от реактивных закупок к плановым.</div></div><div class="pair-arrow">→</div><div class="pair-card right" style="background:#FFFAFC;border:1px solid #F4E8F0"><div class="pair-label next" style="color:#BF2C79">Как усиливаем</div><div class="pair-title">Система контроля остатков по всей сети</div><div class="pair-detail">Минимальный остаток, точка заказа. Регулярный отчет. Пилот → масштабирование.</div></div></div>
-    <div class="pair"><div class="pair-card left" style="background:#FEF4F8;border:1px solid #F0E0E8"><div class="pair-label now" style="color:#BF2C79">Где мы сейчас</div><div class="pair-title">Отделы отчитываются, но формат отличается</div><div class="pair-detail">Руководители сдают планы и отчеты. Единый формат с числовыми показателями поможет сравнивать результаты и видеть прогресс по всей компании.</div></div><div class="pair-arrow">→</div><div class="pair-card right" style="background:#FFFAFC;border:1px solid #F4E8F0"><div class="pair-label next" style="color:#BF2C79">Как усиливаем</div><div class="pair-title">Показатели по каждому отделу + квартальная отчетность</div><div class="pair-detail">Единая система: 6 секций, автоматическая валидация. Каждая цель — с числовыми показателями и финансовым эффектом.</div></div></div>
+    <div class="pair"><div class="pair-card left" style="background:#FEF4F8;border:1px solid #F0E0E8"><div class="pair-label now" style="color:#BF2C79">Где мы сейчас</div><div class="pair-title">Каждый город адаптировал процессы под себя</div><div class="pair-detail">Это было правильным подходом при росте. Сейчас, при масштабе 30+ городов, единые стандарты помогут запускать новые точки быстрее и с меньшими затратами.</div></div><div class="pair-arrow">→</div><div class="pair-card right opt-right"><div class="pair-label next opt-next">Как усиливаем</div><div class="pair-title">Единые стандарты работы для всей сети</div><div class="pair-detail">По каждому процессу — один документ: стандарт КЦ, стандарт ДЦ, правила закупок, регламент продаж. Новый город запускается по шаблону.</div></div></div>
+    <div class="pair"><div class="pair-card left" style="background:#FEF4F8;border:1px solid #F0E0E8"><div class="pair-label now" style="color:#BF2C79">Где мы сейчас</div><div class="pair-title">Качество обслуживания держится на сильных управляющих</div><div class="pair-detail">Есть центры, которые работают отлично. Единый стандарт поможет тиражировать лучшие практики на всю сеть.</div></div><div class="pair-arrow">→</div><div class="pair-card right opt-right"><div class="pair-label next opt-next">Как усиливаем</div><div class="pair-title">Стандарт обслуживания ДЦ + оценка удовлетворенности</div><div class="pair-detail">Чек-лист клиентского пути на основе лучших центров. Обучение. Регулярная оценка. Показатели управляющего.</div></div></div>
+    <div class="pair"><div class="pair-card left" style="background:#FEF4F8;border:1px solid #F0E0E8"><div class="pair-label now" style="color:#BF2C79">Где мы сейчас</div><div class="pair-title">Технические отделы ведут много направлений параллельно</div><div class="pair-detail">Команда справляется с большим объемом задач. Четкое разграничение зон поможет сфокусироваться и ускорить ключевые проекты.</div></div><div class="pair-arrow">→</div><div class="pair-card right opt-right"><div class="pair-label next opt-next">Как усиливаем</div><div class="pair-title">Оценка оргструктуры + матрица ответственности</div><div class="pair-detail">Разграничение зон. Приоритизация проектов. Матрица ответственности для ключевых процессов.</div></div></div>
+    <div class="pair"><div class="pair-card left" style="background:#FEF4F8;border:1px solid #F0E0E8"><div class="pair-label now" style="color:#BF2C79">Где мы сейчас</div><div class="pair-title">В компании есть ключевые люди, на которых многое держится</div><div class="pair-detail">Это показатель сильной команды. Подготовка дублеров — не замена, а страховка, чтобы бизнес работал стабильно при любых обстоятельствах.</div></div><div class="pair-arrow">→</div><div class="pair-card right opt-right"><div class="pair-label next opt-next">Как усиливаем</div><div class="pair-title">Дублирование ключевых функций</div><div class="pair-detail">Подготовка вторых специалистов на важных участках. Передача знаний. Устойчивость процессов.</div></div></div>
+    <div class="pair"><div class="pair-card left" style="background:#FEF4F8;border:1px solid #F0E0E8"><div class="pair-label now" style="color:#BF2C79">Где мы сейчас</div><div class="pair-title">Снабжение обеспечивает работу всех центров</div><div class="pair-detail">Расходные материалы поставляются. Система контроля остатков поможет перейти от реактивных закупок к плановым.</div></div><div class="pair-arrow">→</div><div class="pair-card right opt-right"><div class="pair-label next opt-next">Как усиливаем</div><div class="pair-title">Система контроля остатков по всей сети</div><div class="pair-detail">Минимальный остаток, точка заказа. Регулярный отчет. Пилот → масштабирование.</div></div></div>
+    <div class="pair"><div class="pair-card left" style="background:#FEF4F8;border:1px solid #F0E0E8"><div class="pair-label now" style="color:#BF2C79">Где мы сейчас</div><div class="pair-title">Отделы отчитываются, но формат отличается</div><div class="pair-detail">Руководители сдают планы и отчеты. Единый формат с числовыми показателями поможет сравнивать результаты и видеть прогресс по всей компании.</div></div><div class="pair-arrow">→</div><div class="pair-card right opt-right"><div class="pair-label next opt-next">Как усиливаем</div><div class="pair-title">Показатели по каждому отделу + квартальная отчетность</div><div class="pair-detail">Единая система: 6 секций, автоматическая валидация. Каждая цель — с числовыми показателями и финансовым эффектом.</div></div></div>
       </div>
     </div>
   </div>
@@ -557,7 +617,7 @@
   <div class="zone-exp" id="zone-digital" onclick="this.classList.toggle('open')">
     <div class="zone-exp-top">
       <div class="zone-exp-num">3</div>
-      <div class="zone-exp-icon">💻</div>
+      <div class="zone-exp-icon"><span class="svg-icon"><svg width="28" height="28" viewBox="0 0 48 48" fill="none"><rect width="48" height="48" rx="12" fill="#FDF6FC"/><rect x="12" y="12" width="24" height="18" rx="3" stroke="#931680" stroke-width="2.5"/><path d="M18 36h12M24 30v6" stroke="#931680" stroke-width="2.5" stroke-linecap="round"/></svg></span></div>
       <div class="zone-exp-info">
         <div class="zone-exp-title">Цифровая инфраструктура</div>
         <div class="zone-exp-brief">Инструменты есть и работают. Следующий шаг — объединить их в единую систему</div>
@@ -603,14 +663,14 @@
           <div style="font-family:'Source Serif 4',serif;font-size:18px;font-weight:700;color:#1A1A2E">Конкретные шаги</div>
           <div style="font-size:10px;font-weight:600;color:#8B8B9E;background:#F4F2F4;padding:3px 10px;border-radius:6px">Цель 2: Цифровизация · 8 процессов</div>
         </div>
-    <div class="pair"><div class="pair-card left" style="background:#FDF4FC;border:1px solid #F0E0F0"><div class="pair-label now" style="color:#BF2C79">Где мы сейчас</div><div class="pair-title">Регламенты и инструкции складывались по мере роста</div><div class="pair-detail">Каждый отдел выстроил свои правила работы. Единая база знаний поможет быстрее обучать новых сотрудников и сохранять экспертизу.</div></div><div class="pair-arrow">→</div><div class="pair-card right" style="background:#FEFAFE;border:1px solid #F4E8F4"><div class="pair-label next" style="color:#931680">Как усиливаем</div><div class="pair-title">База знаний компании</div><div class="pair-detail">Все регламенты и инструкции в одном месте. Ответственные за актуализацию. Единый реестр отчетности.</div></div></div>
-    <div class="pair"><div class="pair-card left" style="background:#FDF4FC;border:1px solid #F0E0F0"><div class="pair-label now" style="color:#BF2C79">Где мы сейчас</div><div class="pair-title">Учетная система уже внедрена и используется</div><div class="pair-detail">Система работает. При этом часть процессов ведется параллельно в таблицах, потому что не все модули настроены под реальные задачи отделов.</div></div><div class="pair-arrow">→</div><div class="pair-card right" style="background:#FEFAFE;border:1px solid #F4E8F4"><div class="pair-label next" style="color:#931680">Как усиливаем</div><div class="pair-title">Доработка учетной системы под реальные процессы</div><div class="pair-detail">Привести текущую систему в соответствие с тем, как работают отделы. Убрать разрыв между системой и практикой. Не новые блоки, а рабочее состояние текущих.</div></div></div>
-    <div class="pair"><div class="pair-card left" style="background:#FDF4FC;border:1px solid #F0E0F0"><div class="pair-label now" style="color:#BF2C79">Где мы сейчас</div><div class="pair-title">Аналитика построена и дает ценные данные</div><div class="pair-detail">ABC-анализ, финансовые отчеты, дашборды — серьезная инфраструктура. Объединение источников в единый контур ускорит доступ к данным для всех.</div></div><div class="pair-arrow">→</div><div class="pair-card right" style="background:#FEFAFE;border:1px solid #F4E8F4"><div class="pair-label next" style="color:#931680">Как усиливаем</div><div class="pair-title">Единый аналитический контур</div><div class="pair-detail">Реестр отчетов. Подключение всех направлений к общей аналитике. Централизация заявок на данные.</div></div></div>
-    <div class="pair"><div class="pair-card left" style="background:#FDF4FC;border:1px solid #F0E0F0"><div class="pair-label now" style="color:#BF2C79">Где мы сейчас</div><div class="pair-title">Цифровые сервисы для пациентов — следующий рубеж</div><div class="pair-detail">Компания готова к запуску онлайн-оплаты и личного кабинета. Для этого нужно доработать юридическую базу по персональным данным.</div></div><div class="pair-arrow">→</div><div class="pair-card right" style="background:#FEFAFE;border:1px solid #F4E8F4"><div class="pair-label next" style="color:#931680">Как усиливаем</div><div class="pair-title">Онлайн-оплата + Личный кабинет пациента</div><div class="pair-detail">Юридическая подготовка → снятие барьеров → онлайн-оплата → ЛК: результаты, запись, оплата в одном месте.</div></div></div>
-    <div class="pair"><div class="pair-card left" style="background:#FDF4FC;border:1px solid #F0E0F0"><div class="pair-label now" style="color:#BF2C79">Где мы сейчас</div><div class="pair-title">Контроль качества ведется, но вручную</div><div class="pair-detail">Специалисты отслеживают качество. При объеме сотни тысяч исследований в год цифровизация контроля поможет охватить больше и реагировать быстрее.</div></div><div class="pair-arrow">→</div><div class="pair-card right" style="background:#FEFAFE;border:1px solid #F4E8F4"><div class="pair-label next" style="color:#931680">Как усиливаем</div><div class="pair-title">Оцифровка контроля качества</div><div class="pair-detail">Электронные чек-листы, автоматическая фиксация, отслеживание динамики по каждому центру.</div></div></div>
-    <div class="pair"><div class="pair-card left" style="background:#FDF4FC;border:1px solid #F0E0F0"><div class="pair-label now" style="color:#BF2C79">Где мы сейчас</div><div class="pair-title">IT-поддержка работает, но без единого учета обращений</div><div class="pair-detail">Задачи решаются. Тикет-система поможет расставлять приоритеты, видеть нагрузку и планировать ресурсы точнее.</div></div><div class="pair-arrow">→</div><div class="pair-card right" style="background:#FEFAFE;border:1px solid #F4E8F4"><div class="pair-label next" style="color:#931680">Как усиливаем</div><div class="pair-title">Единое окно обращений + корпоративный мессенджер</div><div class="pair-detail">Тикет-система с метриками. Корпоративный мессенджер. Прозрачность нагрузки и приоритетов.</div></div></div>
-    <div class="pair"><div class="pair-card left" style="background:#FDF4FC;border:1px solid #F0E0F0"><div class="pair-label now" style="color:#BF2C79">Где мы сейчас</div><div class="pair-title">Выдача результатов — через внешний просмотровщик и диски</div><div class="pair-detail">Система работает. Собственное решение даст независимость, снизит расходы на носители и упростит путь пациента.</div></div><div class="pair-arrow">→</div><div class="pair-card right" style="background:#FEFAFE;border:1px solid #F4E8F4"><div class="pair-label next" style="color:#931680">Как усиливаем</div><div class="pair-title">Собственный просмотровщик + электронная выдача</div><div class="pair-detail">Свое решение для просмотра. Юридическое обоснование электронной выдачи. Экономия и удобство.</div></div></div>
-    <div class="pair"><div class="pair-card left" style="background:#FDF4FC;border:1px solid #F0E0F0"><div class="pair-label now" style="color:#BF2C79">Где мы сейчас</div><div class="pair-title">КЦ справляется с нагрузкой, но она растет с каждым центром</div><div class="pair-detail">Операторы обрабатывают поток. Автоматизация рутинных звонков поможет расти без пропорционального увеличения штата.</div></div><div class="pair-arrow">→</div><div class="pair-card right" style="background:#FEFAFE;border:1px solid #F4E8F4"><div class="pair-label next" style="color:#931680">Как усиливаем</div><div class="pair-title">Боты для рутинных сценариев</div><div class="pair-detail">Подтверждение, напоминание, отмена — автоматически. Пилот → оценка → масштабирование. Операторы фокусируются на сложных вопросах.</div></div></div>
+    <div class="pair"><div class="pair-card left" style="background:#FDF4FC;border:1px solid #F0E0F0"><div class="pair-label now" style="color:#BF2C79">Где мы сейчас</div><div class="pair-title">Регламенты и инструкции складывались по мере роста</div><div class="pair-detail">Каждый отдел выстроил свои правила работы. Единая база знаний поможет быстрее обучать новых сотрудников и сохранять экспертизу.</div></div><div class="pair-arrow">→</div><div class="pair-card right dig-right"><div class="pair-label next dig-next">Как усиливаем</div><div class="pair-title">База знаний компании</div><div class="pair-detail">Все регламенты и инструкции в одном месте. Ответственные за актуализацию. Единый реестр отчетности.</div></div></div>
+    <div class="pair"><div class="pair-card left" style="background:#FDF4FC;border:1px solid #F0E0F0"><div class="pair-label now" style="color:#BF2C79">Где мы сейчас</div><div class="pair-title">Учетная система уже внедрена и используется</div><div class="pair-detail">Система работает. При этом часть процессов ведется параллельно в таблицах, потому что не все модули настроены под реальные задачи отделов.</div></div><div class="pair-arrow">→</div><div class="pair-card right dig-right"><div class="pair-label next dig-next">Как усиливаем</div><div class="pair-title">Доработка учетной системы под реальные процессы</div><div class="pair-detail">Привести текущую систему в соответствие с тем, как работают отделы. Убрать разрыв между системой и практикой. Не новые блоки, а рабочее состояние текущих.</div></div></div>
+    <div class="pair"><div class="pair-card left" style="background:#FDF4FC;border:1px solid #F0E0F0"><div class="pair-label now" style="color:#BF2C79">Где мы сейчас</div><div class="pair-title">Аналитика построена и дает ценные данные</div><div class="pair-detail">ABC-анализ, финансовые отчеты, дашборды — серьезная инфраструктура. Объединение источников в единый контур ускорит доступ к данным для всех.</div></div><div class="pair-arrow">→</div><div class="pair-card right dig-right"><div class="pair-label next dig-next">Как усиливаем</div><div class="pair-title">Единый аналитический контур</div><div class="pair-detail">Реестр отчетов. Подключение всех направлений к общей аналитике. Централизация заявок на данные.</div></div></div>
+    <div class="pair"><div class="pair-card left" style="background:#FDF4FC;border:1px solid #F0E0F0"><div class="pair-label now" style="color:#BF2C79">Где мы сейчас</div><div class="pair-title">Цифровые сервисы для пациентов — следующий рубеж</div><div class="pair-detail">Компания готова к запуску онлайн-оплаты и личного кабинета. Для этого нужно доработать юридическую базу по персональным данным.</div></div><div class="pair-arrow">→</div><div class="pair-card right dig-right"><div class="pair-label next dig-next">Как усиливаем</div><div class="pair-title">Онлайн-оплата + Личный кабинет пациента</div><div class="pair-detail">Юридическая подготовка → снятие барьеров → онлайн-оплата → ЛК: результаты, запись, оплата в одном месте.</div></div></div>
+    <div class="pair"><div class="pair-card left" style="background:#FDF4FC;border:1px solid #F0E0F0"><div class="pair-label now" style="color:#BF2C79">Где мы сейчас</div><div class="pair-title">Контроль качества ведется, но вручную</div><div class="pair-detail">Специалисты отслеживают качество. При объеме сотни тысяч исследований в год цифровизация контроля поможет охватить больше и реагировать быстрее.</div></div><div class="pair-arrow">→</div><div class="pair-card right dig-right"><div class="pair-label next dig-next">Как усиливаем</div><div class="pair-title">Оцифровка контроля качества</div><div class="pair-detail">Электронные чек-листы, автоматическая фиксация, отслеживание динамики по каждому центру.</div></div></div>
+    <div class="pair"><div class="pair-card left" style="background:#FDF4FC;border:1px solid #F0E0F0"><div class="pair-label now" style="color:#BF2C79">Где мы сейчас</div><div class="pair-title">IT-поддержка работает, но без единого учета обращений</div><div class="pair-detail">Задачи решаются. Тикет-система поможет расставлять приоритеты, видеть нагрузку и планировать ресурсы точнее.</div></div><div class="pair-arrow">→</div><div class="pair-card right dig-right"><div class="pair-label next dig-next">Как усиливаем</div><div class="pair-title">Единое окно обращений + корпоративный мессенджер</div><div class="pair-detail">Тикет-система с метриками. Корпоративный мессенджер. Прозрачность нагрузки и приоритетов.</div></div></div>
+    <div class="pair"><div class="pair-card left" style="background:#FDF4FC;border:1px solid #F0E0F0"><div class="pair-label now" style="color:#BF2C79">Где мы сейчас</div><div class="pair-title">Выдача результатов — через внешний просмотровщик и диски</div><div class="pair-detail">Система работает. Собственное решение даст независимость, снизит расходы на носители и упростит путь пациента.</div></div><div class="pair-arrow">→</div><div class="pair-card right dig-right"><div class="pair-label next dig-next">Как усиливаем</div><div class="pair-title">Собственный просмотровщик + электронная выдача</div><div class="pair-detail">Свое решение для просмотра. Юридическое обоснование электронной выдачи. Экономия и удобство.</div></div></div>
+    <div class="pair"><div class="pair-card left" style="background:#FDF4FC;border:1px solid #F0E0F0"><div class="pair-label now" style="color:#BF2C79">Где мы сейчас</div><div class="pair-title">КЦ справляется с нагрузкой, но она растет с каждым центром</div><div class="pair-detail">Операторы обрабатывают поток. Автоматизация рутинных звонков поможет расти без пропорционального увеличения штата.</div></div><div class="pair-arrow">→</div><div class="pair-card right dig-right"><div class="pair-label next dig-next">Как усиливаем</div><div class="pair-title">Боты для рутинных сценариев</div><div class="pair-detail">Подтверждение, напоминание, отмена — автоматически. Пилот → оценка → масштабирование. Операторы фокусируются на сложных вопросах.</div></div></div>
       </div>
     </div>
   </div>
@@ -619,7 +679,7 @@
   <div class="zone-exp" id="zone-growth" onclick="this.classList.toggle('open')">
     <div class="zone-exp-top">
       <div class="zone-exp-num">4</div>
-      <div class="zone-exp-icon">👥</div>
+      <div class="zone-exp-icon"><span class="svg-icon"><svg width="28" height="28" viewBox="0 0 48 48" fill="none"><rect width="48" height="48" rx="12" fill="#FEF0F0"/><circle cx="20" cy="18" r="5" stroke="#E8406C" stroke-width="2.5"/><path d="M12 34c0-4.4 3.6-8 8-8h0c4.4 0 8 3.6 8 8" stroke="#E8406C" stroke-width="2.5" stroke-linecap="round"/><circle cx="32" cy="20" r="3.5" stroke="#E8406C" stroke-width="2" opacity=".5"/><path d="M30 34c0-3 1.8-5.5 4.5-6.5" stroke="#E8406C" stroke-width="2" stroke-linecap="round" opacity=".5"/></svg></span></div>
       <div class="zone-exp-info">
         <div class="zone-exp-title">Клиентская база</div>
         <div class="zone-exp-brief">Фундамент, который требует внимания. База А-клиентов — главный актив компании, но рынок изменился</div>
@@ -729,10 +789,10 @@
           <div style="font-family:'Source Serif 4',serif;font-size:18px;font-weight:700;color:#1A1A2E">Конкретные шаги</div>
           <div style="font-size:10px;font-weight:600;color:#8B8B9E;background:#F4F2F4;padding:3px 10px;border-radius:6px">Цель 4: Развитие · 4 процесса</div>
         </div>
-    <div class="pair"><div class="pair-card left" style="background:#FEF0F0;border:1px solid #F0E0E0"><div class="pair-label now" style="color:#D04050">Где мы сейчас</div><div class="pair-title">Ключевые клиенты формируют ядро выручки</div><div class="pair-detail">База A-клиентов — главный актив компании. Партнерская программа и инструменты раннего реагирования помогут укрепить эти отношения.</div></div><div class="pair-arrow">→</div><div class="pair-card right" style="background:#FFFAFA;border:1px solid #F4E8E8"><div class="pair-label next" style="color:#E8406C">Как усиливаем</div><div class="pair-title">Партнерская программа + возврат отказников</div><div class="pair-detail">Приоритетные условия для ключевых партнеров. Исходящие звонки на возврат пациентов. Запись в клинику-партнера при отсутствии слотов.</div></div></div>
-    <div class="pair"><div class="pair-card left" style="background:#FEF0F0;border:1px solid #F0E0E0"><div class="pair-label now" style="color:#D04050">Где мы сейчас</div><div class="pair-title">ABC-анализ дает ценную картину по клиентам</div><div class="pair-detail">Данные формируются и обновляются. Интеграция ABC в ежедневную работу менеджеров поможет фокусировать усилия на самых ценных клиентах.</div></div><div class="pair-arrow">→</div><div class="pair-card right" style="background:#FFFAFA;border:1px solid #F4E8E8"><div class="pair-label next" style="color:#E8406C">Как усиливаем</div><div class="pair-title">Воронка продаж в учетной системе + рост среднего чека</div><div class="pair-detail">Этапы воронки в системе. ABC в ежедневной работе. Трекинг среднего чека. Фокус на рост ценности для каждого клиента.</div></div></div>
-    <div class="pair"><div class="pair-card left" style="background:#FEF0F0;border:1px solid #F0E0E0"><div class="pair-label now" style="color:#D04050">Где мы сейчас</div><div class="pair-title">Компания — лидер рынка, но конкуренция растет</div><div class="pair-detail">Пикассо занимает сильную позицию. Часть клиник начинает инвестировать в собственное оборудование. Усиление ценности услуг поможет укрепить позиции.</div></div><div class="pair-arrow">→</div><div class="pair-card right" style="background:#FFFAFA;border:1px solid #F4E8E8"><div class="pair-label next" style="color:#E8406C">Как усиливаем</div><div class="pair-title">Новые протоколы + прямые продажи пациентам</div><div class="pair-detail">Дифференцированные уровни описаний. Прямые продажи пациентам как диверсификация. Сервисная модель для клиник-партнеров.</div></div></div>
-    <div class="pair"><div class="pair-card left" style="background:#FEF0F0;border:1px solid #F0E0E0"><div class="pair-label now" style="color:#D04050">Где мы сейчас</div><div class="pair-title">100% выручки идет через клиники-партнеры</div><div class="pair-detail">Весь поток пациентов зависит от одного канала. Если клиника уходит — мы теряем и её, и всех пациентов, которых она направляла. 70% оттока — клиники покупают свои КТ.</div></div><div class="pair-arrow">→</div><div class="pair-card right" style="background:#FFFAFA;border:1px solid #F4E8E8"><div class="pair-label next" style="color:#E8406C">Как усиливаем</div><div class="pair-title">Прямой канал работы с пациентами</div><div class="pair-detail">Запуск работы с пациентами напрямую как второго источника выручки. Онлайн-запись, личный кабинет, маркетинг на конечного потребителя. Выше маржа, меньше зависимость от клиник, устойчивость бизнеса.</div></div></div>
+    <div class="pair"><div class="pair-card left" style="background:#FEF0F0;border:1px solid #F0E0E0"><div class="pair-label now" style="color:#D04050">Где мы сейчас</div><div class="pair-title">Ключевые клиенты формируют ядро выручки</div><div class="pair-detail">База A-клиентов — главный актив компании. Партнерская программа и инструменты раннего реагирования помогут укрепить эти отношения.</div></div><div class="pair-arrow">→</div><div class="pair-card right grow-right"><div class="pair-label next grow-next">Как усиливаем</div><div class="pair-title">Партнерская программа + возврат отказников</div><div class="pair-detail">Приоритетные условия для ключевых партнеров. Исходящие звонки на возврат пациентов. Запись в клинику-партнера при отсутствии слотов.</div></div></div>
+    <div class="pair"><div class="pair-card left" style="background:#FEF0F0;border:1px solid #F0E0E0"><div class="pair-label now" style="color:#D04050">Где мы сейчас</div><div class="pair-title">ABC-анализ дает ценную картину по клиентам</div><div class="pair-detail">Данные формируются и обновляются. Интеграция ABC в ежедневную работу менеджеров поможет фокусировать усилия на самых ценных клиентах.</div></div><div class="pair-arrow">→</div><div class="pair-card right grow-right"><div class="pair-label next grow-next">Как усиливаем</div><div class="pair-title">Воронка продаж в учетной системе + рост среднего чека</div><div class="pair-detail">Этапы воронки в системе. ABC в ежедневной работе. Трекинг среднего чека. Фокус на рост ценности для каждого клиента.</div></div></div>
+    <div class="pair"><div class="pair-card left" style="background:#FEF0F0;border:1px solid #F0E0E0"><div class="pair-label now" style="color:#D04050">Где мы сейчас</div><div class="pair-title">Компания — лидер рынка, но конкуренция растет</div><div class="pair-detail">Пикассо занимает сильную позицию. Часть клиник начинает инвестировать в собственное оборудование. Усиление ценности услуг поможет укрепить позиции.</div></div><div class="pair-arrow">→</div><div class="pair-card right grow-right"><div class="pair-label next grow-next">Как усиливаем</div><div class="pair-title">Новые протоколы + прямые продажи пациентам</div><div class="pair-detail">Дифференцированные уровни описаний. Прямые продажи пациентам как диверсификация. Сервисная модель для клиник-партнеров.</div></div></div>
+    <div class="pair"><div class="pair-card left" style="background:#FEF0F0;border:1px solid #F0E0E0"><div class="pair-label now" style="color:#D04050">Где мы сейчас</div><div class="pair-title">100% выручки идет через клиники-партнеры</div><div class="pair-detail">Весь поток пациентов зависит от одного канала. Если клиника уходит — мы теряем и её, и всех пациентов, которых она направляла. 70% оттока — клиники покупают свои КТ.</div></div><div class="pair-arrow">→</div><div class="pair-card right grow-right"><div class="pair-label next grow-next">Как усиливаем</div><div class="pair-title">Прямой канал работы с пациентами</div><div class="pair-detail">Запуск работы с пациентами напрямую как второго источника выручки. Онлайн-запись, личный кабинет, маркетинг на конечного потребителя. Выше маржа, меньше зависимость от клиник, устойчивость бизнеса.</div></div></div>
       </div>
     </div>
   </div>
@@ -741,7 +801,7 @@
   <div class="zone-exp" id="zone-scale" onclick="this.classList.toggle('open')">
     <div class="zone-exp-top">
       <div class="zone-exp-num">5</div>
-      <div class="zone-exp-icon">📈</div>
+      <div class="zone-exp-icon"><span class="svg-icon"><svg width="28" height="28" viewBox="0 0 48 48" fill="none"><rect width="48" height="48" rx="12" fill="#FEF0F0"/><path d="M14 34L24 20L30 26L36 14" stroke="#E8406C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M30 14h6v6" stroke="#E8406C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
       <div class="zone-exp-info">
         <div class="zone-exp-title">Масштабирование</div>
         <div class="zone-exp-brief">Открываем много, но не прорабатываем рентабельность. Нужен переход от количества к качеству</div>
@@ -795,8 +855,8 @@
           <div style="font-family:'Source Serif 4',serif;font-size:18px;font-weight:700;color:#1A1A2E">Конкретные шаги</div>
           <div style="font-size:10px;font-weight:600;color:#8B8B9E;background:#F4F2F4;padding:3px 10px;border-radius:6px">Цель 4: Развитие · 2 процессов</div>
         </div>
-    <div class="pair"><div class="pair-card left" style="background:#FEF0F0;border:1px solid #F0E0E0"><div class="pair-label now" style="color:#D04050">Где мы сейчас</div><div class="pair-title">Темп открытий — одно из преимуществ компании</div><div class="pair-detail">Рост сети впечатляет. Стандартная модель запуска поможет поддерживать этот темп с меньшими рисками и более предсказуемым результатом.</div></div><div class="pair-arrow">→</div><div class="pair-card right" style="background:#FFFAFA;border:1px solid #F4E8E8"><div class="pair-label next" style="color:#E8406C">Как усиливаем</div><div class="pair-title">Управляемое масштабирование</div><div class="pair-detail">Бизнес-кейс по каждому ДЦ. Приоритет: города с подтвержденным потенциалом. Единый шаблон запуска.</div></div></div>
-    <div class="pair"><div class="pair-card left" style="background:#FEF0F0;border:1px solid #F0E0E0"><div class="pair-label now" style="color:#D04050">Где мы сейчас</div><div class="pair-title">3D, ДУ, ЦФД, скан-центры — точки роста уже работают</div><div class="pair-detail">Направления показывают рост. Системный подход к масштабированию поможет тиражировать успех на всю сеть.</div></div><div class="pair-arrow">→</div><div class="pair-card right" style="background:#FFFAFA;border:1px solid #F4E8E8"><div class="pair-label next" style="color:#E8406C">Как усиливаем</div><div class="pair-title">Масштабирование ДУ + ЦФД + ортодонтия 3D</div><div class="pair-detail">Модуль учета ДУ. Кросс-обучение врачей. Перевод ортодонтов на 3D. Клинические кейсы → маркетинг.</div></div></div>
+    <div class="pair"><div class="pair-card left" style="background:#FEF0F0;border:1px solid #F0E0E0"><div class="pair-label now" style="color:#D04050">Где мы сейчас</div><div class="pair-title">Темп открытий — одно из преимуществ компании</div><div class="pair-detail">Рост сети впечатляет. Стандартная модель запуска поможет поддерживать этот темп с меньшими рисками и более предсказуемым результатом.</div></div><div class="pair-arrow">→</div><div class="pair-card right grow-right"><div class="pair-label next grow-next">Как усиливаем</div><div class="pair-title">Управляемое масштабирование</div><div class="pair-detail">Бизнес-кейс по каждому ДЦ. Приоритет: города с подтвержденным потенциалом. Единый шаблон запуска.</div></div></div>
+    <div class="pair"><div class="pair-card left" style="background:#FEF0F0;border:1px solid #F0E0E0"><div class="pair-label now" style="color:#D04050">Где мы сейчас</div><div class="pair-title">3D, ДУ, ЦФД, скан-центры — точки роста уже работают</div><div class="pair-detail">Направления показывают рост. Системный подход к масштабированию поможет тиражировать успех на всю сеть.</div></div><div class="pair-arrow">→</div><div class="pair-card right grow-right"><div class="pair-label next grow-next">Как усиливаем</div><div class="pair-title">Масштабирование ДУ + ЦФД + ортодонтия 3D</div><div class="pair-detail">Модуль учета ДУ. Кросс-обучение врачей. Перевод ортодонтов на 3D. Клинические кейсы → маркетинг.</div></div></div>
       </div>
     </div>
   </div>
@@ -805,7 +865,7 @@
   <div class="zone-exp" id="zone-team" onclick="this.classList.toggle('open')">
     <div class="zone-exp-top">
       <div class="zone-exp-num">6</div>
-      <div class="zone-exp-icon">🏗️</div>
+      <div class="zone-exp-icon"><span class="svg-icon"><svg width="28" height="28" viewBox="0 0 48 48" fill="none"><rect width="48" height="48" rx="12" fill="#FFF8ED"/><path d="M16 34V24l8-10 8 10v10" stroke="#D08A20" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 34v-6h4v6" stroke="#D08A20" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
       <div class="zone-exp-info">
         <div class="zone-exp-title">Команда и управление</div>
         <div class="zone-exp-brief">Сильная команда, которая выросла вместе с бизнесом. Система управления людьми должна подтянуться за масштабом</div>
@@ -871,8 +931,8 @@
           <div style="font-family:'Source Serif 4',serif;font-size:18px;font-weight:700;color:#1A1A2E">Конкретные шаги</div>
           <div style="font-size:10px;font-weight:600;color:#8B8B9E;background:#F4F2F4;padding:3px 10px;border-radius:6px">Цель 4: Развитие · 2 процессов</div>
         </div>
-    <div class="pair"><div class="pair-card left" style="background:#FEF0F0;border:1px solid #F0E0E0"><div class="pair-label now" style="color:#D04050">Где мы сейчас</div><div class="pair-title">Сильная команда, но специалистов на рынке мало</div><div class="pair-detail">Компания привлекает хороших людей. Программы обучения и кадровый резерв помогут растить экспертов внутри и не зависеть от внешнего рынка.</div></div><div class="pair-arrow">→</div><div class="pair-card right" style="background:#FFFAFA;border:1px solid #F4E8E8"><div class="pair-label next" style="color:#E8406C">Как усиливаем</div><div class="pair-title">Кадровый резерв + программы обучения</div><div class="pair-detail">Дублеры для ключевых позиций. Обучающие треки для специалистов. Стандартный онбординг по ролям.</div></div></div>
-    <div class="pair"><div class="pair-card left" style="background:#FEF0F0;border:1px solid #F0E0E0"><div class="pair-label now" style="color:#D04050">Где мы сейчас</div><div class="pair-title">Научный и клинический отдел работает на пределе ресурсов</div><div class="pair-detail">Рентгенологи и ортодонты — ядро компании. Их нагрузка высокая, а специалистов на рынке мало. Нужны инструменты, которые помогут делать больше теми же силами.</div></div><div class="pair-arrow">→</div><div class="pair-card right" style="background:#FFFAFA;border:1px solid #F4E8E8"><div class="pair-label next" style="color:#E8406C">Как усиливаем</div><div class="pair-title">Упрощенные протоколы + сезонное ценообразование + ИИ</div><div class="pair-detail">Три уровня: лайт / стандарт / расширенный. Сезонные коэффициенты на ДУ (x2 в пиковые периоды). Пилот ИИ-ассистента для ускорения описаний.</div></div></div>
+    <div class="pair"><div class="pair-card left" style="background:#FEF0F0;border:1px solid #F0E0E0"><div class="pair-label now" style="color:#D04050">Где мы сейчас</div><div class="pair-title">Сильная команда, но специалистов на рынке мало</div><div class="pair-detail">Компания привлекает хороших людей. Программы обучения и кадровый резерв помогут растить экспертов внутри и не зависеть от внешнего рынка.</div></div><div class="pair-arrow">→</div><div class="pair-card right grow-right"><div class="pair-label next grow-next">Как усиливаем</div><div class="pair-title">Кадровый резерв + программы обучения</div><div class="pair-detail">Дублеры для ключевых позиций. Обучающие треки для специалистов. Стандартный онбординг по ролям.</div></div></div>
+    <div class="pair"><div class="pair-card left" style="background:#FEF0F0;border:1px solid #F0E0E0"><div class="pair-label now" style="color:#D04050">Где мы сейчас</div><div class="pair-title">Научный и клинический отдел работает на пределе ресурсов</div><div class="pair-detail">Рентгенологи и ортодонты — ядро компании. Их нагрузка высокая, а специалистов на рынке мало. Нужны инструменты, которые помогут делать больше теми же силами.</div></div><div class="pair-arrow">→</div><div class="pair-card right grow-right"><div class="pair-label next grow-next">Как усиливаем</div><div class="pair-title">Упрощенные протоколы + сезонное ценообразование + ИИ</div><div class="pair-detail">Три уровня: лайт / стандарт / расширенный. Сезонные коэффициенты на ДУ (x2 в пиковые периоды). Пилот ИИ-ассистента для ускорения описаний.</div></div></div>
       </div>
     </div>
   </div>
@@ -906,7 +966,7 @@
 
 
 <!-- ФИНАНСОВАЯ КАРТИНА -->
-<section style="max-width:1200px;margin:0 auto;padding:40px 32px 20px">
+<section id="section-finance" style="max-width:1200px;margin:0 auto;padding:40px 32px 20px">
   <div class="sn">02 — Финансовая картина</div>
   <div class="st">Бизнес <em>вырос</em> — это главное</div>
   <div class="ss">За два года выручка выросла на 19%, сеть расширилась до сотни центров в 32 регионах. Это результат работы всей команды. Цифры ниже показывают, где можно сделать следующий шаг.</div>
@@ -925,6 +985,11 @@
         <div><div style="font-size:10px;color:#8B8B9E;font-weight:600">ПРИБЫЛЬ</div><div style="font-family:'Source Serif 4',serif;font-size:22px;font-weight:800;color:#2E7D32">544 млн</div></div>
         <div style="text-align:right"><div style="font-size:10px;color:#8B8B9E;font-weight:600">МАРЖА</div><div style="font-family:'Source Serif 4',serif;font-size:22px;font-weight:800;color:#D08A20">34,5%</div><div style="font-size:10px;color:#E8406C;font-weight:600">было 39,1%</div></div>
       </div>
+      <div class="mini-bar-wrap">
+        <div class="mini-bar-label"><span>Прибыль / Выручка</span><span style="color:#2E7D32">544 млн</span></div>
+        <div class="mini-bar-track"><div class="mini-bar-fill" style="background:linear-gradient(90deg,#2E7D32,#66BB6A)" data-target="34.5"></div></div>
+        <div class="mini-bar-change" style="color:#2E7D32"><span>▲</span> Выручка +17% к 2024</div>
+      </div>
     </div>
 
     <!-- СПБ -->
@@ -941,6 +1006,11 @@
       <div style="margin-top:10px;background:#FEF0F0;border-radius:8px;padding:8px 12px;text-align:center">
         <span style="font-size:11px;font-weight:700;color:#E8406C">Декабрь 2025: убыток −9,8 млн</span>
       </div>
+      <div class="mini-bar-wrap">
+        <div class="mini-bar-label"><span>Прибыль / Выручка</span><span style="color:#E8406C">129 млн · −25%</span></div>
+        <div class="mini-bar-track"><div class="mini-bar-fill" style="background:linear-gradient(90deg,#E8406C,#EF816A)" data-target="20.3"></div></div>
+        <div class="mini-bar-change" style="color:#E8406C"><span>▼</span> Маржа упала на 12 п.п. · Расходы +43%</div>
+      </div>
     </div>
 
     <!-- МОСКВА -->
@@ -956,6 +1026,11 @@
       </div>
       <div style="margin-top:10px;background:rgba(232,64,108,.08);border-radius:8px;padding:10px 14px;text-align:center">
         <span style="font-size:12px;font-weight:700;color:#E8406C">Невозможно показать картину по компании в целом</span>
+      </div>
+      <div class="mini-bar-wrap">
+        <div class="mini-bar-label"><span>Прибыль / Выручка</span><span style="color:#E8406C">нет данных</span></div>
+        <div class="mini-bar-track"><div style="height:100%;border-radius:4px;background:repeating-linear-gradient(90deg,#E8406C20 0,#E8406C20 8px,transparent 8px,transparent 16px);width:100%"></div></div>
+        <div class="mini-bar-change" style="color:#E8406C"><span>⚠</span> Невозможно оценить прибыльность</div>
       </div>
     </div>
 
@@ -1002,14 +1077,14 @@
     <div style="font-family:'Source Serif 4',serif;font-size:20px;font-weight:700;color:#D08A20;margin-bottom:10px">Компании с оборотом более 4,5 млрд нужен финансовый контроль</div>
     <div style="font-size:14px;color:#1A1A2E;line-height:1.6;margin-bottom:12px">Бухгалтерия считает.<br><br>Аналитики строят отчеты.<br><br>Но между «посчитать» и «управлять» — <strong>огромная разница</strong>.<br><br>Финансовый отдел — это не расходы, а инвестиция:<br>полная картина по каждому региону, помесячный мониторинг с сигналами, обоснование для каждого решения об открытии.</div>
     <div style="background:rgba(208,138,32,.08);padding:14px 18px;border-radius:10px">
-      <div style="font-size:13px;font-weight:600;color:#B07010;line-height:1.5">Именно поэтому финансовая отчетность — цель №1 на 2026 год. Не потому что все плохо, а потому что бизнес дорос до масштаба, когда нужна полная финансовая видимость.</div>
+      <div style="font-size:13px;font-weight:600;color:#B07010;line-height:1.6">Именно поэтому финансовая отчетность — цель №1 на 2026 год. Не потому что все плохо, а потому что бизнес дорос до масштаба, когда нужна полная финансовая видимость.</div>
     </div>
   </div>
 </section>
 
 
 <!-- СВЯЗКИ -->
-<section style="max-width:1200px;margin:0 auto;padding:48px 32px 20px">
+<section id="section-links" style="max-width:1200px;margin:0 auto;padding:48px 32px 20px">
   <div class="sn" style="padding-top:16px">03 — Как цели связаны</div>
   <div class="st">Четыре цели — <em>одна система</em></div>
   <div class="ss">Цели не существуют отдельно друг от друга. Каждая усиливает остальные. Если убрать одну — остальные теряют часть своей эффективности. Именно поэтому это не «список задач», а единая стратегия.</div>
@@ -1026,27 +1101,27 @@
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:700px;margin:0 auto">
         <!-- Goal 1: Finance -->
         <div class="hover-scale-gold" style="background:rgba(208,138,32,.12);border:1px solid rgba(208,138,32,.25);border-radius:14px;padding:20px;text-align:center">
-          <div style="font-size:24px;margin-bottom:6px">📊</div>
+          <div style="margin-bottom:6px"><svg width="36" height="36" viewBox="0 0 48 48" fill="none"><rect width="48" height="48" rx="12" fill="rgba(208,138,32,.15)"/><path d="M14 34V22M20 34V18M26 34V24M32 34V14" stroke="#F8B24D" stroke-width="2.5" stroke-linecap="round"/></svg></div>
           <div style="font-family:'Source Serif 4',serif;font-size:24px;font-weight:700;color:#F8B24D">Финансовая отчетность</div>
-          <div style="font-size:15px;color:rgba(255,255,255,.6);margin-top:6px;line-height:1.5">Видимость: куда уходят деньги, где прибыль, где потери</div>
+          <div style="font-size:15px;color:rgba(255,255,255,.6);margin-top:6px;line-height:1.6">Видимость: куда уходят деньги, где прибыль, где потери</div>
         </div>
         <!-- Goal 2: Digital -->
         <div class="hover-scale-purple" style="background:rgba(147,22,128,.12);border:1px solid rgba(147,22,128,.25);border-radius:14px;padding:20px;text-align:center">
-          <div style="font-size:24px;margin-bottom:6px">💻</div>
+          <div style="margin-bottom:6px"><svg width="36" height="36" viewBox="0 0 48 48" fill="none"><rect width="48" height="48" rx="12" fill="rgba(147,22,128,.15)"/><rect x="12" y="12" width="24" height="18" rx="3" stroke="#BF2C79" stroke-width="2.5"/><path d="M18 36h12M24 30v6" stroke="#BF2C79" stroke-width="2.5" stroke-linecap="round"/></svg></div>
           <div style="font-family:'Source Serif 4',serif;font-size:24px;font-weight:700;color:#BF2C79">Цифровизация</div>
-          <div style="font-size:15px;color:rgba(255,255,255,.6);margin-top:6px;line-height:1.5">Инструменты: единая среда, быстрый доступ к данным</div>
+          <div style="font-size:15px;color:rgba(255,255,255,.6);margin-top:6px;line-height:1.6">Инструменты: единая среда, быстрый доступ к данным</div>
         </div>
         <!-- Goal 3: Optimize -->
         <div class="hover-scale-red" style="background:rgba(232,64,108,.10);border:1px solid rgba(232,64,108,.2);border-radius:14px;padding:20px;text-align:center">
-          <div style="font-size:24px;margin-bottom:6px">⚙️</div>
+          <div style="margin-bottom:6px"><svg width="36" height="36" viewBox="0 0 48 48" fill="none"><rect width="48" height="48" rx="12" fill="rgba(232,64,108,.1)"/><circle cx="24" cy="24" r="10" stroke="#EF816A" stroke-width="2.5"/><path d="M24 18v6l4 2" stroke="#EF816A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
           <div style="font-family:'Source Serif 4',serif;font-size:24px;font-weight:700;color:#EF816A">Оптимизация</div>
-          <div style="font-size:15px;color:rgba(255,255,255,.6);margin-top:6px;line-height:1.5">Стандарты: единые правила по всей сети</div>
+          <div style="font-size:15px;color:rgba(255,255,255,.6);margin-top:6px;line-height:1.6">Стандарты: единые правила по всей сети</div>
         </div>
         <!-- Goal 4: Growth -->
         <div class="hover-scale-green" style="background:rgba(46,125,50,.10);border:1px solid rgba(46,125,50,.2);border-radius:14px;padding:20px;text-align:center">
-          <div style="font-size:24px;margin-bottom:6px">🚀</div>
+          <div style="margin-bottom:6px"><svg width="36" height="36" viewBox="0 0 48 48" fill="none"><rect width="48" height="48" rx="12" fill="rgba(46,125,50,.1)"/><path d="M14 34L24 20L30 26L36 14" stroke="#66BB6A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M30 14h6v6" stroke="#66BB6A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
           <div style="font-family:'Source Serif 4',serif;font-size:24px;font-weight:700;color:#66BB6A">Развитие</div>
-          <div style="font-size:15px;color:rgba(255,255,255,.6);margin-top:6px;line-height:1.5">Рост: новые клиенты, продукты, рынки</div>
+          <div style="font-size:15px;color:rgba(255,255,255,.6);margin-top:6px;line-height:1.6">Рост: новые клиенты, продукты, рынки</div>
         </div>
       </div>
 
@@ -1134,14 +1209,14 @@
   <!-- KEY INSIGHT -->
   <div style="background:linear-gradient(135deg,rgba(147,22,128,.04),rgba(208,138,32,.04));border-left:3px solid #931680;border-radius:0 14px 14px 0;padding:20px 24px;margin-bottom:8px">
     <div style="font-family:'Source Serif 4',serif;font-size:16px;font-weight:700;color:#1A1A2E;margin-bottom:6px">Почему нельзя выбрать «только одну цель»?</div>
-    <div style="font-size:14px;color:#555;line-height:1.65">Финансовый отчет без цифровых данных — ручной сбор на коленке. Развитие без стандартов — хаос при масштабировании. Цифровизация без процессов — автоматизация хаоса. Оптимизация без финансов — экономия вслепую. <strong style="color:#931680">Четыре цели работают только вместе.</strong></div>
+    <div style="font-size:14px;color:#555;line-height:1.6">Финансовый отчет без цифровых данных — ручной сбор на коленке. Развитие без стандартов — хаос при масштабировании. Цифровизация без процессов — автоматизация хаоса. Оптимизация без финансов — экономия вслепую. <strong style="color:#931680">Четыре цели работают только вместе.</strong></div>
   </div>
 </section>
 
 <!-- ВЫВОД -->
 <div style="background:linear-gradient(180deg,#F8F6FA 0%,#FAFAFA 100%)">
 <section style="max-width:1200px;margin:0 auto;padding:24px 32px 20px">
-<div class="sn">04 — К чему мы стремимся</div>
+<div class="sn" id="section-conclusion">04 — К чему мы стремимся</div>
 <div class="st">Главный вопрос <em>2026 года</em></div>
 <div class="ss">Компания с оборотом <strong style="color:#931680">4,55 млрд рублей</strong> вышла на масштаб, при котором появляется осознанный выбор стратегии. Это признак зрелости бизнеса — и возможность <strong style="color:#D08A20">определить приоритеты на следующий год</strong>.</div>
 </section>
@@ -1171,7 +1246,7 @@
   <!-- QUESTION -->
   <div style="text-align:center;padding:40px 32px;background:#FCFBFA;border:1px solid #F0EBF0;border-radius:24px;margin-bottom:32px">
     <div style="font-family:'Source Serif 4',serif;font-size:34px;font-weight:800;color:#1A1A2E;letter-spacing:-.5px;line-height:1.3;max-width:700px;margin:0 auto 16px">Фокус на <span style="color:#BF2C79">рост выручки</span> — или на <span style="color:#D08A20">рост прибыли</span>?</div>
-    <div style="font-size:15px;color:#8B8B9E;max-width:580px;margin:0 auto;line-height:1.65">Оба пути правильные. Вопрос в том, как <strong style="color:#931680">распределить ресурсы, чтобы получить максимум от обоих</strong> — и опираться при этом на полную финансовую картину.</div>
+    <div style="font-size:15px;color:#8B8B9E;max-width:580px;margin:0 auto;line-height:1.6">Оба пути правильные. Вопрос в том, как <strong style="color:#931680">распределить ресурсы, чтобы получить максимум от обоих</strong> — и опираться при этом на полную финансовую картину.</div>
   </div>
 
   <!-- FINANCIAL PLAN 2026 -->
@@ -1219,17 +1294,17 @@
       <div style="font-size:48px;font-weight:900;color:#BF2C79;opacity:.08;position:absolute;top:16px;right:20px;line-height:1;font-family:'Source Serif 4',serif">₽</div>
       <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:#BF2C79;margin-bottom:8px">Путь роста</div>
       <div style="font-family:'Source Serif 4',serif;font-size:24px;font-weight:700;color:#1A1A2E;margin-bottom:6px;letter-spacing:-.3px">Больше выручки</div>
-      <div style="font-size:13px;color:#8B8B9E;margin-bottom:20px;line-height:1.55">Расширять присутствие. Больше центров, больше направлений, больше пациентов. Увеличивать долю рынка — пока конкуренты не заняли нишу.</div>
+      <div style="font-size:13px;color:#8B8B9E;margin-bottom:20px;line-height:1.6">Расширять присутствие. Больше центров, больше направлений, больше пациентов. Увеличивать долю рынка — пока конкуренты не заняли нишу.</div>
 
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#BF2C79;margin-bottom:14px">Конкретные инструменты:</div>
-      <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:12px"><div style="width:6px;height:6px;border-radius:50%;background:#BF2C79;flex-shrink:0;margin-top:6px"></div><div style="font-size:13px;color:#1A1A2E;line-height:1.5"><strong>Открытие новых центров</strong> — но теперь с бизнес-кейсом и расчетом окупаемости по каждому</div></div>
-      <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:12px"><div style="width:6px;height:6px;border-radius:50%;background:#BF2C79;flex-shrink:0;margin-top:6px"></div><div style="font-size:13px;color:#1A1A2E;line-height:1.5"><strong>Продающий контакт-центр</strong> — исходящие звонки, возврат отказников, запись в партнерские клиники</div></div>
-      <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:12px"><div style="width:6px;height:6px;border-radius:50%;background:#BF2C79;flex-shrink:0;margin-top:6px"></div><div style="font-size:13px;color:#1A1A2E;line-height:1.5"><strong>Партнерская программа</strong> — формализация лучших условий для ключевых клиентов</div></div>
-      <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:12px"><div style="width:6px;height:6px;border-radius:50%;background:#BF2C79;flex-shrink:0;margin-top:6px"></div><div style="font-size:13px;color:#1A1A2E;line-height:1.5"><strong style="color:#BF2C79">Прямая работа с пациентами</strong> — стратегический второй канал. 70% оттока — клиники покупают свои КТ. Пациенты при этом никуда не уходят — им нужна диагностика. Прямой канал = выше маржа, меньше зависимость, устойчивость бизнеса</div></div>
-      <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:12px"><div style="width:6px;height:6px;border-radius:50%;background:#BF2C79;flex-shrink:0;margin-top:6px"></div><div style="font-size:13px;color:#1A1A2E;line-height:1.5"><strong>Масштабирование направлений</strong> — ДУ, ЦФД, ортодонтия 3D, лаборатория</div></div>
+      <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:12px"><div style="width:6px;height:6px;border-radius:50%;background:#BF2C79;flex-shrink:0;margin-top:6px"></div><div style="font-size:13px;color:#1A1A2E;line-height:1.6"><strong>Открытие новых центров</strong> — но теперь с бизнес-кейсом и расчетом окупаемости по каждому</div></div>
+      <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:12px"><div style="width:6px;height:6px;border-radius:50%;background:#BF2C79;flex-shrink:0;margin-top:6px"></div><div style="font-size:13px;color:#1A1A2E;line-height:1.6"><strong>Продающий контакт-центр</strong> — исходящие звонки, возврат отказников, запись в партнерские клиники</div></div>
+      <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:12px"><div style="width:6px;height:6px;border-radius:50%;background:#BF2C79;flex-shrink:0;margin-top:6px"></div><div style="font-size:13px;color:#1A1A2E;line-height:1.6"><strong>Партнерская программа</strong> — формализация лучших условий для ключевых клиентов</div></div>
+      <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:12px"><div style="width:6px;height:6px;border-radius:50%;background:#BF2C79;flex-shrink:0;margin-top:6px"></div><div style="font-size:13px;color:#1A1A2E;line-height:1.6"><strong style="color:#BF2C79">Прямая работа с пациентами</strong> — стратегический второй канал. 70% оттока — клиники покупают свои КТ. Пациенты при этом никуда не уходят — им нужна диагностика. Прямой канал = выше маржа, меньше зависимость, устойчивость бизнеса</div></div>
+      <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:12px"><div style="width:6px;height:6px;border-radius:50%;background:#BF2C79;flex-shrink:0;margin-top:6px"></div><div style="font-size:13px;color:#1A1A2E;line-height:1.6"><strong>Масштабирование направлений</strong> — ДУ, ЦФД, ортодонтия 3D, лаборатория</div></div>
 
       <div style="margin-top:20px;padding:16px 18px;background:rgba(191,44,121,.06);border-left:3px solid #BF2C79;border-radius:0 10px 10px 0">
-        <div style="font-size:12px;font-weight:600;color:#BF2C79;line-height:1.55">⚠️ Быстрый рост без инфраструктуры создает не ценность, а сложность. Маржа 37%→30% — уже сигнал. Рост должен быть управляемым.</div>
+        <div style="font-size:12px;font-weight:600;color:#BF2C79;line-height:1.6">⚠️ Быстрый рост без инфраструктуры создает не ценность, а сложность. Маржа 37%→30% — уже сигнал. Рост должен быть управляемым.</div>
       </div>
     </div>
 
@@ -1245,17 +1320,17 @@
       <div style="font-size:48px;font-weight:900;color:#D08A20;opacity:.08;position:absolute;top:16px;right:20px;line-height:1;font-family:'Source Serif 4',serif">%</div>
       <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:#D08A20;margin-bottom:8px">Путь эффективности</div>
       <div style="font-family:'Source Serif 4',serif;font-size:24px;font-weight:700;color:#1A1A2E;margin-bottom:6px;letter-spacing:-.3px">Больше прибыли</div>
-      <div style="font-size:13px;color:#8B8B9E;margin-bottom:20px;line-height:1.55">Зарабатывать больше с того, что уже построено. Каждый рубль выручки должен оставлять больше в компании. Вернуть маржу хотя бы к уровню 2024 года.</div>
+      <div style="font-size:13px;color:#8B8B9E;margin-bottom:20px;line-height:1.6">Зарабатывать больше с того, что уже построено. Каждый рубль выручки должен оставлять больше в компании. Вернуть маржу хотя бы к уровню 2024 года.</div>
 
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#D08A20;margin-bottom:14px">Конкретные инструменты:</div>
-      <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:12px"><div style="width:6px;height:6px;border-radius:50%;background:#D08A20;flex-shrink:0;margin-top:6px"></div><div style="font-size:13px;color:#1A1A2E;line-height:1.5"><strong>Полнозатратный финансовый отчет</strong> — увидеть реальную картину: где зарабатываем, а где теряем</div></div>
-      <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:12px"><div style="width:6px;height:6px;border-radius:50%;background:#D08A20;flex-shrink:0;margin-top:6px"></div><div style="font-size:13px;color:#1A1A2E;line-height:1.5"><strong>Нормирование ФОТ</strong> — крупнейшая статья расходов под системным контролем с нормативами по регионам</div></div>
-      <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:12px"><div style="width:6px;height:6px;border-radius:50%;background:#D08A20;flex-shrink:0;margin-top:6px"></div><div style="font-size:13px;color:#1A1A2E;line-height:1.5"><strong>Контроль аренды</strong> — единый реестр, мониторинг доли от выручки, системный подход к переговорам</div></div>
-      <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:12px"><div style="width:6px;height:6px;border-radius:50%;background:#D08A20;flex-shrink:0;margin-top:6px"></div><div style="font-size:13px;color:#1A1A2E;line-height:1.5"><strong>Доработка учетной системы</strong> — сокращение ручного труда, ускорение процессов, снижение ошибок</div></div>
-      <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:12px"><div style="width:6px;height:6px;border-radius:50%;background:#D08A20;flex-shrink:0;margin-top:6px"></div><div style="font-size:13px;color:#1A1A2E;line-height:1.5"><strong>Оптимизация описаний</strong> — больше результатов при тех же ресурсах за счет технологий</div></div>
+      <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:12px"><div style="width:6px;height:6px;border-radius:50%;background:#D08A20;flex-shrink:0;margin-top:6px"></div><div style="font-size:13px;color:#1A1A2E;line-height:1.6"><strong>Полнозатратный финансовый отчет</strong> — увидеть реальную картину: где зарабатываем, а где теряем</div></div>
+      <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:12px"><div style="width:6px;height:6px;border-radius:50%;background:#D08A20;flex-shrink:0;margin-top:6px"></div><div style="font-size:13px;color:#1A1A2E;line-height:1.6"><strong>Нормирование ФОТ</strong> — крупнейшая статья расходов под системным контролем с нормативами по регионам</div></div>
+      <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:12px"><div style="width:6px;height:6px;border-radius:50%;background:#D08A20;flex-shrink:0;margin-top:6px"></div><div style="font-size:13px;color:#1A1A2E;line-height:1.6"><strong>Контроль аренды</strong> — единый реестр, мониторинг доли от выручки, системный подход к переговорам</div></div>
+      <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:12px"><div style="width:6px;height:6px;border-radius:50%;background:#D08A20;flex-shrink:0;margin-top:6px"></div><div style="font-size:13px;color:#1A1A2E;line-height:1.6"><strong>Доработка учетной системы</strong> — сокращение ручного труда, ускорение процессов, снижение ошибок</div></div>
+      <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:12px"><div style="width:6px;height:6px;border-radius:50%;background:#D08A20;flex-shrink:0;margin-top:6px"></div><div style="font-size:13px;color:#1A1A2E;line-height:1.6"><strong>Оптимизация описаний</strong> — больше результатов при тех же ресурсах за счет технологий</div></div>
 
       <div style="margin-top:20px;padding:16px 18px;background:rgba(208,138,32,.06);border-left:3px solid #D08A20;border-radius:0 10px 10px 0">
-        <div style="font-size:12px;font-weight:600;color:#D08A20;line-height:1.55">⚠️ Оптимизация без роста = консервация. Конкуренты развиваются, клиники покупают свои КТ. Остановиться — значит отступить.</div>
+        <div style="font-size:12px;font-weight:600;color:#D08A20;line-height:1.6">⚠️ Оптимизация без роста = консервация. Конкуренты развиваются, клиники покупают свои КТ. Остановиться — значит отступить.</div>
       </div>
     </div>
   </div>
@@ -1265,7 +1340,7 @@
     <div style="position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(circle at 20% 50%,rgba(255,255,255,.08),transparent 60%),radial-gradient(circle at 80% 50%,rgba(248,178,77,.1),transparent 60%);pointer-events:none"></div>
     <div style="position:relative;z-index:1">
       <div style="font-family:'Source Serif 4',serif;font-size:32px;font-weight:800;margin-bottom:16px;letter-spacing:-.3px;line-height:1.3">Наш ответ: <span style="text-decoration:underline;text-decoration-color:rgba(255,255,255,.3);text-underline-offset:6px">оба пути одновременно</span></div>
-      <div style="font-size:16px;opacity:.9;max-width:640px;margin:0 auto 28px;line-height:1.65">Четыре цели 2026 года выстроены так, чтобы <strong>укреплять то, что уже работает</strong>, и одновременно <strong>создавать условия для управляемого роста</strong>.</div>
+      <div style="font-size:16px;opacity:.9;max-width:640px;margin:0 auto 28px;line-height:1.6">Четыре цели 2026 года выстроены так, чтобы <strong>укреплять то, что уже работает</strong>, и одновременно <strong>создавать условия для управляемого роста</strong>.</div>
 
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:600px;margin:0 auto 28px;text-align:left">
         <div class="hover-brighten-glass" style="background:rgba(255,255,255,.12);backdrop-filter:blur(4px);padding:20px 22px;border-radius:14px;border:1px solid rgba(255,255,255,.1)">
@@ -1297,7 +1372,7 @@
 <!-- ЧТО НУЖНО ОТ УЧРЕДИТЕЛЕЙ -->
 <div style="background:linear-gradient(180deg,#FBF9F6 0%,#FAFAFA 100%)">
 <section style="max-width:1200px;margin:0 auto;padding:24px 32px 20px">
-  <div class="sn">05 — Следующие шаги</div>
+  <div class="sn" id="section-steps">05 — Следующие шаги</div>
   <div class="st">Что нужно для <em>запуска</em></div>
   <div class="ss">Всё описанное выше — не абстрактные пожелания, а конкретный план. Для его реализации нужны решения, которые может принять только руководство компании.</div>
 </section>
@@ -1308,48 +1383,56 @@
   <div style="background:#fff;border:1px solid #E8E0E8;border-radius:20px;padding:36px 32px;margin-bottom:24px;box-shadow:0 2px 8px rgba(0,0,0,.03)">
     <div style="font-family:'Source Serif 4',serif;font-size:20px;font-weight:700;color:#1A1A2E;margin-bottom:20px">План действий</div>
 
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:24px">
-      <!-- Q1 -->
-      <div style="border-left:3px solid #931680;padding:16px 18px;background:#FDF6FC;border-radius:0 12px 12px 0">
-        <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:#931680;margin-bottom:6px">Этап 1</div>
-        <div style="font-family:'Source Serif 4',serif;font-size:15px;font-weight:700;color:#1A1A2E;margin-bottom:8px">Фундамент</div>
-        <div style="font-size:12px;color:#4A4A5E;line-height:1.55">
-          <div style="margin-bottom:6px">✓ <strong>Утвердить расширение финансового направления</strong> — определить штат и бюджет</div>
-          <div style="margin-bottom:6px">✓ <strong>Запустить сбор данных по расходам Москвы</strong> — формат и ответственный</div>
-          <div>✓ Провести аудит текущих процессов в 3 пилотных регионах</div>
+    <div class="timeline-h" style="margin-bottom:24px">
+      <div class="tl-item">
+        <div class="tl-dot" style="background:#931680"></div>
+        <div class="tl-content">
+          <div class="tl-phase" style="color:#931680">Этап 1</div>
+          <div class="tl-title">Фундамент</div>
+          <div class="tl-list">
+            <div>✓ <strong>Утвердить расширение фин. направления</strong></div>
+            <div>✓ <strong>Сбор данных по расходам Москвы</strong></div>
+            <div>✓ Аудит 3 пилотных регионов</div>
+          </div>
         </div>
       </div>
-      <!-- Q2 -->
-      <div style="border-left:3px solid #BF2C79;padding:16px 18px;background:#FEF4F8;border-radius:0 12px 12px 0">
-        <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:#BF2C79;margin-bottom:6px">Этап 2</div>
-        <div style="font-family:'Source Serif 4',serif;font-size:15px;font-weight:700;color:#1A1A2E;margin-bottom:8px">Запуск</div>
-        <div style="font-size:12px;color:#4A4A5E;line-height:1.55">
-          <div style="margin-bottom:6px">✓ Первый полный финансовый отчет по всем регионам</div>
-          <div style="margin-bottom:6px">✓ Нормативы ФОТ и аренды утверждены</div>
-          <div style="margin-bottom:6px">✓ Партнерская программа для ключевых клиентов</div>
-          <div>✓ Доработка учетной системы (приоритетные модули)</div>
+      <div class="tl-item">
+        <div class="tl-dot" style="background:#BF2C79"></div>
+        <div class="tl-content">
+          <div class="tl-phase" style="color:#BF2C79">Этап 2</div>
+          <div class="tl-title">Запуск</div>
+          <div class="tl-list">
+            <div>✓ Первый полный фин. отчет</div>
+            <div>✓ Нормативы ФОТ и аренды</div>
+            <div>✓ Партнерская программа</div>
+            <div>✓ Доработка учетной системы</div>
+          </div>
         </div>
       </div>
-      <!-- Q3 -->
-      <div style="border-left:3px solid #D08A20;padding:16px 18px;background:#FFF8ED;border-radius:0 12px 12px 0">
-        <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:#D08A20;margin-bottom:6px">Этап 3</div>
-        <div style="font-family:'Source Serif 4',serif;font-size:15px;font-weight:700;color:#1A1A2E;margin-bottom:8px">Масштабирование</div>
-        <div style="font-size:12px;color:#4A4A5E;line-height:1.55">
-          <div style="margin-bottom:6px">✓ Стандарты раскатаны на все регионы</div>
-          <div style="margin-bottom:6px">✓ Помесячный мониторинг расходов работает</div>
-          <div style="margin-bottom:6px">✓ Бизнес-модель для новых открытий внедрена</div>
-          <div>✓ Кадровый резерв: дублеры на ключевых позициях</div>
+      <div class="tl-item">
+        <div class="tl-dot" style="background:#D08A20"></div>
+        <div class="tl-content">
+          <div class="tl-phase" style="color:#D08A20">Этап 3</div>
+          <div class="tl-title">Масштабирование</div>
+          <div class="tl-list">
+            <div>✓ Стандарты на все регионы</div>
+            <div>✓ Помесячный мониторинг</div>
+            <div>✓ Бизнес-модель для открытий</div>
+            <div>✓ Кадровый резерв</div>
+          </div>
         </div>
       </div>
-      <!-- Q4 -->
-      <div style="border-left:3px solid #2E7D32;padding:16px 18px;background:#E8F5E9;border-radius:0 12px 12px 0">
-        <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:#2E7D32;margin-bottom:6px">Этап 4</div>
-        <div style="font-family:'Source Serif 4',serif;font-size:15px;font-weight:700;color:#1A1A2E;margin-bottom:8px">Результат</div>
-        <div style="font-size:12px;color:#4A4A5E;line-height:1.55">
-          <div style="margin-bottom:6px">✓ Полная финансовая картина по всей компании</div>
-          <div style="margin-bottom:6px">✓ Маржа стабилизирована или растет</div>
-          <div style="margin-bottom:6px">✓ Единые процессы по всей сети</div>
-          <div>✓ Компания готова к управляемому росту в 2027</div>
+      <div class="tl-item">
+        <div class="tl-dot" style="background:#2E7D32"></div>
+        <div class="tl-content">
+          <div class="tl-phase" style="color:#2E7D32">Этап 4</div>
+          <div class="tl-title">Результат</div>
+          <div class="tl-list">
+            <div>✓ Полная фин. картина</div>
+            <div>✓ Маржа стабилизирована</div>
+            <div>✓ Единые процессы</div>
+            <div>✓ Готовность к 2027</div>
+          </div>
         </div>
       </div>
     </div>
@@ -1368,11 +1451,11 @@
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
         <div style="padding:16px;background:#FFFAFA;border:1px solid #F0E0E0;border-radius:12px">
           <div style="font-family:'Source Serif 4',serif;font-size:15px;font-weight:700;color:#1A1A2E;margin-bottom:6px">Масштабирование финансового направления</div>
-          <div style="font-size:12px;color:#4A4A5E;line-height:1.55">Утвердить расширение команды финансового управления. Определить штат, бюджет и зону ответственности. Разделить бухгалтерский учет и управленческий контроль.</div>
+          <div style="font-size:12px;color:#4A4A5E;line-height:1.6">Утвердить расширение команды финансового управления. Определить штат, бюджет и зону ответственности. Разделить бухгалтерский учет и управленческий контроль.</div>
         </div>
         <div style="padding:16px;background:#FFFAFA;border:1px solid #F0E0E0;border-radius:12px">
           <div style="font-family:'Source Serif 4',serif;font-size:15px;font-weight:700;color:#1A1A2E;margin-bottom:6px">Консолидация данных по Москве</div>
-          <div style="font-size:12px;color:#4A4A5E;line-height:1.55">Принять решение о формате сбора расходной части. 51% выручки компании — без финансовой картины. Это первый приоритет для принятия любых стратегических решений.</div>
+          <div style="font-size:12px;color:#4A4A5E;line-height:1.6">Принять решение о формате сбора расходной части. 51% выручки компании — без финансовой картины. Это первый приоритет для принятия любых стратегических решений.</div>
         </div>
       </div>
     </div>
@@ -1385,11 +1468,11 @@
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
         <div style="padding:16px;background:#FEFCF6;border:1px solid #F0E8D0;border-radius:12px">
           <div style="font-family:'Source Serif 4',serif;font-size:15px;font-weight:700;color:#1A1A2E;margin-bottom:6px">Подход к открытию новых центров</div>
-          <div style="font-size:12px;color:#4A4A5E;line-height:1.55">Каждое новое открытие — с финансовым обоснованием. Утвердить шаблон бизнес-модели и критерии принятия решения.</div>
+          <div style="font-size:12px;color:#4A4A5E;line-height:1.6">Каждое новое открытие — с финансовым обоснованием. Утвердить шаблон бизнес-модели и критерии принятия решения.</div>
         </div>
         <div style="padding:16px;background:#FEFCF6;border:1px solid #F0E8D0;border-radius:12px">
           <div style="font-family:'Source Serif 4',serif;font-size:15px;font-weight:700;color:#1A1A2E;margin-bottom:6px">Стандартизация и учетная система</div>
-          <div style="font-size:12px;color:#4A4A5E;line-height:1.55">Приоритет: сначала выстроить процессы, потом оцифровывать. Утвердить план доработки учетной системы без добавления непрофильных модулей.</div>
+          <div style="font-size:12px;color:#4A4A5E;line-height:1.6">Приоритет: сначала выстроить процессы, потом оцифровывать. Утвердить план доработки учетной системы без добавления непрофильных модулей.</div>
         </div>
       </div>
     </div>
@@ -1402,15 +1485,15 @@
       <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px">
         <div style="padding:16px;background:#F8FDF8;border:1px solid #E0E8E0;border-radius:12px">
           <div style="font-family:'Source Serif 4',serif;font-size:15px;font-weight:700;color:#1A1A2E;margin-bottom:6px">Прямой канал пациентов</div>
-          <div style="font-size:12px;color:#4A4A5E;line-height:1.55">Стратегия выхода на прямых пациентов — второй источник выручки, страховка от зависимости. Выше маржа, устойчивость бизнеса.</div>
+          <div style="font-size:12px;color:#4A4A5E;line-height:1.6">Стратегия выхода на прямых пациентов — второй источник выручки, страховка от зависимости. Выше маржа, устойчивость бизнеса.</div>
         </div>
         <div style="padding:16px;background:#F8FDF8;border:1px solid #E0E8E0;border-radius:12px">
           <div style="font-family:'Source Serif 4',serif;font-size:15px;font-weight:700;color:#1A1A2E;margin-bottom:6px">Защита клиентской базы</div>
-          <div style="font-size:12px;color:#4A4A5E;line-height:1.55">Согласованная политика: как развивать направление продажи оборудования, не подрывая клиентскую базу Пикассо. 70% оттока — покупка собственного КТ.</div>
+          <div style="font-size:12px;color:#4A4A5E;line-height:1.6">Согласованная политика: как развивать направление продажи оборудования, не подрывая клиентскую базу Пикассо. 70% оттока — покупка собственного КТ.</div>
         </div>
         <div style="padding:16px;background:#F8FDF8;border:1px solid #E0E8E0;border-radius:12px">
           <div style="font-family:'Source Serif 4',serif;font-size:15px;font-weight:700;color:#1A1A2E;margin-bottom:6px">Инвестиции в команду</div>
-          <div style="font-size:12px;color:#4A4A5E;line-height:1.55">Расширение ключевых отделов, которые обеспечивают рост. Программа кадрового резерва и бюджет на обучение.</div>
+          <div style="font-size:12px;color:#4A4A5E;line-height:1.6">Расширение ключевых отделов, которые обеспечивают рост. Программа кадрового резерва и бюджет на обучение.</div>
         </div>
       </div>
     </div>
@@ -1421,7 +1504,7 @@
     <div style="position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(circle at 30% 50%,rgba(147,22,128,.12),transparent 50%),radial-gradient(circle at 70% 50%,rgba(248,178,77,.08),transparent 50%);pointer-events:none"></div>
     <div style="position:relative;z-index:1">
       <div style="font-family:'Source Serif 4',serif;font-size:26px;font-weight:700;margin-bottom:12px;letter-spacing:-.3px">Нам нужно Ваше решение</div>
-      <div style="font-size:15px;opacity:.8;max-width:620px;margin:0 auto 24px;line-height:1.65">Всё, что описано на этой странице, — результат анализа текущего состояния компании. Мы подготовили план. Теперь нужна Ваша поддержка, чтобы начать его реализовывать.</div>
+      <div style="font-size:15px;opacity:.8;max-width:620px;margin:0 auto 24px;line-height:1.6">Всё, что описано на этой странице, — результат анализа текущего состояния компании. Мы подготовили план. Теперь нужна Ваша поддержка, чтобы начать его реализовывать.</div>
       <div style="display:inline-flex;gap:12px;flex-wrap:wrap;justify-content:center">
         <div style="background:rgba(208,138,32,.2);border:1px solid rgba(208,138,32,.3);padding:10px 20px;border-radius:10px;font-size:13px;font-weight:600;color:#F8B24D">📊 Масштабирование финансового направления</div>
         <div style="background:rgba(232,64,108,.2);border:1px solid rgba(232,64,108,.3);padding:10px 20px;border-radius:10px;font-size:13px;font-weight:600;color:#E8406C">📍 Консолидация данных по Москве</div>
@@ -1588,7 +1671,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 </script>
 
 <!-- Presentation controls -->
-<div class="pres-progress" id="presProgress"></div>
 <nav class="pres-nav" id="presNav"></nav>
 <button class="pres-fs" id="presFs" title="Полноэкранный режим">⛶</button>
 <div class="pres-hint"><kbd>↑</kbd> <kbd>↓</kbd> навигация · <kbd>F</kbd> полный экран</div>
@@ -1697,9 +1779,9 @@ function updateDots() {
       d.classList.toggle('active', i === active);
     });
   }
-  // Progress bar
+  // Progress bar (reading-progress + pres-progress)
   const progress = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100;
-  document.getElementById('presProgress').style.width = progress + '%';
+  document.getElementById('readingProgress').style.width = progress + '%';
 }
 window.addEventListener('scroll', updateDots);
 updateDots();
@@ -1730,6 +1812,65 @@ function toggleFullscreen() {
   }
 }
 document.getElementById('presFs').onclick = toggleFullscreen;
+
+// === УЛУЧШЕНИЕ 5: TOP NAV ===
+const topNavEl = document.getElementById('topNav');
+const topNavLinks = topNavEl.querySelectorAll('a');
+const topNavSections = Array.from(topNavLinks).map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+
+// Показываем top-nav после прокрутки за hero
+window.addEventListener('scroll', function() {
+  topNavEl.classList.toggle('visible', window.scrollY > 300);
+  // Активная секция
+  const y = window.scrollY + 200;
+  let active = 0;
+  topNavSections.forEach((s, i) => { if (s.offsetTop <= y) active = i; });
+  topNavLinks.forEach((a, i) => a.classList.toggle('active', i === active));
+});
+
+// Smooth scroll для top-nav
+topNavLinks.forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) target.scrollIntoView({behavior:'smooth'});
+  });
+});
+
+// === УЛУЧШЕНИЕ 6: ANIMATED COUNTERS для achieve-num ===
+function animateAchieveNum(el, target, decimals, suffix) {
+  const duration = 1500;
+  const start = performance.now();
+  function tick(now) {
+    const p = Math.min((now - start) / duration, 1);
+    const ease = 1 - Math.pow(1 - p, 3);
+    const val = target * ease;
+    el.textContent = decimals > 0 ? val.toFixed(decimals).replace('.', ',') : Math.round(val);
+    if (suffix) el.textContent += suffix;
+    if (p < 1) requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+}
+const achieveObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting && !e.target.dataset.done) {
+      e.target.dataset.done = '1';
+      animateAchieveNum(e.target, parseFloat(e.target.dataset.target), parseInt(e.target.dataset.decimals), e.target.dataset.suffix);
+    }
+  });
+}, {threshold: 0.5});
+document.querySelectorAll('.achieve-num[data-target]').forEach(el => achieveObs.observe(el));
+
+// === УЛУЧШЕНИЕ 3: MINI-BARS анимация ===
+const miniBarObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting && !e.target.dataset.animated) {
+      e.target.dataset.animated = '1';
+      e.target.style.width = e.target.dataset.target + '%';
+    }
+  });
+}, {threshold: 0.3});
+document.querySelectorAll('.mini-bar-fill[data-target]').forEach(el => miniBarObs.observe(el));
 </script>
 
 </body>
