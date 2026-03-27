@@ -310,13 +310,13 @@
   .rev-year-total{font-size:14px;font-weight:700;color:#931680}
   .rev-year-yoy{font-size:11px;font-weight:700;color:#2E7D32;background:rgba(46,125,50,.08);padding:2px 8px;border-radius:6px}
   .rev-table{width:100%;border-collapse:separate;border-spacing:0}
-  .rev-table thead th{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:#A0A0B0;padding:0 6px 8px;text-align:right;white-space:nowrap}
+  .rev-table thead th{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:#A0A0B0;padding:0 6px 8px;text-align:right;white-space:nowrap}
   .rev-table thead th:first-child{text-align:left}
   .rev-table thead th:last-child{color:#931680}
-  .rev-table tbody td{font-size:12px;font-weight:500;color:#4A4A5E;padding:9px 6px;text-align:right;border-bottom:1px solid #F8F6FA;white-space:nowrap;transition:background .15s}
+  .rev-table tbody td{font-size:13px;font-weight:500;color:#4A4A5E;padding:10px 7px;text-align:right;border-bottom:1px solid #F8F6FA;white-space:nowrap;transition:background .15s}
   .rev-table tbody tr:hover td{background:rgba(147,22,128,.03)}
-  .rev-table tbody td:first-child{text-align:left;font-weight:700;font-size:12px;padding-left:12px;border-left:3px solid transparent;border-radius:4px 0 0 4px}
-  .rev-table tbody td:last-child{font-weight:800;font-size:13px;color:#1A1A2E;background:rgba(147,22,128,.03);border-radius:0 6px 6px 0}
+  .rev-table tbody td:first-child{text-align:left;font-weight:700;font-size:13px;padding-left:12px;border-left:3px solid transparent;border-radius:4px 0 0 4px}
+  .rev-table tbody td:last-child{font-weight:800;font-size:14px;color:#1A1A2E;background:rgba(147,22,128,.03);border-radius:0 6px 6px 0}
   .row-msk td:first-child{color:#E8406C;border-left-color:#E8406C}
   .row-spb td:first-child{color:#931680;border-left-color:#931680}
   .row-reg td:first-child{color:#D08A20;border-left-color:#D08A20}
@@ -324,6 +324,10 @@
   .row-total td:first-child{border-left-color:#1A1A2E;font-size:13px!important}
   .row-total td:last-child{color:#931680!important;font-size:14px!important;background:rgba(147,22,128,.06)}
   .rev-table tbody tr.row-total td{border-top:2px solid #E8E0E8}
+
+  /* === Разделители секций === */
+  .section-divider{max-width:1200px;margin:0 auto;padding:0 32px}
+  .section-divider-line{height:1px;background:linear-gradient(90deg,transparent,rgba(147,22,128,.2) 20%,rgba(248,178,77,.2) 80%,transparent);margin:8px 0}
 
   /* === УЛУЧШЕНИЕ 7: SVG-иконки === */
   .svg-icon{display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
@@ -539,6 +543,7 @@
 
   </div>
 </section>
+<div class="section-divider"><div class="section-divider-line"></div></div>
 
 <!-- VISUAL GOAL MAP — EXPANDABLE -->
 <section id="section-goals" style="max-width:1200px;margin:0 auto;padding:32px 32px 8px">
@@ -599,6 +604,8 @@
     </a>
 
   </div>
+
+<div class="section-divider"><div class="section-divider-line"></div></div>
 
 <!-- ZONES -->
 <section id="section-audit" class="audit">
@@ -1112,6 +1119,8 @@
 </div>
 
 
+<div class="section-divider"><div class="section-divider-line"></div></div>
+
 <!-- ФИНАНСОВАЯ КАРТИНА -->
 <section id="section-finance" style="max-width:1200px;margin:0 auto;padding:40px 32px 20px">
   <div class="sn">02 — Финансовая картина</div>
@@ -1140,23 +1149,23 @@
     </div>
 
     <!-- СПБ -->
-    <div class="hover-lift-red" style="background:linear-gradient(180deg,#fff,#FEF0F0);border:2px dashed #E8406C;border-radius:18px;padding:28px 24px;position:relative">
-      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:#E8406C;margin-bottom:12px">Санкт-Петербург</div>
+    <div class="hover-lift-red" style="background:linear-gradient(180deg,#fff,#F8F0FC);border:2px dashed #931680;border-radius:18px;padding:28px 24px;position:relative">
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:#931680;margin-bottom:12px">Санкт-Петербург · 14% выручки компании</div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px">
-        <div><div style="font-size:10px;color:#8B8B9E;font-weight:600">ВЫРУЧКА</div><div style="font-family:'Source Serif 4',serif;font-size:26px;font-weight:800;color:#931680">634 млн</div><div style="font-size:10px;color:#A0A0B0">2024: 525 млн</div></div>
-        <div><div style="font-size:10px;color:#8B8B9E;font-weight:600">РАСХОДЫ</div><div style="font-family:'Source Serif 4',serif;font-size:26px;font-weight:800;color:#E8406C">???</div><div style="font-size:10px;color:#E8406C;font-weight:600">данных нет</div></div>
+        <div><div style="font-size:10px;color:#8B8B9E;font-weight:600">ВЫРУЧКА</div><div style="font-family:'Source Serif 4',serif;font-size:26px;font-weight:800;color:#931680">634 млн</div><div style="font-size:10px;color:#A0A0B0">2024: 525 млн · <span style="color:#2E7D32;font-weight:600">+20,8%</span></div></div>
+        <div><div style="font-size:10px;color:#8B8B9E;font-weight:600">РАСХОДЫ</div><div style="font-family:'Source Serif 4',serif;font-size:26px;font-weight:800;color:#931680">???</div><div style="font-size:10px;color:#931680;font-weight:600">данных нет</div></div>
       </div>
-      <div style="border-top:1px dashed #E8C0C0;padding-top:10px;display:flex;justify-content:space-between;align-items:center">
-        <div><div style="font-size:10px;color:#8B8B9E;font-weight:600">ПРИБЫЛЬ</div><div style="font-family:'Source Serif 4',serif;font-size:22px;font-weight:800;color:#E8406C">???</div></div>
-        <div style="text-align:right"><div style="font-size:10px;color:#8B8B9E;font-weight:600">МАРЖА</div><div style="font-family:'Source Serif 4',serif;font-size:22px;font-weight:800;color:#E8406C">???</div></div>
+      <div style="border-top:1px dashed rgba(147,22,128,.3);padding-top:10px;display:flex;justify-content:space-between;align-items:center">
+        <div><div style="font-size:10px;color:#8B8B9E;font-weight:600">ПРИБЫЛЬ</div><div style="font-family:'Source Serif 4',serif;font-size:22px;font-weight:800;color:#931680">???</div></div>
+        <div style="text-align:right"><div style="font-size:10px;color:#8B8B9E;font-weight:600">МАРЖА</div><div style="font-family:'Source Serif 4',serif;font-size:22px;font-weight:800;color:#931680">???</div></div>
       </div>
-      <div style="margin-top:10px;background:rgba(232,64,108,.08);border-radius:8px;padding:10px 14px;text-align:center">
-        <span style="font-size:12px;font-weight:700;color:#E8406C">Данные по расходам отсутствуют</span>
+      <div style="margin-top:10px;background:rgba(147,22,128,.06);border-radius:8px;padding:10px 14px;text-align:center">
+        <span style="font-size:12px;font-weight:700;color:#931680">Данные по расходам отсутствуют</span>
       </div>
       <div class="mini-bar-wrap">
-        <div class="mini-bar-label"><span>Прибыль / Выручка</span><span style="color:#E8406C">нет данных</span></div>
-        <div class="mini-bar-track"><div style="height:100%;border-radius:4px;background:repeating-linear-gradient(90deg,#E8406C20 0,#E8406C20 8px,transparent 8px,transparent 16px);width:100%"></div></div>
-        <div class="mini-bar-change" style="color:#E8406C"><span>⚠</span> Невозможно оценить прибыльность</div>
+        <div class="mini-bar-label"><span>Прибыль / Выручка</span><span style="color:#931680">нет данных</span></div>
+        <div class="mini-bar-track"><div style="height:100%;border-radius:4px;background:repeating-linear-gradient(90deg,rgba(147,22,128,.12) 0,rgba(147,22,128,.12) 8px,transparent 8px,transparent 16px);width:100%"></div></div>
+        <div class="mini-bar-change" style="color:#931680"><span>⚠</span> Невозможно оценить прибыльность</div>
       </div>
     </div>
 
@@ -1188,10 +1197,17 @@
     <div>
       <div style="font-size:10px;color:rgba(255,255,255,.5);font-weight:600;text-transform:uppercase;letter-spacing:1px">ВЫРУЧКА ВСЕЙ КОМПАНИИ</div>
       <div style="font-family:'Source Serif 4',serif;font-size:32px;font-weight:800;color:#F8B24D">4,55 млрд ₽</div>
+      <div style="font-size:11px;color:#66BB6A;font-weight:600;margin-top:2px">+20,5% к 2024</div>
+    </div>
+    <div style="text-align:center">
+      <div style="font-size:10px;color:rgba(255,255,255,.5);font-weight:600;text-transform:uppercase;letter-spacing:1px">113+ ЦЕНТРОВ</div>
+      <div style="font-family:'Source Serif 4',serif;font-size:32px;font-weight:800;color:rgba(255,255,255,.8)">34</div>
+      <div style="font-size:11px;color:rgba(255,255,255,.5);font-weight:600;margin-top:2px">региона</div>
     </div>
     <div style="text-align:right">
-      <div style="font-size:10px;color:rgba(255,255,255,.5);font-weight:600;text-transform:uppercase;letter-spacing:1px">34 РЕГИОНА</div>
-      <div style="font-size:13px;color:rgba(255,255,255,.7);margin-top:4px">Полная картина возможна только<br>при наличии данных по Москве и СПб</div>
+      <div style="font-size:10px;color:rgba(255,255,255,.5);font-weight:600;text-transform:uppercase;letter-spacing:1px">65% ВЫРУЧКИ</div>
+      <div style="font-size:13px;color:#E8406C;font-weight:700;margin-top:4px">без данных по расходам</div>
+      <div style="font-size:11px;color:rgba(255,255,255,.5);margin-top:2px">Москва + СПб</div>
     </div>
   </div>
 
@@ -1203,7 +1219,7 @@
   <div style="font-size:14px;font-weight:700;color:#1A1A2E;margin-bottom:4px;margin-top:28px">Зоны, которые пока не отслеживаются</div>
   <div style="font-size:12px;color:#8B8B9E;margin-bottom:16px"><strong style="color:#931680;font-size:14px">Это не ошибки — бизнес перерос ручной контроль. При обороте более 4,5 млрд нужны другие инструменты.</strong></div>
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:24px">
-    <div style="background:#fff;border:1px solid #F0EBF0;border-radius:14px;padding:20px 18px"><div style="font-family:'Source Serif 4',serif;font-size:28px;font-weight:800;color:#E8406C;margin-bottom:6px">65% выручки</div><div style="font-size:13px;font-weight:700;color:#1A1A2E;margin-bottom:4px">Москва и СПб — без данных по расходам</div><div style="font-size:12px;color:#8B8B9E;line-height:1.5">Москва генерирует 2,33 млрд, Санкт-Петербург — 634 млн. Вместе это около 65% всей выручки компании. При этом расходная часть по этим направлениям не консолидирована. Ответить на вопрос «какова реальная прибыльность Москвы и СПб?» пока затруднительно. Это не чья-то ошибка — это следствие масштаба, который перерос текущие инструменты учета.</div></div>
+    <div style="background:linear-gradient(135deg,#FEF0F0,#fff);border:2px solid #E8406C;border-radius:14px;padding:24px 20px;box-shadow:0 4px 16px rgba(232,64,108,.1)"><div style="display:flex;align-items:center;gap:12px;margin-bottom:8px"><div style="font-family:'Source Serif 4',serif;font-size:36px;font-weight:800;color:#E8406C;line-height:1">65%</div><div style="font-size:11px;color:#E8406C;font-weight:700;text-transform:uppercase;letter-spacing:.5px;line-height:1.3">выручки<br>без расходов</div></div><div style="font-size:13px;font-weight:700;color:#1A1A2E;margin-bottom:6px">Москва (2,33 млрд) + СПб (634 млн)</div><div style="font-size:12px;color:#8B8B9E;line-height:1.5">Расходная часть по этим направлениям не консолидирована. Невозможно ответить на вопрос «какова реальная прибыльность?» — это следствие масштаба, который перерос текущие инструменты учета.</div></div>
     <div style="background:#fff;border:1px solid #F0EBF0;border-radius:14px;padding:20px 18px"><div style="font-family:'Source Serif 4',serif;font-size:28px;font-weight:800;color:#D08A20;margin-bottom:6px">Декабрь 2025</div><div style="font-size:13px;font-weight:700;color:#1A1A2E;margin-bottom:4px">Сезонный пик расходов без планирования</div><div style="font-size:12px;color:#8B8B9E;line-height:1.5">В декабре расходы традиционно растут — закрытие года, бонусы, закупки. Это нормально. Но без бюджетного планирования сложно заранее подготовиться к этому пику. <strong style="color:#D08A20">С финансовым отделом такие периоды будут прогнозируемы</strong> — и управляемы.</div></div>
     <div style="background:#fff;border:1px solid #F0EBF0;border-radius:14px;padding:20px 18px"><div style="font-family:'Source Serif 4',serif;font-size:28px;font-weight:800;color:#D08A20;margin-bottom:6px">Категории расходов</div><div style="font-size:13px;font-weight:700;color:#1A1A2E;margin-bottom:4px">Требуют более детальной классификации</div><div style="font-size:12px;color:#8B8B9E;line-height:1.5">Часть расходов сейчас учитывается укрупненно. При наличии финансового отдела каждая категория получит четкую структуру — и станет управляемой.</div></div>
     <div style="background:#fff;border:1px solid #F0EBF0;border-radius:14px;padding:20px 18px"><div style="font-family:'Source Serif 4',serif;font-size:28px;font-weight:800;color:#D08A20;margin-bottom:6px">Скрытые расходы</div><div style="font-size:13px;font-weight:700;color:#1A1A2E;margin-bottom:4px">Амортизация и расходы офиса не в отчетности</div><div style="font-size:12px;color:#8B8B9E;line-height:1.5">Парк томографов по всей сети подвержен естественному износу — эта статья пока не учитывается. Расходы центрального офиса не распределены по регионам. Оба фактора влияют на реальную маржинальность, но не отражены в текущей отчетности.</div></div>
@@ -1219,6 +1235,8 @@
   </div>
 </section>
 
+
+<div class="section-divider"><div class="section-divider-line"></div></div>
 
 <!-- СВЯЗКИ -->
 <section id="section-links" style="max-width:1200px;margin:0 auto;padding:48px 32px 20px">
@@ -1958,8 +1976,9 @@ function animateAchieveNum(el, target, decimals, suffix) {
     const p = Math.min((now - start) / duration, 1);
     const ease = 1 - Math.pow(1 - p, 3);
     const val = target * ease;
-    el.textContent = decimals > 0 ? val.toFixed(decimals).replace('.', ',') : Math.round(val);
-    if (suffix) el.textContent += suffix;
+    let txt = decimals > 0 ? val.toFixed(decimals).replace('.', ',') : Math.round(val).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+    if (suffix) txt += suffix;
+    el.textContent = txt;
     if (p < 1) requestAnimationFrame(tick);
   }
   requestAnimationFrame(tick);
